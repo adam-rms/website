@@ -1,1 +1,0 @@
-Please see [https://adam-rms.com/docs/next/developer/repo/api/intro](https://adam-rms.com/docs/next/developer/repo/api/intro) for more information.
