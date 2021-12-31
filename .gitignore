@@ -1,45 +1,18 @@
-.vagrant
-*.swp
+# Dependencies
+/node_modules
 
-.env
+# Production
+/build
 
-**/.idea
+# Generated files
+.docusaurus
+.cache-loader
 
-# compiled output
-**/dist
-**/node_modules
-
-# Logs
-logs
-*.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# OS
+# Misc
 .DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Tests
-/coverage
-/.nyc_output
-
-# IDEs and editors
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-*.tomg-config
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# The package.json is provided as a convinience feature in the root, but it's used in deployment/production scenarios so the upkeep of maintaining this additional extra lockfile only used by some devs is not worth it.
-/package-lock.json
+npm-debug.log*
