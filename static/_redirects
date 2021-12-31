@@ -1,6 +1,7 @@
 /pages/legal.html /legal 301
-/contributing /docs/next/developer/contributing 302
-/api-docs /docs/next/developer/repo/api/intro 302
-/app-docs /docs/next/developer/repo/app/intro 302
-/style-guide /docs/next/developer/style-guide 302
-/dev-guide /docs/next/developer/intro 302
+/contributing /docs/v1/contributor/intro 302
+/api-docs /docs/v1/contributor-v2/api/intro 302
+/app-docs /docs/v1/contributor-v2/app/intro 302
+/style-guide /docs/v1/contributor/style-guide 302
+/dev-guide /docs/v1/contributor/intro 302
+/self-hosting /docs/v1/contributor/hosting/self-hosting/intro

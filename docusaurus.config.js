@@ -27,20 +27,29 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          docId: 'tutorial/intro',
+          docId: 'user-guide/intro',
           position: 'left',
-          label: 'User Guide',
+          label: 'Users',
         },
         {
           type: 'doc',
-          docId: 'developer/intro',
+          docId: 'api-v1-docs/intro',
           position: 'left',
-          label: 'Developer Guide',
+          label: 'Developers',
         },
-        { 
-          to: '/blog',
-          label: 'Updates & News',
-          position: 'left'
+        {
+          type: 'doc',
+          docId: 'contributor/intro',
+          position: 'left',
+          label: 'Contributors',
+        },
+        {
+          label: 'Support',
+          to: '/support',
+        },
+        {
+          label: 'Environment',
+          to: '/environment',
         },
         {
           href: 'https://dash.adam-rms.com',
@@ -61,15 +70,15 @@ module.exports = {
           items: [
             {
               label: 'User Guide',
-              to: '/docs/tutorial/intro',
+              to: '/docs/v1/user-guide/intro',
             },
             {
               label: 'API Documentation',
-              to: '/docs/api/intro',
+              to: '/docs/v1/api-v1-docs/intro',
             },
             {
               label: 'Service Status',
-              href: 'https://status.adam-rms.com/',
+              href: 'https://status.bithell.studio/',
             }
           ],
         },
@@ -86,11 +95,7 @@ module.exports = {
             },
             {
               label: 'Mobile App',
-              href: 'https://github.com/adam-rms/adam-rms-app',
-            },
-            {
-              label: 'Deployment',
-              href: 'https://github.com/adam-rms/adam-rms-deployment',
+              href: 'https://github.com/adam-rms/app',
             },
           ],
         },
@@ -154,8 +159,9 @@ module.exports = {
           showLastUpdateAuthor: true,
           versions: {
             current: {
-              label: `v2 🚧`,
-            },
+              "label": "v1",
+              "path": "v1"
+            }
           },
         },
         blog: {

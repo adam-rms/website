@@ -11,18 +11,22 @@ All contributions are covered by the existing project licence - please have a lo
 
 ## Versioning
 
-AdamRMS uses semantic versioning. v2.0.0 is currently being targeted, this will bring a new RESTful API. 
+AdamRMS uses semantic versioning.
 
-To create a new release:
+### Creating a new Release
 
-1. Create a new release in Github, with a tag of the semantic version number. **Tips:**
-    - Make sure you are targeting the default branch, not a branch like `v1`
+#### v1
+
+1. Create a new release in Github (`adam-rms/adam-rms`), with a tag of the semantic version number. **Tips:**
+    - Make sure you are targeting the default branch (`main`)
     - Make sure you use a lowercase `v` in the tag name
     - Make sure your release is in the format `vx.y.z` where `x`/`y`/`z` is a positive integer
-1. A new Docker image for v1 will be built and pushed to Docker Hub, based on the v1 branch. *(Only applies if tag starts with v1)* 
-1. A new Docker image for v1 will be built and pushed to GitHub Packages, based on the v1 branch. *(Only applies if tag starts with v1)* 
-1. Cloudflare pages will update the public marketing/docs website.
-1. The hosted-solution servers will pull the latest update from Github Packages to update the dashboard. *(Only applies if tag starts with v1)* 
+1. A new Docker image for will be built and pushed to GitHub Packages
+1. The hosted-solution servers will pull the latest update from Github Packages to update the dashboard.
+
+#### Website
+
+Any push to main will automatically update the website on Cloudflare
 
 ## Using Github
 
