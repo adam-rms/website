@@ -12,4 +12,4 @@ If you're having issues logging in or accessing the site, please check the [stat
 
 ## Community Support
 
-Feel free to [Open an Issue](https://github.com/bstudios/adam-rms/issues/new/choose) on GitHub.
+Feel free to [Open an Issue](https://github.com/adam-rms/adam-rms/issues/new/choose) on GitHub.

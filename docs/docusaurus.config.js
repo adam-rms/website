@@ -13,7 +13,7 @@ module.exports = {
   noIndex: !production,
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'bstudios',
+  organizationName: 'adam-rms',
   projectName: 'adam-rms',
   plugins: ['@docusaurus/plugin-ideal-image'],
   themeConfig: {
@@ -78,15 +78,19 @@ module.exports = {
           items: [
             {
               label: 'Dashboard & API',
-              href: 'https://github.com/bstudios/adam-rms',
+              href: 'https://github.com/adam-rms/adam-rms',
+            },
+            {
+              label: 'v2',
+              href: 'https://github.com/adam-rms/adam-rms-v2',
             },
             {
               label: 'Mobile App',
-              href: 'https://github.com/bstudios/adam-rms-app',
+              href: 'https://github.com/adam-rms/adam-rms-app',
             },
             {
               label: 'Deployment',
-              href: 'https://github.com/bstudios/adam-rms-deployment',
+              href: 'https://github.com/adam-rms/adam-rms-deployment',
             },
           ],
         },
@@ -143,7 +147,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/bstudios/adam-rms/edit/v1/docs/',
+          editUrl: 'https://github.com/adam-rms/website/edit/main/docs/',
           editCurrentVersion: true,
           //includeCurrentVersion: !production,
           showLastUpdateTime: true,

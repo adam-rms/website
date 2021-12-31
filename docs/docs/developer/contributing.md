@@ -5,7 +5,7 @@ title: Contributing
 
 Thanks for you interest in contributing to the AdamRMS project!
 
-We use [Github](https://github.com/bstudios/adam-rms/) as our source control system.
+We use [Github](https://github.com/adam-rms/adam-rms/) as our source control system.
 
 All contributions are covered by the existing project licence - please have a look at this to ensure you're familiar with it before contributing. When you contribute you'll be asked to accept the CLA (Contributor Licence Agreement).
 

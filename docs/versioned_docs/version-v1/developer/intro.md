@@ -7,7 +7,7 @@ title: Introduction
 
 ## Developing
 
-Please see [GitHub](https://github.com/bstudios/adam-rms/tree/v1) for `v1.x.x` documentation. 
+Please see [GitHub](https://github.com/adam-rms/adam-rms/tree/v1) for `v1.x.x` documentation. 
 
 ## API
 
