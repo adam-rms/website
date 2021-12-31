@@ -12,7 +12,9 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "eslint src/",
+    "lint:fix": "npm run lint -- --fix"
   },
   "engines": {
     "npm": ">=7.0.0",
@@ -43,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.28.0"
   }
 }
