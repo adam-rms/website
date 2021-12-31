@@ -11,20 +11,20 @@ This documentation assumes a strong grounding in both client side and server sid
 
 :::
 
-## The Repo
+## The Repos
 
-The repo is a [monorepo](https://www.atlassian.com/git/tutorials/monorepos), containing three distinct applications:
+AdamRMS has a set of repos, the main one for `v2` is a [monorepo](https://www.atlassian.com/git/tutorials/monorepos), containing two distinct applications:
 
 Directory|Description||
 :-----|:-----|:----
 `/api`|NestJS API|[Docs](./api/intro)
 `/app`|React App|[Docs](./app/intro)
-`/docs`|Public Facing Marketing & Documentation Website|[Docs](./docs/intro)
-`/assets`|*Logos/Marketing Assets*|
+
+The Website and docs are a separate repo, with a guide here [Docs](./../contributor/website/intro)
 
 ## Visual Studio Code
 
-[VSCode](https://github.com/microsoft/vscode) is recommended for development, and debug profiles are provided for all three applications as part of the workspace file. 
+[VSCode](https://github.com/microsoft/vscode) is recommended for development, and debug profiles are provided for both applications as part of the workspace file. 
 
 :::tip
 
