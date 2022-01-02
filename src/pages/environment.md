@@ -24,7 +24,7 @@ AdamRMS uses [AWS](https://sustainability.aboutamazon.com/environment/the-cloud)
 
 ## Reverse Proxy & DNS
 
-Cloudlfare is [committed to reducing its environmental impact](https://blog.cloudflare.com/the-climate-and-cloudflare/) and purchases Renewable Energy Certificates (RECs) to match all electricity use globally.
+Cloudflare is [committed to reducing its environmental impact](https://blog.cloudflare.com/the-climate-and-cloudflare/) and purchases Renewable Energy Certificates (RECs) to match all electricity use globally.
 
 ## E-mail delivery
 
