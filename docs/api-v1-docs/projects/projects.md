@@ -283,11 +283,11 @@ projects_id
 projectsNotes_text
 ```
 
-## getAuditLog.php
+## getComments.php
 
-get audit log data for given project
+get comments for given project
 ```
-projects/getAuditLog.php
+projects/getComments.php
 ```
 
  **Parameters**
