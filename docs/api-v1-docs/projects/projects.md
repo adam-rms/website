@@ -16,7 +16,7 @@ This file was written by volunteers and then programmatically organized into thi
 
 Archive project
 ```
-projects/archive.php.php
+projects/archive.php
 ```
 
  **Parameters**
@@ -31,7 +31,7 @@ projects_id
 
 Update project client
 ```
-projects/changeClient.php.php
+projects/changeClient.php
 ```
 
  **Parameters**
@@ -47,7 +47,7 @@ clients_id
 
 Update project description
 ```
-projects/changeDescription.php.php
+projects/changeDescription.php
 ```
 
  **Parameters**
@@ -63,7 +63,7 @@ projects_description
 
 Update project invoice notes
 ```
-projects/changeInvoiceNotes.php.php
+projects/changeInvoiceNotes.php
 ```
 
  **Parameters**
@@ -79,7 +79,7 @@ projects_invoiceNotes
 
 Update project name
 ```
-projects/changeName.php.php
+projects/changeName.php
 ```
 
  **Parameters**
@@ -95,7 +95,7 @@ projects_name
 
 Update project date
 ```
-projects/changeProjectDates.php.php
+projects/changeProjectDates.php
 ```
 
  **Parameters**
@@ -112,7 +112,7 @@ projects_dates_use_end
 
 Update assets in use date&&&cascade update project finance data
 ```
-projects/changeProjectDeliverDates.php.php
+projects/changeProjectDeliverDates.php
 ```
 
  **Parameters**
@@ -129,7 +129,7 @@ projects_dates_deliver_end
 
 Update project manager
 ```
-projects/changeProjectManager.php.php
+projects/changeProjectManager.php
 ```
 
  **Parameters**
@@ -145,7 +145,7 @@ projects_id
 
 Update project type
 ```
-projects/changeProjectType.php.php
+projects/changeProjectType.php
 ```
 
  **Parameters**
@@ -161,7 +161,7 @@ projectsTypes_id
 
 Change current user's selected project. &&&updates thisproject in $pagedata
 ```
-projects/changeSelectedProject.php.php
+projects/changeSelectedProject.php
 ```
 
  **Parameters**
@@ -176,7 +176,7 @@ projectid
 
 Update project status
 ```
-projects/changeStatus.php.php
+projects/changeStatus.php
 ```
 
  **Parameters**
@@ -192,7 +192,7 @@ projects_status
 
 Update whether project is a sub project or main project
 ```
-projects/changeSubProject.php.php
+projects/changeSubProject.php
 ```
 
  **Parameters**
@@ -208,7 +208,7 @@ projects_parent_project_id
 
 Update project location
 ```
-projects/changeVenue.php.php
+projects/changeVenue.php
 ```
 
  **Parameters**
@@ -224,7 +224,7 @@ locations_id
 
 Get data about project - used by most project pages
 ```
-projects/data.php.php
+projects/data.php
 ```
 
  **Parameters**
@@ -240,7 +240,7 @@ id
 
 Remove project
 ```
-projects/delete.php.php
+projects/delete.php
 ```
 
  **Parameters**
@@ -255,7 +255,7 @@ projects_id
 
 "Remove project payments
 ```
-projects/deletePayment.php.php
+projects/deletePayment.php
 ```
 
  **Parameters**
@@ -270,7 +270,7 @@ payments_id
 
 Update a project note
 ```
-projects/editNote.php.php
+projects/editNote.php
 ```
 
  **Parameters**
@@ -283,11 +283,26 @@ projects_id
 projectsNotes_text
 ```
 
+## getComments.php
+
+get comments for given project
+```
+projects/getComments.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+projects_id
+```
+
 ## list.php
 
 List all projects
 ```
-projects/list.php.php
+projects/list.php
 ```
 
  **Parameters**
@@ -302,7 +317,7 @@ none
 
 Create new project
 ```
-projects/new.php.php
+projects/new.php
 ```
 
  **Parameters**
@@ -320,7 +335,7 @@ projects_parent_project_id
 
 Add new note to project
 ```
-projects/newNote.php.php
+projects/newNote.php
 ```
 
  **Parameters**
@@ -336,7 +351,7 @@ projectsNotes_title
 
 Add new payment information
 ```
-projects/newPayment.php.php
+projects/newPayment.php
 ```
 
  **Parameters**
@@ -351,7 +366,7 @@ formData
 
 Add a comment to a project
 ```
-projects/newQuickComment.php.php
+projects/newQuickComment.php
 ```
 
  **Parameters**
@@ -367,7 +382,7 @@ text
 
 Remove project from project archive
 ```
-projects/unArchive.php.php
+projects/unArchive.php
 ```
 
  **Parameters**
