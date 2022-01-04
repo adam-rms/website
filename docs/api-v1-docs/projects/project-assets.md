@@ -18,7 +18,7 @@ This file was written by volunteers and then programmatically organized into thi
 
 Add asset to project
 ```
-projects/assets/assign.php.php
+projects/assets/assign.php
 ```
 
  **Parameters**
@@ -35,7 +35,7 @@ assets_id
 
 Update asset assignment comment
 ```
-projects/assets/setComment.php.php
+projects/assets/setComment.php
 ```
 
  **Parameters**
@@ -51,7 +51,7 @@ assetsAssignments_comment
 
 Update asset assignment discount
 ```
-projects/assets/setDiscount.php.php
+projects/assets/setDiscount.php
 ```
 
  **Parameters**
@@ -67,7 +67,7 @@ assetsAssignments_discount
 
 "Update asset assignment custom price
 ```
-projects/assets/setPrice.php.php
+projects/assets/setPrice.php
 ```
 
  **Parameters**
@@ -83,7 +83,7 @@ assetsAssignments_customPrice
 
 Update asset assignment status
 ```
-projects/assets/setStatus.php.php
+projects/assets/setStatus.php
 ```
 
  **Parameters**
@@ -100,7 +100,7 @@ status_is_order
 
 Handle asset status scanning
 ```
-projects/assets/setStatusBarcode.php.php
+projects/assets/setStatusBarcode.php
 ```
 
  **Parameters**
@@ -120,7 +120,7 @@ location
 
 Remove asset from project and update finance cache
 ```
-projects/assets/unassign.php.php
+projects/assets/unassign.php
 ```
 
  **Parameters**

@@ -16,7 +16,7 @@ This file was written by volunteers and then programmatically organized into thi
 
 Certify user on module
 ```
-training/certify.php.php
+training/certify.php
 ```
 
  **Parameters**
@@ -33,7 +33,7 @@ comment
 
 Mark module step as complete
 ```
-training/completeStep.php.php
+training/completeStep.php
 ```
 
  **Parameters**
@@ -48,7 +48,7 @@ id
 
 Remove certifications for given module + user
 ```
-training/revokeAll.php.php
+training/revokeAll.php
 ```
 
  **Parameters**
