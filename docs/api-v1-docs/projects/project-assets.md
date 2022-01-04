@@ -133,9 +133,9 @@ projects_id
 
 ## swap
 
-updates the asset associated with a given asset Assignment
+updates the asset assignment with the given asset Assignment
 ```
-projects/assets/statusList.php
+projects/assets/swap.php
 ```
 
  **Parameters**
