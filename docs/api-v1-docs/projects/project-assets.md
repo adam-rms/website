@@ -18,7 +18,7 @@ This file was written by volunteers and then programmatically organized into thi
 
 Add asset to project
 ```
-projects/assets/assign.php.php
+projects/assets/assign.php
 ```
 
  **Parameters**
@@ -35,7 +35,7 @@ assets_id
 
 Update asset assignment comment
 ```
-projects/assets/setComment.php.php
+projects/assets/setComment.php
 ```
 
  **Parameters**
@@ -51,7 +51,7 @@ assetsAssignments_comment
 
 Update asset assignment discount
 ```
-projects/assets/setDiscount.php.php
+projects/assets/setDiscount.php
 ```
 
  **Parameters**
@@ -67,7 +67,7 @@ assetsAssignments_discount
 
 "Update asset assignment custom price
 ```
-projects/assets/setPrice.php.php
+projects/assets/setPrice.php
 ```
 
  **Parameters**
@@ -83,7 +83,7 @@ assetsAssignments_customPrice
 
 Update asset assignment status
 ```
-projects/assets/setStatus.php.php
+projects/assets/setStatus.php
 ```
 
  **Parameters**
@@ -100,7 +100,7 @@ status_is_order
 
 Handle asset status scanning
 ```
-projects/assets/setStatusBarcode.php.php
+projects/assets/setStatusBarcode.php
 ```
 
  **Parameters**
@@ -116,11 +116,42 @@ locationType
 location
 ```
 
+## statusList
+
+Get all project assets, sorted by asset status
+```
+projects/assets/statusList.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+projects_id
+```
+
+## swap
+
+updates the asset associated with a given asset Assignment
+```
+projects/assets/statusList.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+assetsAssignments_id: an Asset Assignment ID
+assets_id: the asset to replace in the assignment
+```
+
 ## unassign.php
 
 Remove asset from project and update finance cache
 ```
-projects/assets/unassign.php.php
+projects/assets/unassign.php
 ```
 
  **Parameters**
