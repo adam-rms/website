@@ -96,7 +96,7 @@ s3files_id
 
 Upload file to s3 bucket
 ```
-s3files/appUploader.php.php
+s3files/appUploader.php
 ```
 
  **Parameters**
@@ -115,7 +115,7 @@ public
 
 Format uppy file uploads for bucket
 ```
-s3files/generateSignatureUppy.php.php
+s3files/generateSignatureUppy.php
 ```
 
  **Parameters**
@@ -131,7 +131,7 @@ contentType
 
 Generate an invoice or quote (if the quote flag is set) and upload
 ```
-s3files/projectInvoice.php.php
+s3files/projectInvoice.php
 ```
 
  **Parameters**
@@ -148,7 +148,7 @@ possibly others that are used by a template
 
 Confirm file is uploaded and add to database
 ```
-s3files/uploadSuccess.php.php
+s3files/uploadSuccess.php
 ```
 
  **Parameters**

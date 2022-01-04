@@ -16,7 +16,7 @@ This file was written by volunteers and then programmatically organized into thi
 
 Assign user to project
 ```
-projects/crew/assign.php.php
+projects/crew/assign.php
 ```
 
  **Parameters**
@@ -32,7 +32,7 @@ users
 
 Find users for project
 ```
-projects/crew/searchUser.php.php
+projects/crew/searchUser.php
 ```
 
  **Parameters**
@@ -48,7 +48,7 @@ projects_id
 
 Change order of crew listing
 ```
-projects/crew/sortRank.php.php
+projects/crew/sortRank.php
 ```
 
  **Parameters**
@@ -64,7 +64,7 @@ order
 
 Remove user from project
 ```
-projects/crew/unassign.php.php
+projects/crew/unassign.php
 ```
 
  **Parameters**
