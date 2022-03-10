@@ -51,13 +51,14 @@ Crew vacancies ask for the following information:
 - Description
 - Person Specification (eg. no experience required)
 - Deadline for applications
+- Number of roles available
+- Application Visibility - only visible to the project manager?
+- First-Come-First-Served (Self assign roles or do you pick people?)
 - Visibility
   - Vacancy list
   - Public site
-  - Applications (only visible to the project manager?)
+  - User Groups - Limit role visibility to a given instance user group
 - Collect Phone numbers
-- Number of roles available
-- First-Come-First-Served (Self assign roles or do you pick people?)
 - Allow File uploads for application
 - Application Questions
   - You can add questions to an application to collect more information
