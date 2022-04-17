@@ -13,7 +13,7 @@ AdamRMS supports the following barcode types:
 
 ## Barcodes
 ---
-Barcodes can contain any information and can be assigned to an asset using the [AdamRMS App](../AdamRMS%20App/adam-rms-app).  
+Barcodes can contain any information and can be assigned to an asset using the [AdamRMS App](./../app/adam-rms-app).
 An asset can have many barcodes assigned to it (for example, a company asset barcode and the manufacturer’s item barcode) but only one barcode can be the asset’s Tag. The asset Tag is the primary key that identifies an individual asset on the RMS, and is listed on projects and the asset page. Tags can be the primary asset barcode, but may not be.
 
 AdamRMS stores all associated barcodes with an asset, and so any associated barcode can be scanned to recall that asset.
@@ -40,7 +40,7 @@ Asset Generation is customisable to add what you need to the stickers. Settings 
 - Show Asset Type
 - Show Asset Mass
 - List Asset Type’s 1st Definable tag
-- Use Cable Length Colours (see [Basic Settings](../Business%20Management/business-settings#basic-settings))
+- Use Cable Length Colours (see [Basic Settings](./../business/business-settings#basic-settings))
 - Show Logos
 - Use Cable Wrap or Standard format
 

@@ -64,11 +64,11 @@ user guide.
 The top bar of the rms contains the following icons:
 - Show/Hide side menu
 - Logout
-- Find a [Project](../projects/projects)
+- Find a [Project](projects)
 - Current Business name 
   - Click here to change or join a new business
 - Light/Dark mode
-- [Asset Search](../assets/finding-assets)
+- [Asset Search](assets/finding-assets)
 
 
 We recommend you spend some time exploring the dashboard, and have a look through the rest of this documentation.
