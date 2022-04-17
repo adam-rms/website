@@ -11,6 +11,7 @@ AdamRMS has a content management system that can be used to store various inform
 125 - Manage CMS Pages  
 126 - Edit any CMS Pages  
 128 - View a CMS page access log  
+132 - Manage [custom dashboards](custom-dashboards)
 :::
 
 CMS Pages are highly customisable, from the content to access to the page. Each page also has inbuilt analytics which show page views over time.
