@@ -27,6 +27,22 @@ Parameters are POST unless otherwise noted
 projectsVacantRolesApplications_id
 ```
 
+## applicationList
+
+List all applications for given role
+
+```
+projects/crew/crewRoles/applicationList.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+projectsVacantRoles_id
+```
+
 ## apply
 
 Apply to a crew role
@@ -55,6 +71,22 @@ Parameters are POST unless otherwise noted
 
 ```
 formData
+```
+
+## list
+
+List all roles available for application
+
+```
+projects/crew/crewRoles/list.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+projects_id (optional to list by project)
 ```
 
 ## reject
