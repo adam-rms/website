@@ -50,7 +50,7 @@ Asset types can have files stored with them.
 :::  
 
 For asset types it is suggested the files are for user manuals, info sheets and more general documentation.   
-More information about files on AdamRMS can be found [here](../Development/development#files-on-adamrms)
+More information about files on AdamRMS can be found [here](./../../contributor/hosting/self-hosting/intro#file-storage)
 
 ### Editing asset types
 ---

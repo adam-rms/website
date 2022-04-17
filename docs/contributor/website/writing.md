@@ -7,7 +7,7 @@ title: Writing Content
 
 :::note
 
-When writing content don't forget to consider the [Style Guide](./../../style-guide)
+When writing content don't forget to consider the [Style Guide](./../style-guide)
 
 :::
 

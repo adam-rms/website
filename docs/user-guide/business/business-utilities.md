@@ -63,7 +63,7 @@ The Payment page is your business ledger, which tracks all payments added to the
 
 ## Locations
 ---
-[Projects](../Projects/projects) and [Assets](../Assets/assets) can be assigned a location to say where they are.
+[Projects](./../projects/overview) and [Assets](./../assets) can be assigned a location to say where they are.
 
 ![Location List](/img/tutorial/businesses/utilities-locations.png "Location List")
 *List of Locations*
@@ -85,4 +85,4 @@ Locations consist of:
 ![New Location](/img/tutorial/businesses/utilities-locations-new.png "New Location popup")
 *Adding a new location*
 
-Each location has an AdamRMS barcode that is used by the [AdamRMS App](../AdamRMS%20App/adam-rms-app). These can be printed to place in the location or accessed from the website to assign assets to a location.
+Each location has an AdamRMS barcode that is used by the [AdamRMS App](./../app/adam-rms-app). These can be printed to place in the location or accessed from the website to assign assets to a location.

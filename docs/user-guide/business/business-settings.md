@@ -52,7 +52,7 @@ There is also support for files to be hosted on your public site. This can be us
 
 ## Project Types
 ---
-Project types are a way to change what elements of [Projects](../projects/projects) are available to each project. AdamRMS provides a “Full Project” by default which has all elements enabled.
+Project types are a way to change what elements of [Projects](./../projects/overview) are available to each project. AdamRMS provides a “Full Project” by default which has all elements enabled.
 
 :::note Project Types Permissions  
 105	- View list of Project Types  
