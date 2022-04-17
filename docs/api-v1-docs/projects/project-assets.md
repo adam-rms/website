@@ -116,6 +116,37 @@ locationType
 location
 ```
 
+## statusList
+
+Get all project assets, sorted by asset status
+```
+projects/assets/statusList.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+projects_id
+```
+
+## swap
+
+updates the asset assignment with the given asset Assignment
+```
+projects/assets/swap.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+assetsAssignments_id: an Asset Assignment ID
+assets_id: the asset to replace in the assignment
+```
+
 ## unassign.php
 
 Remove asset from project and update finance cache
