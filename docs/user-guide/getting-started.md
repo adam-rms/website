@@ -12,10 +12,13 @@ This short guide will help you set up an account on the platform and join a busi
 
 ## Signing Up
 ---
-AdamRMS supports log in with an email address or with a Google account. 
+AdamRMS supports log in with a Google account or by using an email address. Logging in with google is the recommended signup method, as it will allow you to join existing businesses more easily.
 
 ![Login Page](/img/tutorial/base/gettingStarted-login.png "AdamRMS Login Page")
 *AdamRMS Login Page*
+
+
+### Signing up with AdamRMS
 
 You will need to provide the following information when creating an account:
 - Your Name
@@ -30,15 +33,16 @@ If you have any issues creating an account, contact your AdamRMS administrator.
 
 ## Joining a business
 ---
-Once you’ve created an account, you’ll need to join a business.
+AdamRMS has separate areas for separate businesses, and is designed to be used by multiple businesses all with one account. To get started, you need to join a business
 
-If you’ve been given a signup code, pop the code from your AdamRMS administrator into the Business Signup Code box and you’ll be added to that business.
-Alternatively, ask your AdamRMS administrator to add you to the business.
+Some businesses may allow you to join their business by clicking on the join button for that business. This is based on your email address.
+
+Alternatively, if you’ve been given a signup code, pop the code from your AdamRMS administrator into the Business Signup Code box and you’ll be added to that business.
 
 You can join other businesses using the business switcher on the dashboard.
 
-![Join Business Page](/img/tutorial/base/gettingStarted-joinBusiness.png "Join Business with a signup code")
-*Join Business with a signup code.*
+![Join Business Page](/img/tutorial/base/gettingStarted-joinBusiness.png)
+*Joining Business*
 
 ## Your Account
 ---
