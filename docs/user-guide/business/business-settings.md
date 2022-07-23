@@ -24,12 +24,19 @@ The Basic Settings page includes the following information:
   - Email Address
   - Phone Number
   - Website
+- Business Logo
+- Email Header
 - Invoice Footer - Note on the bottom of all generated invoices
 - Cable length colours - assign a colour to each length for ease of identification
 - Asset Statuses - used for asset dispatch
-- Week Start Date - resets the week counter on calendars.
-- Business Logo
-- Email Header
+- Week Labels - Overrides the week label on calendars
+
+### Week Labels
+Calendars across AdamRMS usually use the week number of the year as the week number, but this can be overritten on a week-by-week basis. 
+
+![Week Labels](/img/tutorial/businesses/settings-weekLabels.png)
+
+The date of each label can be any date in the required week. If two labels for the same week are found, the one lower in the list will be used.
 
 ## Public Site
 ---
