@@ -64,3 +64,14 @@ Signup codes are a way for individuals to automatically be added to your busines
 The code is the item users enter to get access to your business.  
 AdamRMS tracks how many uses a code has had, and you can receive an email every time a signup code is used. 
 
+## Trusted Domains
+---
+Trusted Domains allows users on AdamRMS with verified email addresses to join your businesses if their email matches a domain you enter below.
+
+They are similar to Signup Codes, in that they allow others to join your business, but they are automatic and are offered to any user in any domain you list.
+
+:::note Trusted Domain Permissions
+133	- Manage Trusted Domains
+:::
+
+![Trusted Domains](/img/tutorial/businesses/user-trusted-domains.png)
