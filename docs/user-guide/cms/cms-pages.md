@@ -25,9 +25,6 @@ From the business settings section, pages can be created. A CMS page has the fol
 - Name
 - Page description
 - A [Font Awesome](https://fontawesome.com/v5.15/icons?d=gallery&p=1&m=free) Icon
-- Public Site Visibility
-  - Accessible on the public site
-  - Shown on navigation menu
 - AdamRMS visibility
   - Limit visibility to a specific Role Group
   - Show on RMS sidebar

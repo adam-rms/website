@@ -33,7 +33,7 @@ The Basic Settings page includes the following information:
 
 ## Public Site
 ---
-AdamRMS supports a public site for each business, to allow information about business assets to be shared publicly.  
+AdamRMS supports provides a number of widgets to business, to allow information about business assets to be shared publicly.  
 For example, this can be used to show what assets are available for hire.
 
 :::note Public site permissions  
@@ -44,12 +44,12 @@ For example, this can be used to show what assets are available for hire.
 ![Public site settings](/img/tutorial/businesses/settings-publicSite.png)
 *AdamRMS public site settings*
 
-The public site is an optional addon, but requires AdamRMS support to set up. Please get in touch if you would like to use this feature.
+Currently, there are two widgets available:
 
-You can enable different pieces of information to be shared from the Public site settings page. The homepage can also be edited from this page, and supports HTML code editing. You can also provide a header image that is shown on each page.
+- **Asset List and Seearch** - This shows a list of assets that are available for hire.
+- **Crew Vacancies** - This shows a list of crew roles that are currently vacant.
 
-There is also support for files to be hosted on your public site. This can be used for business brochures and venue information.
-
+You can enable different pieces of information to be shared from the Public site settings page for each of these widgets.
 ## Project Types
 ---
 Project types are a way to change what elements of [Projects](./../projects/overview) are available to each project. AdamRMS provides a “Full Project” by default which has all elements enabled.
