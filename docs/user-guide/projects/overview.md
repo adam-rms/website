@@ -33,6 +33,11 @@ Comments allow you to keep a log of updates about the project, such as venue and
 
 All Projects have a status, that is the overall status of the project. You can also have statuses for each asset in the project, which is discussed in the next section.
 
+### Addtional Project Settings Menu
+Many of the project settings can be updated by using functionality found in the addtional project settings menu. These include updating the name and description of a project, assigning a parent project or creating sub-projects and archiving or deleting the project. 
+
+![Addtional Project Settings Menu](/img/tutorial/projects/projects-additional-settings.png)
+
 ## Comments & History
 ---
 
@@ -77,3 +82,14 @@ It is recommended you set up a new Project Type for sub-projects that excludes F
 
 ![Project types](/img/tutorial/projects/projects-subprojects-type.png)
 *Suggested subproject type*
+
+
+### Following Parent Project Status
+Sub-projects can optionally track the status of their parent project, allowing you to update their project status automatically when the parent project is updated.
+
+When parent project tracking is enabled, the sub-project's status will update to the parent's status, and a notice appears above the project status
+
+![Project status tracking the parent project](/img/tutorial/projects/projects-subproject-parent-status.png)  
+*A Subproject that tracks the parent's project status*
+
+Use the addtional project settings menu to enable or disable parent status tracking on subprojects.
