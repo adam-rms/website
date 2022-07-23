@@ -283,6 +283,21 @@ projects_id
 projectsNotes_text
 ```
 
+## followParentStatus.php
+
+Set whether a subproject follows the status of its parent project
+```
+\projects\followParentStatus.php
+```
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+projects_id
+follow
+```
+
 ## getComments.php
 
 get comments for given project
