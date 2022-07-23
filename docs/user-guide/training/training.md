@@ -6,7 +6,7 @@ title: Training
 # Training
 
 AdamRMS provides a platform to create training modules for business members.  
-Modules can be entirely online, entirely in person, or a hybrid of both.
+Modules can be entirely online, entirely in person, or a hybrid of both. You can select who has access to each training module based on their user group.
 
 :::note Training Permissions  
 113 - Access Training  	
@@ -30,12 +30,14 @@ A module contains the following basic information:
 - Module Name
 - Description
 - Learning Objectives
-- Draft Status
 - Training Type:
     - Online: Users complete the module online, entirely by themselves
     - Hybrid: Users complete the module online, and are then certified by an administrator
     - Physical: Users cannot complete the module themselves - they are certified by an administrator
 - Module Thumbnail
+- AdamRMS visibility
+    - Draft Status
+    - Limit visibility to a specific Role Group
 
 ![New training module](/img/tutorial/training/training-new.png)
 *Create a new Training module*
