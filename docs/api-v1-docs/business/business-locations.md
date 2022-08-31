@@ -42,3 +42,33 @@ Parameters are POST unless otherwise noted
 formData
 ```
 
+## archive
+
+Archive a location
+```
+locations/archive.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+locations_id
+```
+
+## unarchive
+
+Unarchive a location 
+```
+locations/unarchive.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+locations_id
+```
+

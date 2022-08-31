@@ -41,4 +41,33 @@ Parameters are POST unless otherwise noted
 ```
 clients_name
 ```
+## archive
+
+Archive a client
+```
+clients/archive.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+clients_id
+```
+
+## unarchive
+
+Unarchive a client
+```
+clients/unarchive.php
+```
+
+ **Parameters**
+
+Parameters are POST unless otherwise noted
+
+```
+clients_id
+```
 
