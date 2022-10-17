@@ -1,0 +1,309 @@
+openapi: 3.0.0
+servers:
+  - url: https://dash.adam-rms.com/api/
+    description: Production
+info:
+  description: |
+    AdamRMS is a free, open source advanced Rental Management System for Theatre, AV & Broadcast.
+    This is the API listing for the v1 API, which is currently in Production and active development.
+    You can find out more about AdamRMS at [https://adam-rms.com](https://adam-rms.com).
+  version: 1.0.0
+  title: AdamRMS API
+  termsOfService: https://adam-rms.com/legal
+  contact:
+    name: AdamRMS Support
+    email: support@adam-rms.com
+    url: https://github.com/adam-rms
+  x-logo:
+    url: https://cdn.adam-rms.com/img/logo.png
+    altText: AdamRMS Logo
+  license:
+    name: GNU Affero General Public License v3.0
+    url: https://github.com/adam-rms/adam-rms/blob/main/LICENSE
+externalDocs:
+  description: AdamRMS Documentation
+  url: https://adam-rms.com
+tags:
+  - name: authentication
+    description: Endpoints for logging into the platform
+  - name: account
+    description: User account management
+  - name: permissions
+    description: Instance and global prmission management
+  - name: assets
+    description: Asset management
+  - name: groups
+    description: Asset Groups
+  - name: maintenance
+    description: Asset Maintenance
+  - name: manufacturers
+    description: Asset Manufacturers
+  - name: barcodes
+    description: Asset Barcodes
+  - name: categories
+    description: Asset Categories
+  - name: projects
+    description: Project Management
+  - name: crew
+    description: Project Crew Management
+  - name: recruitment
+    description: Project Crew Recruitment
+  - name: project_assets
+    x-displayName: Project Assets
+    description: Project Asset Management
+  - name: businesses
+    description: Business Management
+  - name: locations
+    description: Business Locations
+  - name: clients
+    description: Client Management
+  - name: training
+    description: Training Management
+  - name: training_modules
+    x-displayName: Training Modules
+    description: Training Module Management
+  - name: cms_pages
+    x-displayName: CMS Pages
+    description: CMS Page Management
+  - name: file_uploads
+    x-displayName: File Uploads
+    description: Handles interaction with s3 Buckets
+  - name: notifications
+    description: v1 internal api endpoints
+x-tagGroups:
+  - name: Users
+    tags:
+      - authentication
+      - account
+      - permissions
+  - name: Assets
+    tags:
+      - assets
+      - barcodes
+      - categories
+      - groups
+      - maintenance
+      - manufacturers
+  - name: Projects
+    tags:
+      - projects
+      - crew
+      - recruitment
+      - project_assets
+  - name: Businesses
+    tags:
+      - businesses
+      - locations
+      - clients
+  - name: Training
+    tags:
+      - training
+      - training_modules
+paths:
+  /assets/archive.php:
+    parameters:
+      - name: assets_id
+        in: query
+        description: The ID of the asset to archive
+        required: true
+        schema:
+          type: integer
+      - name: reason
+        in: query
+        description: The reason for archiving the asset
+        required: false
+        schema:
+          type: string
+      - name: date
+        in: query
+        description: The date the asset was archived, usually today
+        required: false
+        schema:
+          type: string
+          format: date
+    post:
+      tags:
+        - assets
+      summary: Archive an Asset
+      description: Archives an asset
+      operationId: archiveAsset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  message: []
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+                example:
+                  result: false
+                  error:
+                    { code: "ARCHIVE-FAIL", message: "Could not archive asset" }
+  /assets/deepSearch.php:
+    parameters:
+      - name: projectid
+        in: query
+        description: a project_id to check if assets are available for
+        required: false
+        schema:
+          type: integer
+      - name: public
+        in: query
+        description: Determines what asset listing should be returns
+        required: false
+        schema:
+          type: boolean
+      - name: dates
+        in: query
+        description: Two dates to check availability between, separated with a -
+        required: false
+        schema:
+          type: string
+      - name: instance_id
+        in: query
+        description: the instance to search in
+        required: true
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: The page of results to return
+        required: true
+        schema:
+          type: integer
+      - name: page_limit
+        in: query
+        description: The number of results to return per page
+        required: true
+        schema:
+          type: number
+      - name: sort
+        in: query
+        description: How to sort the results
+        required: true
+        schema:
+          type: string
+      - name: category
+        in: query
+        description: The Asset Category to filter by
+        required: false
+        schema:
+          type: string
+      - name: keyword
+        in: query
+        description: A keyword to search for
+        required: false
+        schema:
+          type: string
+      - name: manufacturer
+        in: query
+        description: A manufacturer to filter by
+        required: false
+        schema:
+          type: string
+      - name: group
+        in: query
+        description: An Asset Group to filter by
+        required: false
+        schema:
+          type: string
+      - name: showlinked
+        in: query
+        description: Whether to include linked assets
+        required: false
+        schema:
+          type: integer
+      - name: showarchived
+        in: query
+        description: Whether to include archived assets
+        required: false
+        schema:
+          type: integer
+      - name: tags
+        in: query
+        description: Asset Tag(s) to search for
+        required: false
+        schema:
+          type: string
+      - name: html
+        in: query
+        description: Whether to return a HTML card listing or JSON data
+        required: false
+        schema:
+          type: string
+    post:
+      tags:
+        - assets
+      summary: Search for Assets
+      description: Performs a deep search for assets
+      operationId: searchAssets
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: Array
+                    description: Array of asset data
+            application/html:
+              schema:
+                type: object
+                description: HTML code for the asset listing
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      PUBLIC:
+                        type: boolean
+                      AUTH:
+                        type: object
+                      html:
+                        type: html
+                        description: HTML code for the asset listing
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+                example:
+                  result: false
+                  error: { message: "Error loading results" }
