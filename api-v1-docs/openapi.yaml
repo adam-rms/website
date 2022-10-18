@@ -1390,3 +1390,308 @@ paths:
                   value:
                     result: false
                     error: { code: "", message: "No Asset Found" }
+  /assets/barcodes/assign.php:
+    parameters:
+      - name: tag
+        in: query
+        description: The tag of the Asset to assign a barcode to
+        required: true
+        schema:
+          type: string
+      - name: barcodeid
+        in: query
+        description: An ID of an existing barcode or false
+        required: true
+        schema:
+          oneOf:
+            - type: number
+            - type: boolean
+      - name: text
+        in: query
+        description: the value of a new barcode
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: The Barcode type
+        required: false
+        schema:
+          type: string
+    post:
+      tags:
+        - barcodes
+      summary: Assign Barcode
+      description: |
+        Assign a barcode to an asset  
+        Requires Instance Permission 88 (Associate barcodes with an Asset)
+      operationId: assignBarcode
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      type: object
+                      properties:
+                        assets_id:
+                          type: integer
+                          description: The ID of the asset
+                        assetTypes_id:
+                          type: string
+                          description: The tag of the asset
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                InsertError:
+                  value:
+                    result: false
+                    error: { code: "", message: "Barcode insert error" }  
+                UpdateError:
+                  value:
+                    result: false
+                    error: { code: "UPDATE-FAIL", message: "Could not update barcode"}
+  /assets/barcodes/delete.php:
+    parameters:
+      - name: barcodes_id
+        in: query
+        description: the ID to remove
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - barcodes
+      summary: Delete Barcode
+      description: |
+        Delete a barcode  
+        Requires Instance Permission 86 (Delete Barcode)
+      operationId: deleteBarcode
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                DeleteFail:
+                  value:
+                    result: false
+                    error: { code: "DELETE-FAIL", message: "Could not delete barcode"}
+  /assets/barcodes/index.php:
+    parameters:
+      - name: type
+        in: query
+        description: The Barcode type
+        required: false
+        schema: 
+          type: string
+      - name: barcode
+        in: query
+        description: Value of the Barcode
+        required: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: Size of returned barcode
+        required: false
+        schema:
+          type: number
+      - name: width
+        in: query
+        description: Width of the returned barcode
+        required: false
+        schema:
+          type: number
+    post:
+      tags:
+        - barcodes
+      summary: Generate Barcode Image
+      description: |
+        Generate an image of a given barcode value
+      operationId: generateBarcode
+      responses:
+        200:
+          description: Barcode Image
+          content:
+            application/png:
+              schema:
+                type: string
+                format: binary
+                description: Image of a barcode
+  /assets/barcodes/search.php:
+    parameters:
+      - name: text
+        in: query
+        description: The barcode value
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: The barcode type
+        required: true
+        schema:
+          type: string
+      - name: locationType
+        in: query
+        description: What the location is
+        required: false
+        schema:
+          type: string
+    post:
+      tags:
+        - barcodes
+      summary: Barcode Asset Search
+      description: |
+        Search for an Asset using a barcode
+      operationId: barcodeSearch
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      asset:
+                        type: object
+                        description: Matching asset
+                      assetSuggest:
+                        type: object
+                        description: Suggested Assets
+                      barcode:
+                        type: string
+                        description: Scanned barcode
+                      location: 
+                        type: object
+                        description: Matching location
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: true
+                    error: { }
+  /barcodes/searchAsset.php:
+    parameters:
+      - name: term
+        in: query
+        description: the barcode/tag to search for
+        required: true 
+        schema:
+          type: string
+    post: 
+      tags:
+        - barcodes
+      summary: Search by Barcode
+      description: |
+        A simpler barcode search
+      operationId: barcodeSearch
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: List of 15 assets
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
+                AssetsFail:
+                  value:
+                    result: false
+                    error: { code: "LIST-ASSETS-FAIL", message: "Could not search for assets"}
+        
+
+
+          
+
