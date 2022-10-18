@@ -125,7 +125,9 @@ paths:
       tags:
         - assets
       summary: Archive an Asset
-      description: Archives an asset
+      description: |
+        Archives an asset  
+        Requires Instance Permission 97 (Archive Asset)
       operationId: archiveAsset
       responses:
         200:
@@ -307,3 +309,1084 @@ paths:
                 example:
                   result: false
                   error: { message: "Error loading results" }
+  /assets/delete.php:
+    parameters:
+      - name: assets_id
+        in: query
+        description: The ID of the asset to delete
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - assets
+      summary: Delete an Asset
+      description: |
+        Deletes an asset  
+        Requires Instance Permission 19 (Delete Asset)
+      operationId: deleteAsset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  message: []
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+                example:
+                  result: false
+                  error:
+                    { code: "DELETE-FAIL", message: "Could not delete asset" }
+  /assets/editAsset.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The data to update the asset with
+        required: true
+        schema:
+          type: object
+          properties:
+            assets_id:
+              type: integer
+              description: The ID of the asset to update
+            assets_value:
+              type: number
+              description: The value of the asset
+            assets_dayRate:
+              type: number
+              description: The day rate of the asset
+            assets_weekRate:
+              type: number
+              description: The week rate of the asset
+            assets_tag:
+              type: string
+              description: The tag of the asset
+            assets_mass:
+              type: number
+              description: The weight of the asset
+            assets_linkedTo:
+              type: integer
+              description: The ID of the asset this asset is linked to
+            assetTypes_id:
+              type: integer
+              description: The ID of the asset type
+            assets_notes:
+              type: string
+            asset_definableFields_1:
+              type: string
+            asset_definableFields_2:
+              type: string
+            asset_definableFields_3:
+              type: string
+            asset_definableFields_4:
+              type: string
+            asset_definableFields_5:
+              type: string
+            asset_definableFields_6:
+              type: string
+            asset_definableFields_7:
+              type: string
+            asset_definableFields_8:
+              type: string
+            asset_definableFields_9:
+              type: string
+            asset_definableFields_10:
+              type: string
+    post:
+      tags:
+        - assets
+      summary: Edit an Asset
+      description: |
+        Edits an asset's data  
+        Requires Instance Permission 59 (Edit Asset)
+      operationId: editAsset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  message: []
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error:
+                      { code: "UPDATE-FAIL", message: "Could not update asset" }
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+  /assets/editAssetType.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The data to update the asset type with
+        required: true
+        schema:
+          type: object
+          properties:
+            assetTypes_id:
+              type: integer
+              description: The ID of the asset type to update
+            assetTypes_name:
+              type: string
+              description: The name of the asset type
+            assetCategories_id:
+              type: integer
+              description: The ID of the asset category
+            assetTypes_productLink:
+              type: string
+              description: Link to the website of the asset type
+            manufacturers_id:
+              type: integer
+              description: The ID of the manufacturer
+            assetTypes_description:
+              type: string
+              description: The description of the asset type
+            assetTypes_definableFields:
+              type: string
+              description: A comma-separated list of 10 definable field names
+            assetTypes_mass:
+              type: number
+              description: The weight of the asset type
+            assetTypes_inserted:
+              type: string
+              description: The date the asset type was inserted
+            assetTypes_value:
+              type: string
+              description: The value of the asset type
+            assetTypes_dayRate:
+              type: number
+              description: The day rate of the asset type
+            assetTypes_weekRate:
+              type: number
+              description: The week rate of the asset type
+    post:
+      tags:
+        - assets
+      summary: Edit an Asset Type
+      description: |
+        Edits an asset type's data  
+        Requires Instance Permission 58 (Edit Asset Type)
+      operationId: editAssetType
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  response: []
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "UPDATE-FAIL",
+                        message: "Could not update asset type",
+                      }
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+  /assets/editAssetTypeDefinableFields.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The data to update the asset type's definable fields with
+        required: true
+        schema:
+          type: object
+          properties:
+            assetTypes_id:
+              type: integer
+              description: The ID of the asset type to update
+            assetTypes_definableFields_1:
+              type: string
+            assetTypes_definableFields_2:
+              type: string
+            assetTypes_definableFields_3:
+              type: string
+            assetTypes_definableFields_4:
+              type: string
+            assetTypes_definableFields_5:
+              type: string
+            assetTypes_definableFields_6:
+              type: string
+            assetTypes_definableFields_7:
+              type: string
+            assetTypes_definableFields_8:
+              type: string
+            assetTypes_definableFields_9:
+              type: string
+            assetTypes_definableFields_10:
+              type: string
+    post:
+      tags:
+        - assets
+      summary: Edit an Asset Type's Definable Fields
+      description: |
+        Edits an asset type's definable fields  
+        Requires Instance Permission 58 (Edit Asset Type)
+      operationId: editAssetTypeDefinableFields
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  message: []
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "UPDATE-FAIL",
+                        message: "Could not update asset type",
+                      }
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+  /assets/export.php:
+    parameters:
+      - name: csv
+        in: query
+        description: Whether to export as a CSV file
+        required: false
+        schema:
+          type: any
+      - name: xlsx
+        in: query
+        description: Whether to export as an XLSX file
+        required: false
+        schema:
+          type: any
+    post:
+      tags:
+        - assets
+      summary: Export Assets
+      description: |
+        Exports assets
+      operationId: exportAssets
+      responses:
+        200:
+          description: Success
+          content:
+            application/csv:
+              schema:
+                type: string
+                format: binary
+                description: The CSV file
+            application/xlsx:
+              schema:
+                type: string
+                format: binary
+                description: The XLSX file
+        404:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: 404
+  /assets/getAssetTypeData.php:
+    parameters:
+      - name: term
+        in: query
+        description: The ID of the asset type to get data for
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - assets
+      summary: Get Asset Type Data
+      description: |
+        Gets data for an asset type
+      operationId: getAssetTypeData
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  assetType:
+                    type: object
+                    description: An object containing the asset type's data
+                    properties:
+                      assetTypes_id:
+                        type: integer
+                        description: The ID of the asset type
+                      assetTypes_name:
+                        type: string
+                        description: The name of the asset type
+                      assetCategories_id:
+                        type: integer
+                        description: The ID of the asset category
+                      assetTypes_productLink:
+                        type: string
+                        description: Link to the website of the asset type
+                      manufacturers_id:
+                        type: integer
+                        description: The ID of the manufacturer
+                      assetTypes_description:
+                        type: string
+                        description: The description of the asset type
+                      assetTypes_definableFields:
+                        type: string
+                        description: A comma-separated list of 10 definable field names
+                      assetTypes_mass:
+                        type: number
+                        description: The weight of the asset type
+                      assetTypes_inserted:
+                        type: string
+                        description: The date the asset type was inserted
+                      assetTypes_value:
+                        type: string
+                        description: The value of the asset type
+                      assetTypes_dayRate:
+                        type: number
+                        description: The day rate of the asset type
+                      assetTypes_weekRate:
+                        type: number
+                        description: The week rate of the asset type
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                AssetTypeNotFound:
+                  value:
+                    result: false
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
+                ListError:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "LIST-ASSETTYPES-FAIL",
+                        message: "Could not find asset",
+                      }
+  /assets/list.php:
+    parameters:
+      - name: term
+        in: query
+        description: A search term to filter the list by
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: The page number to get
+        required: false
+        schema:
+          type: integer
+      - name: pageLimit
+        in: query
+        description: The number of items to get per page
+        required: false
+        schema:
+          type: integer
+      - name: category
+        in: query
+        description: The ID of the asset category to filter by
+        required: false
+        schema:
+          type: integer
+      - name: manufacturer
+        in: query
+        description: The ID of the manufacturer to filter by
+        required: false
+        schema:
+          type: integer
+      - name: assetTypes_id
+        in: query
+        description: The ID of the asset type to filter by
+        required: false
+        schema:
+          type: integer
+      - name: all
+        in: query
+        description: Whether to get all linked assets
+        required: false
+        schema:
+          type: any
+      - name: abridgedList
+        in: query
+        description: Whether to get file and flags & blocks
+        required: false
+        schema:
+          type: boolean
+    post:
+      tags:
+        - assets
+      summary: List Assets
+      description: |
+        Lists assets
+      operationId: listAssets
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  assets:
+                    type: array
+                    description: An array of asset objects
+                    items:
+                      type: object
+                      properties:
+                        assets_id:
+                          type: integer
+                          description: The ID of the asset
+                        assets_name:
+                          type: string
+                          description: The name of the asset
+                        assetTypes_id:
+                          type: integer
+                          description: The ID of the asset type
+                        assetTypes_name:
+                          type: string
+                          description: The name of the asset type
+                        assetCategories_id:
+                          type: integer
+                          description: The ID of the asset category
+                        assetCategories_name:
+                          type: string
+                          description: The name of the asset category
+                        manufacturers_id:
+                          type: integer
+                          description: The ID of the manufacturer
+                        manufacturers_name:
+                          type: string
+                          description: The name of the manufacturer
+                        assets_description:
+                          type: string
+                          description: The description of the asset
+                        assets_serialNumber:
+                          type: string
+                          description: The serial number of the asset
+                        assets_barcode:
+                          type: string
+                          description: The barcode of the asset
+                        assets_value:
+                          type: string
+                          description: The value of the asset
+                        assets_dayRate:
+                          type: number
+                          description: The day rate of the asset
+                        assets_weekRate:
+                          type: number
+                          description: The week rate of the asset
+                        assets_monthRate:
+                          type: number
+                          description: The month rate of the asset
+                        assets_yearRate:
+                          type: number
+                          description: The year rate of the asset
+                        assets_mass:
+                          type: number
+                          description: The weight of the asset
+                        assets_productLink:
+                          type: string
+                          description: Link to the website of the asset
+                        assets_inserted:
+                          type: string
+                          description: The date the asset was inserted
+                        assets_updated:
+                          type: string
+                          description: The date the asset was last updated
+                        assets_deleted:
+                          type: string
+                          description: The date the asset was deleted
+                        assets_status:
+                          type: string
+                          description: The status of the asset
+                        assets_flags:
+                          type: string#
+                  pagination:
+                    type: number
+                    description: An object containing pagination data
+  /assets/newAssetFromType.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The data to create the asset from
+        required: true
+        schema:
+          type: object
+          properties:
+            assetTypes_id:
+              type: integer
+              description: The ID of the asset type
+              required: true
+            assets_tag:
+              type: string
+              description: The tag of the asset
+            assets_notes:
+              type: string
+            assets_assetGroups:
+              type: string
+            asset_definableFields_1:
+              type: string
+            asset_definableFields_2:
+              type: string
+            asset_definableFields_3:
+              type: string
+            asset_definableFields_4:
+              type: string
+            asset_definableFields_5:
+              type: string
+            asset_definableFields_6:
+              type: string
+            asset_definableFields_7:
+              type: string
+            asset_definableFields_8:
+              type: string
+            asset_definableFields_9:
+              type: string
+            asset_definableFields_10:
+              type: string
+    post:
+      tags:
+        - assets
+      summary: Create Asset From Type
+      description: |
+        Creates an asset from an asset type
+        Requires Instance Permission 17 (Create Asset)
+      operationId: createAssetFromType
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      assets_id:
+                        type: integer
+                        description: The ID of the asset
+                      assets_tag:
+                        type: string
+                        description: The tag of the asset
+                      assetTypes_id:
+                        type: integer
+                        description: The ID of the asset type
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        description: The error code
+                      error:
+                        type: array
+                        description: An Array containing an error code and a message
+              examples:
+                TypeFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "LIST-ASSETTYPES-FAIL",
+                        message: "Could not find asset type",
+                      }
+                InsertFail:
+                  value:
+                    result: false
+                    error:
+                      { code: "INSERT-FAIL", message: "Could not insert asset" }
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+  /assets/newAssetType.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The data to create the asset type from
+        required: true
+        schema:
+          type: object
+          properties:
+            assetTypes_name:
+              type: string
+              description: The name of the asset type
+              required: true
+            assetTypes_description:
+              type: string
+              description: The description of the asset type
+            assetCategories_id:
+              type: integer
+              description: The ID of the asset category
+            manufacturers_id:
+              type: integer
+              description: The ID of the manufacturer
+            assetTypes_productLink:
+              type: string
+              description: Link to the website of the asset type
+            assetTypes_definableFields_1:
+              type: string
+              description: The first definable field
+            assetTypes_definableFields_2:
+              type: string
+              description: The second definable field
+            assetTypes_definableFields_3:
+              type: string
+              description: The third definable field
+            assetTypes_definableFields_4:
+              type: string
+              description: The fourth definable field
+            assetTypes_definableFields_5:
+              type: string
+              description: The fifth definable field
+            assetTypes_definableFields_6:
+              type: string
+              description: The sixth definable field
+            assetTypes_definableFields_7:
+              type: string
+              description: The seventh definable field
+            assetTypes_definableFields_8:
+              type: string
+              description: The eighth definable field
+            assetTypes_definableFields_9:
+              type: string
+              description: The ninth definable field
+            assetTypes_definableFields_10:
+              type: string
+              description: The tenth definable field
+            assetTypes_mass:
+              type: number
+              description: The weight of the asset type
+            assetTypes_inserted:
+              type: string
+              description: The date the asset type was inserted
+            assetTypes_dayRate:
+              type: number
+              description: The day rate of the asset type
+            assetTypes_weekRate:
+              type: number
+              description: The week rate of the asset type
+            assetTypes_value:
+              type: number
+              description: The value of the asset type
+    post:
+      tags:
+        - assets
+      summary: Create Asset Type
+      description: |
+        Creates an asset type  
+        Requires Instance Permission 18 (Create Asset Type)
+      operationId: createAssetType
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      assetTypes_id:
+                        type: integer
+                        description: The ID of the asset type
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        description: The error code
+                      error:
+                        type: array
+                        description: An Array containing an error code and a message
+              examples:
+                InsertFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "INSERT-FAIL",
+                        message: "Could not insert asset type",
+                      }
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+  /assets/searchAssets.php:
+    parameters:
+      - name: term
+        in: query
+        description: The term to search for
+        required: false
+        schema:
+          type: string
+    post:
+      tags:
+        - assets
+      summary: Simple Asset Search
+      description: |
+        Searches for assets by tag or name  
+        Deprecated, use /assets/deepSearch.php instead
+      deprecated: true
+      operationId: simpleAssetSearch
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An array of assets
+                    items:
+                      type: object
+                      properties:
+                        tag:
+                          type: string
+                          description: The tag of the asset
+                        assets_id:
+                          type: integer
+                          description: The ID of the asset
+                        assets_tag:
+                          type: string
+                          description: The tag of the asset
+                        assetTypes_name:
+                          type: string
+                          description: The name of the asset type
+                        assetTypes_id:
+                          type: integer
+                          description: The ID of the asset type
+                        assetCategories_name:
+                          type: string
+                          description: The name of the asset category
+                        assetCategoriesGroups_name:
+                          type: string
+                          description: The name of the asset category group
+                        manufacturers_name:
+                          type: string
+                          description: The name of the manufacturer
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                AssetsFail:
+                  value:
+                    result: false
+                    error:
+                      { code: "LIST-ASSETS-FAIL", message: "Could not search" }
+  /assets/searchAssetsBarcode.php:
+    get:
+      tags:
+        - assets
+      summary: Search Assets by Barcode
+      description: |
+        Redirects to assets/barcodes/search.php
+      operationId: searchAssetsBarcode
+      deprecated: true
+      responses:
+        308:
+          description: Redirect
+  assets/searchType.php:
+    parameters:
+      - name: term
+        in: query
+        description: The term to search for
+        required: false
+        schema:
+          type: string
+      - name: manufacturer
+        in: query
+        description: The manufacturer to search for
+        required: false
+        schema:
+          type: string
+    post:
+      tags:
+        - assets
+      summary: Asset Type Search
+      description: |
+        Searches for asset types by name or manufacturer
+      operationId: assetTypeSearch
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: list of assets
+                    items:
+                      type: object
+                      properties:
+                        assetTypes_name:
+                          type: string
+                          description: The name of the asset type
+                        assetTypes_id:
+                          type: integer
+                          description: The ID of the asset type
+                        assetCategories_name:
+                          type: string
+                          description: The name of the asset category
+                        assetCategoriesGroups_name:
+                          type: string
+                          description: The name of the asset category group
+                        manufacturers_name:
+                          type: string
+                          description: The name of the manufacturer
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                AssetTypeFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "LIST-ASSETTYPES-FAIL",
+                        message: "Could not search",
+                      }
+  /assets/substitutions.php:
+    parameters:
+      - name: assetsAssignments_id
+        in: query
+        description: The ID of the asset assignment
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - assets
+      summary: Get Swappable Assets
+      description: |
+        Gets a list of assets that can be swapped with the given asset assignment
+      operationId: getSwappableAssets
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An array of assets
+                    items:
+                      type: object
+                      properties:
+                        assets_id:
+                          type: integer
+                          description: The ID of the asset
+                        assets_tag:
+                          type: string
+                          description: The tag of the asset
+                        asset_definableFields_1:
+                          type: string
+                          description: The First Definable field value, usually for length
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                NoAssets:
+                  value:
+                    result: true
+                    error: { code: "NO-ASSETS", message: "No Assets Available" }
+                NoAsset:
+                  value:
+                    result: false
+                    error: { code: "", message: "No Asset Found" }
