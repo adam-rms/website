@@ -62,7 +62,7 @@ tags:
   - name: training_modules
     x-displayName: Training Modules
     description: Training Module Management
-  - name: cms_pages
+  - name: cms
     x-displayName: CMS Pages
     description: CMS Page Management
   - name: file_uploads
@@ -99,6 +99,15 @@ x-tagGroups:
     tags:
       - training
       - training_modules
+  - name: CMS Pages
+    tags:
+      - cms
+  - name: Files
+    tags:
+      - file_uploads
+  - name: Notifications
+    tags:
+      - notifications
 paths:
   /assets/archive.php:
     parameters:
