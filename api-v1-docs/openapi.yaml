@@ -109,6 +109,671 @@ x-tagGroups:
     tags:
       - notifications
 paths:
+  /account/basicDetails.php:
+    parameters:
+      - name: formData
+        in: formData
+        required: true
+        schema:
+          type: object
+          properties:
+            users_userid:
+              type: string
+              description: The ID of the user
+            users_email:
+              type: string
+              description: The email address of the user
+            users_username:
+              type: string
+              description: The username of the user
+            users_name1:
+              type: string
+              description: The first name of the user
+            users_name2:
+              type: string
+              description: The last name of the user
+            users_social_facebook:
+              type: string
+              description: The Facebook username of the user
+            users_social_twitter:
+              type: string
+              description: The Twitter username of the user
+            users_social_instagram:
+              type: string
+              description: The Instagram username of the user
+            users_social_linkedin:
+              type: string
+              description: The LinkedIn username of the user
+            users_social_snapchat:
+              type: string
+              description: The Snapchat username of the user
+    post:
+      tags:
+        - account
+      summary: Update User Details
+      description: Update basic user details
+      operationId: updateBasicDetails
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    description: An empty object
+        404:
+          description: Not Found
+        'default':
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+                example:
+                  result: false
+                  error:
+                    { code: "UPDATE-FAIL", message: "Could not update account details" }
+  /account/calendar-export.php:
+    parameters:
+      - name: uid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The calendar hash
+    get:
+      tags:
+        - account
+      summary: Calendar Export
+      description: Get calendar information for integrating with web calendars
+      operationId: getCalendarExport
+      responses:
+        200:
+          description: OK
+          content:
+            text/calendar:
+              schema:
+                type: string
+                description: The calendar export
+        404:
+          description: Error
+  /account/changePass.php:
+    parameters:
+      - name: oldpass
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The current password
+      - name: newpass
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The new password
+    post:
+      tags:
+        - account
+      summary: Change Password
+      description: Change the password of the current user
+      operationId: changePassword
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    description: An empty object
+        'default':
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+                example:
+                  result: false
+                  error:
+                    { message: "Current Password Incorrect" }
+  /account/destroyTokens.php:
+    parameters:
+      - name: userid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+    post:
+      tags:
+        - account
+      summary: Destroy Tokens
+      description: Destroy all tokens for a user
+      operationId: destroyTokens
+      response:
+        200:
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: "1" or "2"
+  /account/disconnectOAuth.php:
+    parameters:
+      - name: provider
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The name of the OAuth provider
+      - name: users_userid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+    post:
+      tags:
+        - account
+      summary: Disconnect OAuth
+      description: Disconnect an OAuth provider
+      operationId: disconnectOAuth
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  message: []
+  /account/emailViewer.php:
+    parameters:
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The id of the sent email
+    get:
+      tags:
+        - account
+      summary: Email Viewer
+      description: |
+        Get the HTML of an email  
+        Requires RMS permission 6
+      operationId: getEmailViewer
+      responses:
+        200:
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+                description: The HTML of the email
+        404:
+          description: Not Found
+  /account/forcePasswordChange.php:
+    parameters:
+      - name: pass
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The new password
+      - name: users_userid
+        in: body
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+      - name: users_changepass
+        in: body
+        required: true
+        schema:
+          type: string
+          description: "1"
+    post:
+      tags:
+        - account
+      summary: Force Password Change
+      description: Force a user to change their password
+      operationId: forcePasswordChange
+      responses:
+        200:
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: "1" or "2"
+  /account/linkOAuth.php:
+    parameters:
+      - name: google
+        in: query
+        required: true
+        schema:
+          type: string
+          description: use Google
+    get:
+      tags:
+        - account
+      summary: Link OAuth
+      description: Link an OAuth provider
+      operationId: linkOAuth
+      responses:
+        308:
+          description: Redirect
+          headers:
+            Location:
+              schema:
+                type: string
+                description: The URL to redirect to
+  /account/notifications.php:
+    parameters:
+      - name: users_userid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+      - name: settings
+        in: query
+        required: true
+        schema:
+          type: json
+          description: The notification settings
+    post:
+      tags:
+        - account
+      summary: Notifications
+      description: Set the notification settings for a user
+      operationId: setNotifications
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  message: []
+  /account/passwordReset.php:
+    parameters:
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The password reset code
+    post:
+      tags:
+        - account
+      summary: Password Reset
+      description: Act on a password reset code
+      operationId: passwordReset
+      responses:
+        200:
+          description: Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                error:
+                  value: "Sorry - Your code has expired - we've sent you another one instead"
+                fail:
+                  value: "Sorry - Your code has expired - please contact support"
+        308:
+          description: Success
+          headers:
+            Location:
+              schema:
+                type: string
+                description: The URL to redirect to
+  /account/permissions.php:
+    parameters:
+      - name: action
+        in: query
+        required: true
+        schema:
+          type: string
+          description: "DELETE", "EDIT, or "new"
+      - name: users_userid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+      - name: userPositions_id
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user's position
+    post:
+      tags:
+        - account
+      summary: Password Reset
+      description: |
+        Reset a user's password
+        Requires RMS permission 13
+      operationId: passwordReset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                  error:
+                    type: object
+                    description: An object containing an error code and a message
+              examples:
+                Success:
+                  value:
+                    result: true
+                    message: []
+                EditError:
+                  value:
+                    result: false
+                    error:
+                      { code: null, message: "Edit error" }
+                AttributeError:
+                  value:
+                    result: false
+                    error:
+                      { code: null, message: "Attribute action error" }
+                DeleteError:
+                  value:
+                    result: false
+                    error:
+                      { code: null, message: "Delete error" }
+  /account/suspend.php:
+    parameters:
+      - name: userid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+      - name: suspendval
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Reason for suspention
+    post:
+      tags:
+        - account
+      summary: Suspend
+      description: Suspend a user
+      operationId: suspend
+      responses:
+        200:
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: "1" or "2"
+  /account/theme.php:
+    parameters:
+      - name: dark
+        in: query
+        required: true
+        schema:
+          type: string
+          description: "1" or "0"
+    post:
+      tags:
+        - account
+      summary: Theme
+      description: Set the theme for the current user
+      operationId: setTheme
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+  /account/thumbnail.php:
+    parameters:
+      - name: users_userid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+      - name: thumbnail
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The thumbnail
+    post:
+      tags:
+        - account
+      summary: Thumbnail
+      description: Set the thumbnail for a user
+      operationId: setThumbnail
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+  /account/verifyEmail.php:
+    parameters:
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The email verification code
+    post:
+      tags:
+        - account
+      summary: Verify Email
+      description: Verify an email address
+      operationId: verifyEmail
+      responses:
+        200:
+          description: Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                error:
+                  value: "Sorry - Your code has expired - we've sent you another one instead"
+                fail:
+                  value: "Sorry - Your code has expired - please contact support"
+        308:
+          description: Success
+          headers:
+            Location:
+              schema:
+                type: string
+                description: The URL to redirect to
+  /account/viewSiteAs.php:
+    parameters:
+      - name: users_userid
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The ID of the user
+    post:
+      tags:
+        - account
+      summary: View Site As
+      description: |
+        View the site as a given user  
+        Requires RMS permission 10
+      operationId: viewSiteAs
+      responses:
+        200:
+          description: Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                noPermission: 
+                  value: "Sorry - you can't access this page"
+                noParam:
+                  value: "No uid passed"
+        308:
+          description: Success
+          headers:
+            Location:
+              schema:
+                type: string
+                description: The URL to redirect to
+  /account/viewSiteAs_terminate.php:
+    parameters:
+      - name: viewSiteAs
+        in: body
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - account
+      summary: View Site As Terminate
+      description: |
+        Terminate the view site as session  
+      operationId: viewSiteAsTerminate
+      responses:
+        404:
+          description: Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                value: "404"
+        308:
+          description: Success
+          headers:
+            Location:
+              schema:
+                type: string
+                description: The URL to redirect to
+  /account/widgetToggle.php:
+    parameters:
+      - name: widgetName
+        in: query
+        required: true
+        schema:
+          type: string
+          description: The widget to toggle
+    post:
+      tags:
+        - account
+      summary: Widget Toggle
+      description: Toggle a widget
+      operationId: widgetToggle
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  message:
+                    type: null
+                    description: an empty array
+                example:
+                  result: true
+                  message: []
+          "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+                example:
+                  result: false
+                  error:
+                    { code: null, message: "Update error" }
+    
   /assets/archive.php:
     parameters:
       - name: assets_id
@@ -2467,7 +3132,7 @@ paths:
                   response:
                     type: object
                     description: Object containing the file data
-        307:
+        308:
           description: Success - Redirect to this address
         "default":
           description: Error
