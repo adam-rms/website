@@ -2643,4 +2643,325 @@ paths:
                     value:
                       result: false
                       error: {}
+  /groups/addAsset.php:
+    parameters:
+      - name: assetGroups_id
+        in: query
+        description: The group id
+        required: true
+        schema:
+          type: integer
+      - name: assets_id
+        in: query
+        description: The asset id
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - groups
+      summary: Add Asset to Group
+      description: |
+        Add an asset to a group  
+        Requires Instance Permission 96 (Add/Remove group members)
+      operationId: addAssetToGroup
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                AddFail:
+                  value:
+                    result: false
+                    error: {}
+  /groups/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The group data
+        required: true
+        schema:
+          type: object
+          properties:
+            assetGroups_id:
+              type: integer
+              description: The group id
+            personal:
+              type: boolean
+              description: Whether the group is personal
+            assetGroups_name:
+              type: string
+              description: The group name
+            assetGroups_description:
+              type: string
+              description: The group description
+    post:
+      tags:
+        - groups
+      summary: Edit Group
+      description: |
+        Edit a group  
+        Requires Instance Permission 94 (Edit group details)
+      operationId: editGroup
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                EditFail:
+                  value:
+                    result: false
+                    error: {}
+  /groups/new.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The group data
+        required: true
+        schema:
+          type: object
+          properties:
+            personal:
+              type: boolean
+              description: Whether the group is personal
+            assetGroups_name:
+              type: string
+              description: The group name
+            assetGroups_description:
+              type: string
+              description: The group description
+    post:
+      tags:
+        - groups
+      summary: Create Group
+      description: |
+        Create a group  
+        Requires Instance Permission 93 (Create new group)
+      operationId: createGroup
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                CreateFail:
+                  value:
+                    result: false
+                    error: {}
+  /groups/removeAsset.php:
+    parameters:
+      - name: assetGroups_id
+        in: query
+        description: The group id
+        required: true
+        schema:
+          type: integer
+      - name: assets_id
+        in: query
+        description: The asset id
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - groups
+      summary: Remove Asset from Group
+      description: |
+        Remove an asset from a group  
+        Requires Instance Permission 96 (Add/Remove group members)
+      operationId: removeAssetFromGroup
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                RemoveFail:
+                  value:
+                    result: false
+                    error: {}
+  /groups/search.php:
+    parameters:
+      - name: term
+        in: query
+        description: The search term
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - groups
+      summary: Search Groups
+      description: |
+        Search for groups
+      operationId: searchGroups
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An array of groups
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                SearchFail:
+                  value:
+                    result: false
+                    error: {message: "Could not search for Groups"}
+  /groups/watch.php:
+    parameters:
+      - name: assetGroups_id
+        in: query
+        description: The group id
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - groups
+      summary: Watch Group
+      description: |
+        Watch a group
+      operationId: watchGroup
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                WatchFail:
+                  value:
+                    result: false
+                    error: {}
 
