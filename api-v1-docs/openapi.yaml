@@ -2362,5 +2362,285 @@ paths:
                   value:
                     result: false
                     error: {}
-
+  /file/delete.php:
+    parameters:
+      - name: s3files_id
+        in: query
+        description: The file id
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - file_uploads
+      summary: Delete File
+      description: |
+        Delete a file  
+        Requires Instance Permission 57 (Delete File)
+      operationId: deleteFile
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                DeleteFail:
+                  value:
+                    result: false
+                    error: {}
+  /file/index.php:
+    parameters:
+      - name: f
+        in: query
+        description: The file id
+        required: true
+        schema:
+          type: integer
+      - name: s
+        in: query
+        description: | 
+          The file size  
+          false to get the original, available is "tiny" (50px) "small" (100px) "medium" (500px) "large" (1000px)
+        required: false
+        schema:
+          type: string | boolean
+      - name: d
+        in: query
+        description: should a download be forced or should it be displayed in the browser? (if set it will download)
+        required: false
+        schema:
+          type: boolean
+      - name: r
+        in: query
+        description: should the url be returned by the script as plain text or a redirect triggered? (if set it will redirect)
+        required: false
+        schema:
+          type: boolean
+      - name: e
+        in: query
+        description: when should the link expire? Must be a string describing how long in words basically. If this file type has security features then it will default to 1 minute.
+        required: false
+        schema:
+          type: boolean
+    post:
+      tags:
+        - file_uploads
+      summary: Get File
+      description: |
+        Get a file  
+      operationId: getFile
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    description: Object containing the file data
+        307:
+          description: Success - Redirect to this address
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: a message
+              examples:
+                GetFail:
+                  value:
+                    result: false
+                    error: {message: "File not found - please check to ensure you are still logged in"}
+  /file/removeShare.php:
+    parameters:
+      - name: s3files_id
+        in: query
+        description: The file id
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - file_uploads
+      summary: Remove File Share
+      description: |
+        Remove a file share  
+        Requires Instance Permission 127 (Manage a file's sharing status)
+      operationId: removeFileShare
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                RemoveFail:
+                  value:
+                    result: false
+                    error: {}
+  /file/rename.php:
+    parameters:
+      - name: s3files_id
+        in: query
+        description: The file id
+        required: true
+        schema:
+          type: integer
+      - name: s3files_name
+        in: query
+        description: The new file name
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - file_uploads
+      summary: Rename File
+      description: |
+        Rename a file  
+        Requires Instance Permission 56 (Rename File)
+      operationId: renameFile
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                RenameFail:
+                  value:
+                    result: false
+                    error: {}
+    /file/share.php:
+      parameters:
+        - name: s3files_id
+          in: query
+          description: The file id
+          required: true
+          schema:
+            type: integer
+      post:
+        tags:
+          - file_uploads
+        summary: Share File
+        description: |
+          Share a file  
+          Requires Instance Permission 127 (Manage a file's sharing status)
+        operationId: shareFile
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    result:
+                      type: boolean
+                      description: Whether the request was successful
+                    response:
+                      type: array
+                      description: A null Array
+          404:
+            description: Error
+          "default":
+            description: Error
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    result:
+                      type: boolean
+                      description: Whether the request was successful
+                    error:
+                      type: array
+                      description: A null array
+                examples:
+                  ShareFail:
+                    value:
+                      result: false
+                      error: {}
 
