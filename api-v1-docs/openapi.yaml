@@ -288,7 +288,6 @@ paths:
             text/plain:
               schema:
                 type: string
-                description: "1" or "2"
   /account/disconnectOAuth.php:
     parameters:
       - name: provider
@@ -384,8 +383,7 @@ paths:
           content:
             text/plain:
               schema:
-                type: string
-                description: "1" or "2"
+                type: string      
   /account/linkOAuth.php:
     parameters:
       - name: google
@@ -485,7 +483,7 @@ paths:
         required: true
         schema:
           type: string
-          description: "DELETE", "EDIT, or "new"
+        description: DELETE, EDIT or new
       - name: users_userid
         in: query
         required: true
@@ -501,11 +499,11 @@ paths:
     post:
       tags:
         - account
-      summary: Password Reset
+      summary: Permission Management
       description: |
-        Reset a user's password
+        Manage user pemissions
         Requires RMS permission 13
-      operationId: passwordReset
+      operationId: permissionManagement
       responses:
         200:
           description: Success
@@ -570,7 +568,6 @@ paths:
             text/plain:
               schema:
                 type: string
-                description: "1" or "2"
   /account/theme.php:
     parameters:
       - name: dark
@@ -578,7 +575,8 @@ paths:
         required: true
         schema:
           type: string
-          description: "1" or "0"
+        examples:
+          ["1", "0"]
     post:
       tags:
         - account
@@ -706,8 +704,7 @@ paths:
       tags:
         - account
       summary: View Site As Terminate
-      description: |
-        Terminate the view site as session  
+      description: Terminate the view site as session  
       operationId: viewSiteAsTerminate
       responses:
         404:
@@ -716,8 +713,6 @@ paths:
             text/plain:
               schema:
                 type: string
-              examples:
-                value: "404"
         308:
           description: Success
           headers:
@@ -725,55 +720,54 @@ paths:
               schema:
                 type: string
                 description: The URL to redirect to
-  /account/widgetToggle.php:
-    parameters:
-      - name: widgetName
-        in: query
-        required: true
-        schema:
-          type: string
-          description: The widget to toggle
-    post:
-      tags:
-        - account
-      summary: Widget Toggle
-      description: Toggle a widget
-      operationId: widgetToggle
-      responses:
-        200:
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  result:
-                    type: boolean
-                    description: Whether the request was successful
-                  message:
-                    type: null
-                    description: an empty array
-                example:
-                  result: true
-                  message: []
+    /account/widgetToggle.php:
+      parameters:
+        - name: widgetName
+          in: query
+          required: true
+          schema:
+            type: string
+            description: The widget to toggle
+      post:
+        tags:
+          - account
+        summary: Widget Toggle
+        description: Toggle a widget
+        operationId: widgetToggle
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    result:
+                      type: boolean
+                      description: Whether the request was successful
+                    message:
+                      type: null
+                      description: an empty array
+                  example:
+                    result: true
+                    message: []
           "default":
-          description: Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  result:
-                    type: boolean
-                    description: Whether the request was successful
-                  error:
-                    type: array
-                    description: An Array containing an error code and a message
-                example:
-                  result: false
-                  error:
-                    { code: null, message: "Update error" }
-    
+            description: Error
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    result:
+                      type: boolean
+                      description: Whether the request was successful
+                    error:
+                      type: array
+                      description: An Array containing an error code and a message
+                  example:
+                    result: false
+                    error:
+                      { code: null, message: "Update error" }
   /assets/archive.php:
     parameters:
       - name: assets_id
@@ -2327,7 +2321,7 @@ paths:
       summary: Search by Barcode
       description: |
         A simpler barcode search
-      operationId: barcodeSearch
+      operationId: barcodeAssetSearch
       responses:
         200:
           description: Success
@@ -3629,4 +3623,5 @@ paths:
                   value:
                     result: false
                     error: {}
+
 
