@@ -1869,3 +1869,134 @@ paths:
                   value:
                     result: false
                     error: {}
+  /clients/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The client data
+        required: true
+        schema:
+          type: object
+          properties:
+            clients_id:
+              type: integer
+              description: The ID of the client
+              required: true
+            clients_name:
+              type: string
+              description: The name of the client
+            clients_address:
+              type: string
+              description: The address of the client
+            clients_phone:
+              type: string
+              description: The phone number of the client
+            clients_email:
+              type: string
+              description: The email of the client
+            clients_website:
+              type: string
+              description: The website of the client
+            clients_notes:
+              type: string
+              description: The notes of the client
+    post:
+      tags:
+        - clients
+      summary: Edit Client
+      description: |
+        Edit a client  
+        Requires Instance Permission 39 (Edit Clients)
+      operationId: editClient
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                UpdateFail:
+                  value:
+                    result: false
+                    error: {}
+  /clients/new.php:
+    parameters:
+      - name: clients_name
+        in: query
+        description: The name of the client
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - clients
+      summary: Create Client
+      description: |
+        Create a client  
+        Requires Instance Permission 37 (Create Clients)
+      operationId: createClient
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    description: Object containing the clients_id
+              examples:
+                Success:
+                  value:
+                    result: true
+                    response:
+                      clients_id: 1
+        400:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                InsertFail:
+                  value:
+                    result: false
+                    error: { code: "CREATE-CLIENT-FAIL", message: "Could not create new client" }
