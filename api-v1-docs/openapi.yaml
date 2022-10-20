@@ -2000,3 +2000,358 @@ paths:
                   value:
                     result: false
                     error: { code: "CREATE-CLIENT-FAIL", message: "Could not create new client" }
+  /cms/editPageConfig.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The page config data
+        required: true
+        schema:
+          type: object
+    post:
+      tags:
+        - cms
+      summary: Edit CMS Page Config
+      description: |
+        Edit a page config  
+        Requires Instance Permission 126 (Edit Page Config)
+      operationId: editPageConfig
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error: {}
+  /cms/editPageContent-rollback.php:
+    parameters:
+      - name: cmsPages_id
+        in: query
+        description: The ID of the page
+        required: true
+        schema:
+          type: integer
+      - name: change
+        in: query
+        description: The description of the change
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - cms
+      summary: Rollback CMS Page Content
+      description: |
+        Rollback a page content  
+        Requires Instance Permission 126 (Edit Page Content)
+      operationId: rollbackPageContent
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error: {}
+  /cms/editPageContent.php:
+    parameters:
+      - name: cmsPages_id
+        in: query
+        description: The ID of the page
+        required: true
+        schema:
+          type: integer
+      - name: pageData
+        in: query
+        description: The page data
+        required: true
+        schema:
+          type: string
+      - name: changelog
+        in: query
+        description: The description of the change
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - cms
+      summary: Edit CMS Page Content
+      description: |
+        Edit a page content  
+        Requires Instance Permission 126 (Edit Page Content)
+      operationId: editPageContent
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    description: Object containing the revision data and id
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error: {}
+  /cms/editPageRank.php:
+    parameters:
+      - name: order
+        in: query
+        description: The page rank data
+        required: true
+        schema:
+          type: array
+    post:
+      tags:
+        - cms
+      summary: Edit CMS Page Rank
+      description: |
+        Edit a page rank  
+        Requires Instance Permission 126 (Edit Page Data)
+      operationId: editPageRank
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error: {}
+  /cms/get.php:
+    parameters:
+      - name: p
+        in: query
+        description: The page id
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - cms
+      summary: Get CMS Page
+      description: |
+        Get a page  
+      operationId: getPage
+      responses:
+        200:
+          description: Success
+          content:
+            application/html:
+              schema:
+                type: object
+                description: HTML code for the page content
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      PUBLIC:
+                        type: boolean
+                      AUTH:
+                        type: object
+                      html:
+                        type: html
+                        description: HTML code for the page content
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                GetFail:
+                  value:
+                    result: false
+                    error: { code: "NO_PAGE", message: "Page not found" }
+  /cms/list.php:
+    get:
+      tags:
+        - cms
+      summary: List CMS Pages
+      description: |
+        List all pages
+      operationId: listPages
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An Array containing all pages
+  /cms/setCustomDashboard.php:
+    parameters:
+      - name: instancePositions_id
+        in: query
+        description: instance position for the dashboard
+        required: true
+        schema:
+          type: number
+      - name: cmsPages_id
+        in: query
+        description: The page id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - cms
+      summary: Set Custom Dashboard
+      description: |
+        Set a custom dashboard  
+        Requires Instance Permission 126 (Edit Page Data)
+      operationId: setCustomDashboard
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Error
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: A null array
+              examples:
+                UpdateFail:
+                  value:
+                    result: false
+                    error: {}
+
+
