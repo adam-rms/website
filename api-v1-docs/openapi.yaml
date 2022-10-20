@@ -1690,8 +1690,182 @@ paths:
                   value:
                     result: false
                     error: { code: "LIST-ASSETS-FAIL", message: "Could not search for assets"}
-        
-
-
-          
-
+  /categories/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The category data
+        required: true
+        schema:
+          type: object
+          properties:
+            assetCategories_id:
+              type: integer
+              description: The ID of the category
+              required: true
+            assetCategories_name:
+              type: string
+              description: The name of the category
+            assetCategories_fontAwesome:
+              type: string
+              description: The font awesome icon for the category
+            assetCategoriesGroups_id:
+              type: integer
+              description: The ID of the category group
+    post:
+      tags:
+        - categories
+      summary: Edit Asset Category
+      description: |
+        Edit a category
+      operationId: editCategory
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                UpdateFail:
+                  value:
+                    result: false
+                    error: {}
+  /category/new.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The category data
+        required: true
+        schema:
+          type: object
+          properties:
+            assetCategories_name:
+              type: string
+              description: The name of the category
+            assetCategories_fontAwesome:
+              type: string
+              description: The font awesome icon for the category
+            assetCategoriesGroups_id:
+              type: integer
+              description: The ID of the category group
+    post:
+      tags:
+        - categories
+      summary: Create Asset Category
+      description: |
+        Create a category
+      operationId: createCategory
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: array
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: object
+                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                InsertFail:
+                  value:
+                    result: false
+                    error: {}
+  /categories/search.php:
+    parameters:
+      - name: term
+        in: query
+        description: The search term
+        required: true
+        schema:
+          type: string
+      - name: instance_id
+        in: query
+        description: the InstanceID
+        required: false
+        schema:
+          type: integer
+    post:
+      tags:
+        - categories
+      summary: Search Asset Categories
+      description: |
+        Search for categories
+      operationId: searchCategories
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A list of categories
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An Array containing an error code and a message
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error: {}
