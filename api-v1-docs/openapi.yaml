@@ -24,40 +24,53 @@ externalDocs:
   description: AdamRMS Documentation
   url: https://adam-rms.com
 tags:
-  - name: authentication
-    description: Endpoints for logging into the platform
   - name: account
+    x-displayName: Account
     description: User account management
   - name: permissions
+    x-displayName: Permissions
     description: Instance and global prmission management
   - name: assets
+    x-displayName: Assets
     description: Asset management
   - name: groups
+    x-displayName: Groups
     description: Asset Groups
   - name: maintenance
+    x-displayName: Maintenance
     description: Asset Maintenance
   - name: manufacturers
+    x-displayName: Manufacturers
     description: Asset Manufacturers
   - name: barcodes
+    x-displayName: Barcodes
     description: Asset Barcodes
   - name: categories
+    x-displayName: Categories
     description: Asset Categories
   - name: projects
+    x-displayName: Projects
     description: Project Management
   - name: crew
+    x-displayName: Crew
     description: Project Crew Management
   - name: recruitment
+    x-displayName: Recruitment
     description: Project Crew Recruitment
   - name: project_assets
     x-displayName: Project Assets
     description: Project Asset Management
-  - name: businesses
-    description: Business Management
+  - name: instances
+    x-displayName: Instances
+    description: Instance Management
   - name: locations
+    x-displayName: Locations
     description: Business Locations
   - name: clients
+    x-displayName: Clients
     description: Client Management
   - name: training
+    x-displayName: Training
     description: Training Management
   - name: training_modules
     x-displayName: Training Modules
@@ -69,11 +82,17 @@ tags:
     x-displayName: File Uploads
     description: Handles interaction with s3 Buckets
   - name: notifications
+    x-displayName: Notifications
     description: v1 internal api endpoints
+  - name: assetAssignmentStatus
+    x-displayName: Asset Assignment Statuses
+  - name: projectTypes
+    x-displayName: Project Types
+  - name: signupCodes
+    x-displayName: Signup Codes
 x-tagGroups:
   - name: Users
     tags:
-      - authentication
       - account
       - permissions
   - name: Assets
@@ -92,9 +111,12 @@ x-tagGroups:
       - project_assets
   - name: Businesses
     tags:
-      - businesses
+      - instances
       - locations
       - clients
+      - assetAssignmentStatus
+      - projectTypes
+      - signupCodes
   - name: Training
     tags:
       - training
@@ -169,7 +191,7 @@ paths:
                     description: An empty object
         404:
           description: Not Found
-        'default':
+        "default":
           description: Error
           content:
             application/json:
@@ -185,7 +207,10 @@ paths:
                 example:
                   result: false
                   error:
-                    { code: "UPDATE-FAIL", message: "Could not update account details" }
+                    {
+                      code: "UPDATE-FAIL",
+                      message: "Could not update account details",
+                    }
   /account/calendar-export.php:
     parameters:
       - name: uid
@@ -250,7 +275,7 @@ paths:
                   response:
                     type: object
                     description: An empty object
-        'default':
+        "default":
           description: Error
           content:
             application/json:
@@ -265,8 +290,7 @@ paths:
                     description: An Array containing an error code and a message
                 example:
                   result: false
-                  error:
-                    { message: "Current Password Incorrect" }
+                  error: { message: "Current Password Incorrect" }
   /account/destroyTokens.php:
     parameters:
       - name: userid
@@ -383,7 +407,7 @@ paths:
           content:
             text/plain:
               schema:
-                type: string      
+                type: string
   /account/linkOAuth.php:
     parameters:
       - name: google
@@ -529,18 +553,15 @@ paths:
                 EditError:
                   value:
                     result: false
-                    error:
-                      { code: null, message: "Edit error" }
+                    error: { code: null, message: "Edit error" }
                 AttributeError:
                   value:
                     result: false
-                    error:
-                      { code: null, message: "Attribute action error" }
+                    error: { code: null, message: "Attribute action error" }
                 DeleteError:
                   value:
                     result: false
-                    error:
-                      { code: null, message: "Delete error" }
+                    error: { code: null, message: "Delete error" }
   /account/suspend.php:
     parameters:
       - name: userid
@@ -575,8 +596,7 @@ paths:
         required: true
         schema:
           type: string
-        examples:
-          ["1", "0"]
+        examples: ["1", "0"]
     post:
       tags:
         - account
@@ -682,7 +702,7 @@ paths:
               schema:
                 type: string
               examples:
-                noPermission: 
+                noPermission:
                   value: "Sorry - you can't access this page"
                 noParam:
                   value: "No uid passed"
@@ -704,7 +724,7 @@ paths:
       tags:
         - account
       summary: View Site As Terminate
-      description: Terminate the view site as session  
+      description: Terminate the view site as session
       operationId: viewSiteAsTerminate
       responses:
         404:
@@ -766,8 +786,7 @@ paths:
                       description: An Array containing an error code and a message
                   example:
                     result: false
-                    error:
-                      { code: null, message: "Update error" }
+                    error: { code: null, message: "Update error" }
   /assets/archive.php:
     parameters:
       - name: assets_id
@@ -2133,15 +2152,20 @@ paths:
                 ParamError:
                   value:
                     result: false
-                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
                 InsertError:
                   value:
                     result: false
-                    error: { code: "", message: "Barcode insert error" }  
+                    error: { code: "", message: "Barcode insert error" }
                 UpdateError:
                   value:
                     result: false
-                    error: { code: "UPDATE-FAIL", message: "Could not update barcode"}
+                    error:
+                      {
+                        code: "UPDATE-FAIL",
+                        message: "Could not update barcode",
+                      }
   /assets/barcodes/delete.php:
     parameters:
       - name: barcodes_id
@@ -2189,18 +2213,23 @@ paths:
                 ParamError:
                   value:
                     result: false
-                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
                 DeleteFail:
                   value:
                     result: false
-                    error: { code: "DELETE-FAIL", message: "Could not delete barcode"}
+                    error:
+                      {
+                        code: "DELETE-FAIL",
+                        message: "Could not delete barcode",
+                      }
   /assets/barcodes/index.php:
     parameters:
       - name: type
         in: query
         description: The Barcode type
         required: false
-        schema: 
+        schema:
           type: string
       - name: barcode
         in: query
@@ -2286,7 +2315,7 @@ paths:
                       barcode:
                         type: string
                         description: Scanned barcode
-                      location: 
+                      location:
                         type: object
                         description: Matching location
         "default":
@@ -2306,16 +2335,16 @@ paths:
                 ParamError:
                   value:
                     result: true
-                    error: { }
+                    error: {}
   /barcodes/searchAsset.php:
     parameters:
       - name: term
         in: query
         description: the barcode/tag to search for
-        required: true 
+        required: true
         schema:
           type: string
-    post: 
+    post:
       tags:
         - barcodes
       summary: Search by Barcode
@@ -2357,7 +2386,11 @@ paths:
                 AssetsFail:
                   value:
                     result: false
-                    error: { code: "LIST-ASSETS-FAIL", message: "Could not search for assets"}
+                    error:
+                      {
+                        code: "LIST-ASSETS-FAIL",
+                        message: "Could not search for assets",
+                      }
   /categories/edit.php:
     parameters:
       - name: formData
@@ -2418,7 +2451,8 @@ paths:
                 ParamError:
                   value:
                     result: false
-                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
                 UpdateFail:
                   value:
                     result: false
@@ -2479,7 +2513,8 @@ paths:
                 ParamError:
                   value:
                     result: object
-                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
                 InsertFail:
                   value:
                     result: false
@@ -2607,7 +2642,8 @@ paths:
                 ParamError:
                   value:
                     result: false
-                    error: { code: "PARAM-ERROR", message: "No data for action" }
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
                 UpdateFail:
                   value:
                     result: false
@@ -2667,7 +2703,11 @@ paths:
                 InsertFail:
                   value:
                     result: false
-                    error: { code: "CREATE-CLIENT-FAIL", message: "Could not create new client" }
+                    error:
+                      {
+                        code: "CREATE-CLIENT-FAIL",
+                        message: "Could not create new client",
+                      }
   /cms/editPageConfig.php:
     parameters:
       - name: formData
@@ -2899,7 +2939,7 @@ paths:
         - cms
       summary: Get CMS Page
       description: |
-        Get a page  
+        Get a page
       operationId: getPage
       responses:
         200:
@@ -3081,7 +3121,7 @@ paths:
           type: integer
       - name: s
         in: query
-        description: | 
+        description: |
           The file size  
           false to get the original, available is "tiny" (50px) "small" (100px) "medium" (500px) "large" (1000px)
         required: false
@@ -3110,7 +3150,7 @@ paths:
         - file_uploads
       summary: Get File
       description: |
-        Get a file  
+        Get a file
       operationId: getFile
       responses:
         200:
@@ -3145,7 +3185,10 @@ paths:
                 GetFail:
                   value:
                     result: false
-                    error: {message: "File not found - please check to ensure you are still logged in"}
+                    error:
+                      {
+                        message: "File not found - please check to ensure you are still logged in",
+                      }
   /file/removeShare.php:
     parameters:
       - name: s3files_id
@@ -3575,7 +3618,7 @@ paths:
                 SearchFail:
                   value:
                     result: false
-                    error: {message: "Could not search for Groups"}
+                    error: { message: "Could not search for Groups" }
   /groups/watch.php:
     parameters:
       - name: assetGroups_id
@@ -3623,5 +3666,1327 @@ paths:
                   value:
                     result: false
                     error: {}
-
-
+  /instances/assetAssignmentStatus/delete.php:
+    parameters:
+      - name: statusId
+        in: query
+        description: The status id
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - assetAssignmentStatus
+      summary: Delete Asset Assignment Status
+      description: |
+        Delete an asset assignment status  
+        Requires Instance Permission 83 (Edit business settings)
+      operationId: deleteAssetAssignmentStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                DeleteFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "REMOVE-STATUS-FAIL",
+                        message: "Could not remove asset status from Business",
+                      }
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "", message: "invalid status id or permission" }
+  /instances/assetAssignmentStatus/edit.php:
+    parameters:
+      - name: statusId
+        in: query
+        description: The status id
+        required: true
+        schema:
+          type: integer
+      - name: statusName
+        in: query
+        description: The status name
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - assetAssignmentStatus
+      summary: Edit Asset Assignment Status
+      description: |
+        Edit an asset assignment status  
+        Requires Instance Permission 83 (Edit business settings)
+      operationId: editAssetAssignmentStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                EditFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "UPDATE-STATUS-FAIL",
+                        message: "Could not Update asset status",
+                      }
+                ParamError:
+                  value:
+                    result: false
+  /instances/assetAssignmentStatus/new.php:
+    parameters:
+      - name: statusName
+        in: query
+        description: The status name
+        required: true
+        schema:
+          type: string
+      - name: statusOrder
+        in: query
+        description: The status order
+        required: true
+        schema:
+          type: integer
+    post:
+      tags:
+        - assetAssignmentStatus
+      summary: Create Asset Assignment Status
+      description: |
+        Create an asset assignment status  
+        Requires Instance Permission 83 (Edit business settings)
+      operationId: createAssetAssignmentStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                CreateFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ADD-STATUS-FAIL",
+                        message: "Could not create new asset assignment status",
+                      }
+                ParamError:
+                  value:
+                    result: false
+  /instances/assetAssignmentStatus/reorder.php:
+    parameters:
+      - name: order
+        in: query
+        description: The order of the statuses
+        required: true
+        schema:
+          type: array
+          items:
+            type: integer
+            description: The status id
+    post:
+      tags:
+        - assetAssignmentStatus
+      summary: Reorder Asset Assignment Status
+      description: |
+        Reorder asset assignment statuses  
+        Requires Instance Permission 83 (Edit business settings)
+      operationId: reorderAssetAssignmentStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                ParamError:
+                  value:
+                    result: false
+  /instances/projectTypes/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The project type data
+        required: true
+        schema:
+          type: object
+          properties:
+            projectsTypes_id:
+              type: integer
+              description: The project type id
+            projectTypes_name:
+              type: string
+              description: The project type name
+            projectsTypes_config_finance:
+              type: boolean
+              description: Use finance in project type
+            projectsTypes_config_files:
+              type: boolean
+              description: Use files in project type
+            projectsTypes_config_assets:
+              type: boolean
+              description: Use assets in project type
+            projectsTypes_config_client:
+              type: boolean
+              description: Use clients in project type
+            projectsTypes_config_venue:
+              type: boolean
+              description: Use locations in project type
+            projectsTypes_config_notes:
+              type: boolean
+              description: Use notes in project type
+            projectsTypes_config_crew:
+              type: boolean
+              description: Use crew in project type
+    post:
+      tags:
+        - projectTypes
+      summary: Edit Project Type
+      description: |
+        Edit a project type  
+        Requires Instance Permission 107 (Edit Project Type)
+      operationId: editProjectType
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+                OtherError:
+                  value:
+                    result: false
+  instances/projectTypes/new.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The project type data
+        required: true
+        schema:
+          type: object
+          properties:
+            projectTypes_name:
+              type: string
+              description: The project type name
+            projectsTypes_config_finance:
+              type: boolean
+              description: Use finance in project type
+            projectsTypes_config_files:
+              type: boolean
+              description: Use files in project type
+            projectsTypes_config_assets:
+              type: boolean
+              description: Use assets in project type
+            projectsTypes_config_client:
+              type: boolean
+              description: Use clients in project type
+            projectsTypes_config_venue:
+              type: boolean
+              description: Use locations in project type
+            projectsTypes_config_notes:
+              type: boolean
+              description: Use notes in project type
+            projectsTypes_config_crew:
+              type: boolean
+              description: Use crew in project type
+    post:
+      tags:
+        - projectTypes
+      summary: Create Project Type
+      description: |
+        Create a project type  
+        Requires Instance Permission 106 (Create Project Type)
+      operationId: createProjectType
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+                OtherError:
+                  value:
+                    result: false
+  /instances/signupCodes/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The signup code data
+        required: true
+        schema:
+          type: object
+          properties:
+            signupCodes_id:
+              type: integer
+              description: The signup code id
+            signupCodes_name:
+              type: string
+              description: The signup code
+            signupCodes_valid:
+              type: boolean
+              description: Whether the signup code is valid
+            signupCodes_notes:
+              type: string
+              description: The signup code notes
+            signupCodes_role:
+              type: string
+              description: Associated role for the signup code
+            instancePositions_id:
+              type: integer
+              description: Associated position for the signup code
+    post:
+      tags:
+        - signupCodes
+      summary: Edit Signup Code
+      description: |
+        Edit a signup code  
+        Requires Instance Permission 111 (Edit Signup Code)
+      operationId: editSignupCode
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+                OtherError:
+                  value:
+                    result: false
+  /instances/signupCodes/new.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The signup code data
+        required: true
+        schema:
+          type: object
+          properties:
+            signupCodes_name:
+              type: string
+              description: The signup code
+            signupCodes_notes:
+              type: string
+              description: The signup code notes
+            signupCodes_role:
+              type: string
+              description: Associated role for the signup code
+            instancePositions_id:
+              type: integer
+              description: Associated position for the signup code
+    post:
+      tags:
+        - signupCodes
+      summary: Create Signup Code
+      description: |
+        Create a signup code  
+        Requires Instance Permission 110 (Add new Signup Code)
+      operationId: createSignupCode
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                ParamError:
+                  value:
+                    result: false
+                    error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+                InUse:
+                  value:
+                    result: false
+                    error: { code: "", message: "Sorry this code is in use" }
+                OtherError:
+                  value:
+                    result: false
+  /instances/signupCodes/taken.php:
+    parameters:
+      - name: signupCode
+        in: query
+        description: The signup code
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - signupCodes
+      summary: Check if Signup Code is Taken
+      description: |
+        Check if a signup code is taken  
+        Requires Instance Permission 109 (View list of Signup Codes)
+      operationId: checkSignupCodeTaken
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: boolean
+                    description: Whether the signup code is taken
+        404:
+          description: Permission Error
+  /instances/addUser.php:
+    parameters:
+      - name: rolegroup
+        in: query
+        description: The instance position id
+        required: true
+        schema:
+          type: number
+      - name: rolename
+        in: query
+        description: The role name
+        required: true
+        schema:
+          type: string
+      - name: users
+        in: query
+        description: The user ids
+        required: true
+        schema:
+          type: array
+          items:
+            type: number
+    post:
+      tags:
+        - instances
+      summary: Add User to Instance
+      description: |
+        Add a user to an instance  
+        Requires Instance Permission 3 (Add a user to a business by EMail)
+      operationId: addUserToInstance
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                AddFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ADD-USER-TO-INSTANCE-FAIL",
+                        message: "Could not add user to Business",
+                      }
+                AuthFail:
+                  value:
+                    result: false
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
+  /instances/addUserFromCode.php:
+    parameters:
+      - name: signupCodes_name
+        in: query
+        description: The signup code
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - instances
+      summary: Join Instance using Signup Code
+      description: Add a user to an instance from a signup code
+      operationId: addUserToInstanceFromCode
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                AddFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ADD-USER-TO-INSTANCE-FAIL",
+                        message: "Could not add user to Business",
+                      }
+                AuthFail:
+                  value:
+                    result: false
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
+                InInstance:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ALREADY-IN-INSTANCE",
+                        message: "Already in Business",
+                      }
+  /instance/addUserFromTrustedDomain.php:
+    parameters:
+      - name: instances_id
+        in: query
+        description: The instance id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - instances
+      summary: Join Instance using Trusted Domain
+      description: Add a user to an instance from a trusted domain
+      operationId: addUserToInstanceFromTrustedDomain
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                AddFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ADD-USER-TO-INSTANCE-FAIL",
+                        message: "Could not add user to Business",
+                      }
+                AuthFail:
+                  value:
+                    result: false
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
+                InInstance:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ALREADY-IN-INSTANCE",
+                        message: "Already in Business",
+                      }
+  /instances/archiveUser.php:
+    parameters:
+      - name: users_id
+        in: query
+        description: The user id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - instances
+      summary: Archive User
+      description: |
+        Archive a user from an instance  
+        Requires Instance Permission 118 (Archive a user)
+      operationId: archiveUserFromInstance
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                ArchiveFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ARCHIVE-USER-FAIL",
+                        message: "Could not archive user from Business",
+                      }
+                AuthFail:
+                  value:
+                    result: false
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
+  /instances/editInstance.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The instance data
+        required: true
+        schema:
+          type: object
+          properties:
+            instances_name:
+              type: string
+              description: The instance name
+            instances_address:
+              type: string
+              description: The instance address
+            instances_phone:
+              type: string
+              description: The instance phone number
+            instances_email:
+              type: string
+              description: The instance email
+            instances_website:
+              type: string
+              description: The instance website
+            instances_weekStartDates:
+              type: string
+              description: When the Instance's calendar start dates are
+            instances_logo:
+              type: number
+              description: The file id for the instance logo
+            instances_emailHeader:
+              type: number
+              description: The file id for the instance email header image
+            instances_termsAndPayment:
+              type: string
+            instances_quoteTerms:
+              type: string
+            instances_cableColours:
+              type: json
+            instances_publicConfig:
+              type: json
+            instances_trustedDomains:
+              type: json
+    post:
+      tags:
+        - instances
+      summary: Edit Instance
+      description: |
+        Edit an instance  
+        Requires Instance Permission 83 (Edit Instance)
+      operationId: editInstance
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                EditFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "UPDATE-FAIL",
+                        message: "Could not update instance",
+                      }
+  /instances/editInstancePublicData.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The instance data
+        required: true
+        schema:
+          type: object
+    post:
+      tags:
+        - instances
+      summary: Edit Instance Public Data
+      description: |
+        Edit an instance's public data  
+        Requires Instance Permission 83 (Edit Instance)
+      operationId: editInstancePublicData
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                EditFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "UPDATE-FAIL",
+                        message: "Could not update instance",
+                      }
+  /instances/editInstanceTrustedDomains.php:
+    parameters: 
+      - name: formData
+        in: query
+        description: The instance data
+        required: true
+        schema:
+          type: object
+    post:
+      tags:
+        - instances
+      summary: Edit Instance Trusted Domains
+      description: |
+        Edit an instance's trusted domains  
+        Requires Instance Permission 83 (Edit Instance)
+      operationId: editInstanceTrustedDomains
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                EditFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "UPDATE-FAIL",
+                        message: "Could not update instance",
+                      }
+  /instances/editUser.php:
+    parameters:
+      - name: userinstanceid
+        in: query
+        description: The userinstance id
+        required: true
+        schema:
+          type: number
+      - name: position
+        in: query
+        description: The user's position id
+        required: true
+        schema:
+          type: number
+      - name: label
+        in: query
+        description: The user's role label
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - instances
+      summary: Edit User
+      description: |
+        Edit a user's role  
+        Requires Instance Permission 6 (Change the role of a user in a business)
+      operationId: editUser
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                EditFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "EDIT-USER-TO-INSTANCE-FAIL",
+                        message: "Could not edit user in Business",
+                      }
+                AuthError:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "AUTH-ERROR",
+                        message: "No auth for action",
+                      }
+  /instances/list.php:
+    get:
+      tags:
+        - instances
+      summary: List User Instances
+      description: |
+        List all instances a user is a member of
+      operationId: listUserInstances
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An array of instances
+                    items:
+                      type: object
+                      properties:
+                        instances_id:
+                          type: number
+                          description: The instance id
+                        instances_name:
+                          type: string
+                          description: The instance name
+                        permissions:
+                          type: array
+                          description: An array of permissions
+                        this:
+                          type: boolean
+                          description: Whether the instance is active for the user
+  /instances/new.php:
+    parameters:
+      - name: instances_name
+        in: query
+        description: The instance name
+        required: true
+        schema:
+          type: string
+      - name: instances_website
+        in: query
+        description: The instance website
+        required: true
+        schema:
+          type: string
+      - name: instances_email
+        in: query
+        description: The instance email
+        required: true
+        schema:
+          type: string
+      - name: instances_phone
+        in: query
+        description: The instance phone number
+        required: true
+        schema:
+          type: string
+      - name: role
+        in: query
+        description: The user's role id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - instances
+      summary: Create Instance
+      description: |
+        Create a new instance  
+        Requires RMS Permission 8 (Create Instance)
+      operationId: createInstance
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      instanceid:
+                        type: number
+                        description: The instance id
+        404: 
+          description: Auth Fail
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                CreateFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "CREATE-INSTANCE-FAIL",
+                        message: "Could not create new business",
+                      }
+                PositionFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "CREATE-POSITION-FAIL",
+                        message: "Could not create new business",
+                      }
+                UserFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ADD-USER-TO-INSTANCE-FAIL",
+                        message: "Could not create new business",
+                      }
+                ProjectFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ADD-PROJECT-TYPE-FAIL",
+                        message: "Could not create new project type",
+                      }
+                StatusFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "ADD-STATUS-FAIL",
+                        message: "Could not create new assignment status",
+                      }
+  /instances/removeUser.php:
+    parameters:
+      - name: userid
+        in: query
+        description: The user id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - instances
+      summary: Remove User
+      description: |
+        Remove a user from an instance  
+        Requires Instance Permission 5 (Remove a user from a business)
+      operationId: removeUser
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                RemoveFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "REMOVE-USER-TO-INSTANCE-FAIL",
+                        message: "Could not remove user from Business",
+                      }
+                AuthError:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "AUTH-ERROR",
+                        message: "No auth for action",
+                      }
+  /instances/searchUser.php:
+    parameter:
+      - name: term
+        in: query
+        description: The search term
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - instances
+      summary: Search Users
+      description: |
+        Search for users in an instance  
+        Requires Instance Permission 3 (Add a user to a business)
+      operationId: searchUser
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An array of users
+                    items:
+                      type: object
+                      properties:
+                        users_userid:
+                          type: number
+                          description: The user id
+                        users_name1:
+                          type: string
+                          description: The user name
+                        users_name2:
+                          type: string
+                          description: The user second name
+          
