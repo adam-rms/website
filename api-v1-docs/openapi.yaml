@@ -77,10 +77,10 @@ tags:
     description: Client Management
   - name: training
     x-displayName: Training
-    description: Training Management
   - name: training_modules
     x-displayName: Training Modules
-    description: Training Module Management
+  - name: module_steps
+    x-displayName: Module Steps
   - name: cms
     x-displayName: CMS Pages
     description: CMS Page Management
@@ -129,6 +129,7 @@ x-tagGroups:
     tags:
       - training
       - training_modules
+      - module_steps
   - name: CMS Pages
     tags:
       - cms
@@ -5507,7 +5508,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Add Asset
-      description: | 
+      description: |
         Add an asset to a maintenance job  
         Requires Instance Permission 74 (Add Assets to Job)
       operationId: addAsset
@@ -5554,7 +5555,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Change Block
-      description: | 
+      description: |
         Change the block status of a maintenance job  
         Requires Instance Permission 79 (Make job block asset assignments)
       operationId: changeBlock
@@ -5601,7 +5602,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Change Due Date
-      description: | 
+      description: |
         Change the due date of a maintenance job  
         Requires Instance Permission 67 (Change Due Date)
       operationId: changeDueDate
@@ -5648,7 +5649,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Change Job Assigned
-      description: | 
+      description: |
         Change who a maintenance job is assigned to  
         Requires Instance Permission 68 (Change Assigned To)
       operationId: changeJobAssigned
@@ -5695,7 +5696,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Change Job Status
-      description: | 
+      description: |
         Change the status of a maintenance job  
         Requires Instance Permission 73 (Change Status)
       operationId: changeJobStatus
@@ -5742,7 +5743,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Change Name
-      description: | 
+      description: |
         Change the name of a maintenance job  
         Requires Instance Permission 70 (	Edit Job Name)
       operationId: changeName
@@ -5789,7 +5790,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Change Priority
-      description: | 
+      description: |
         Change the priority of a maintenance job  
         Requires Instance Permission 77 (Change Priority)
       operationId: changePriority
@@ -5830,7 +5831,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Delete Job
-      description: | 
+      description: |
         Delete a maintenance job  
         Requires Instance Permission 72 (Delete Job)
       operationId: deleteJob
@@ -5877,7 +5878,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Remove Asset
-      description: | 
+      description: |
         Remove an asset from a maintenance job  
         Requires Instance Permission 75 (	Remove Assets from Job)
       operationId: removeAsset
@@ -5924,7 +5925,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Send Message
-      description: | 
+      description: |
         Send a message to a maintenance job  
         Requires Instance Permission 71 (Add message to job)
       operationId: sendMessage
@@ -5971,7 +5972,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Tag User
-      description: | 
+      description: |
         Tag a user to a maintenance job  
         Requires Instance Permission 69 (Edit users tagged in job)
       operationId: tagUser
@@ -6018,7 +6019,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Untag User
-      description: | 
+      description: |
         Untag a user from a maintenance job  
         Requires Instance Permission 69 (Edit users tagged in job)
       operationId: untagUser
@@ -6084,7 +6085,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: New Job
-      description: | 
+      description: |
         Create a new maintenance job  
         Requires Instance Permission 18 (Create new Asset Type)
       operationId: newJob
@@ -6131,7 +6132,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Search Asset
-      description: Search for an asset to add to a maintenance job  
+      description: Search for an asset to add to a maintenance job
       operationId: searchAsset
       responses:
         200:
@@ -6171,7 +6172,7 @@ paths:
       tags:
         - maintenanceJobs
       summary: Search User
-      description: Search for a user to tag to a maintenance job  
+      description: Search for a user to tag to a maintenance job
       operationId: searchUser
       responses:
         200:
@@ -6187,6 +6188,389 @@ paths:
                   response:
                     type: array
                     description: Array of Users
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /manufacturer/new.php:
+    parameters:
+      - name: manufacturers_name
+        in: query
+        description: Manufacturer Name
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - manufacturers
+      summary: New Manufacturer
+      description: |
+        Create a new manufacturer  
+        Requires Instance Permission 38 (Create new Manufacturer)
+      operationId: newManufacturer
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                Success:
+                  value:
+                    result: true
+                    response: { manufacturers_id: 1 }
+
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+              examples:
+                CreateFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        "code": "CREATE-CLIENT-FAIL",
+                        "message": "Could not create new manufacturers",
+                      }
+  /manufacturer/search.php:
+    parameters:
+      - name: term
+        in: query
+        description: Search Term
+        required: true
+        schema:
+          type: string
+      - name: instance_id
+        in: query
+        description: Instance ID
+        required: false
+        schema:
+          type: number
+    post:
+      tags:
+        - manufacturers
+      summary: Search Manufacturers
+      description: Search for a manufacturer
+      operationId: searchManufacturers
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: Array of Manufacturers
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /modules/steps/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            modulessteps_id:
+              type: number
+              description: Step ID
+            modulesSteps_name:
+              type: string
+              description: Step Name
+            modulesSteps_content:
+              type: string
+              description: Step Content
+            modules_steps_order:
+              type: number
+              description: Step Order
+            modules_id:
+              type: number
+              description: Module ID
+            modulesSteps_internalNotes:
+              type: string
+              description: Internal Notes
+            modulesSteps_show:
+              type: boolean
+    post:
+      tags:
+        - module_steps
+      summary: Edit Step
+      description: |
+        Edit a module step  
+        Requires Instance Permission 116 (Edit Training modules)
+      operationId: editStep
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /modules/steps/new.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            modulesSteps_name:
+              type: string
+              description: Step Name
+            modulesSteps_content:
+              type: string
+              description: Step Content
+            modules_steps_order:
+              type: number
+              description: Step Order
+            modules_id:
+              type: number
+              description: Module ID
+            modulesSteps_internalNotes:
+              type: string
+              description: Internal Notes
+            modulesSteps_show:
+              type: boolean
+    post:
+      tags:
+        - module_steps
+      summary: New Step
+      description: |
+        Create a new module step  
+        Requires Instance Permission 116 (Edit Training modules)
+      operationId: newStep
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /modules/steps/sortRank.php:
+    parameters:
+      - name: order
+        in: query
+        description: Order
+        required: true
+        schema:
+          type: array
+          items:
+            type: number
+    post:
+      tags: 
+        - module_steps
+      summary: Sort Steps
+      description: |
+        Sort the steps of a module  
+        Requires Instance Permission 116 (Edit Training modules)
+      operationId: sortSteps
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /modules/edit.php:
+    parameters: 
+      - name: formData
+        in: query
+        required: true
+        schema:
+          type: object
+          properties:
+            modules_id:
+              type: number
+              description: Module ID
+            modules_name:
+              type: string
+              description: Module Name
+            modules_description:
+              type: string
+              description: Module Description
+            modules_learningObjectives:
+              type: string
+              description: LOs
+            modules_show:
+              type: boolean
+            modules_thumbnail:
+              type: number
+              description: Thumbnail ID
+            modules_type:
+              type: number
+    post:
+      tags:
+        - modules
+      summary: Edit Module
+      description: |
+        Edit a module  
+        Requires Instance Permission 116 (Edit Training modules)
+      operationId: editModule
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /modules/new.php:
+    parameters:
+      - name: formData
+        in: query
+        required: true
+        schema:
+          type: object
+          properties:
+            modules_name:
+              type: string
+              description: Module Name
+            modules_description:
+              type: string
+              description: Module Description
+            modules_learningObjectives:
+              type: string
+              description: LOs
+            modules_show:
+              type: boolean
+            modules_thumbnail:
+              type: number
+              description: Thumbnail ID
+            modules_type:
+              type: number
+    post:
+      tags:
+        - modules
+      summary: New Module
+      description: |
+        Create a new module  
+        Requires Instance Permission 115 (Create Training modules)
+      operationId: newModule
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
         "default":
           description: Error
           content:
