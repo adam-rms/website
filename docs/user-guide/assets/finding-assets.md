@@ -5,33 +5,27 @@ title: Finding Assets
 
 # Finding assets
 
-AdamRMS uses a comprehensive search system to help you find assets. You can open the search engine from any page by clicking on the warehouse button on the top menu bar.
-
-![Asset Warehouse](/img/tutorial/assets/assets-warehouse.png "Asset Search")
-*Asset Search*
+AdamRMS uses a comprehensive search system to help you find assets. You can open the search engine by clicking on the warehouse button on the left menu bar.
 
 You can search by:
 - Keyword - Name of asset (eg. Source 4 Jr)
 - Tags - Asset ID (A-XXXX) or custom barcode value (eg T-3214)
-- Category - eg. ‘Lighting - Conventionals’
-- Manufacturer - eg. ‘ETC’
-- Group - Business asset group
+- Categories - eg. ‘Lighting - Conventionals’
+- Manufacturers - eg. ‘ETC’
+- Groups - Business asset groups
+- Business - you can only select one at once
 
-Asset availability can be checked by:
-- Date range (“Show availability between”)
-- Project
+Asset availability can be checked by selecting a project (or a range of dates if you do not have permission to assign assets to projects)
 
 Page Limit, Sorting, Linked Assets and Archived assets are additional options if you need further control over searching.  
 From the search page, you can also export a full list of assets in either .xlsx or .csv formats.
 
 ## Listing Assets
 ---
+
 Once you’ve searched for some assets, they’ll be listed in pages.  
 Each asset type has an add-to-project option, which allows you to add any assets that can be added to the project.  
 You can also view more information about an asset by clicking on it!  
-
-![Asset Listing with "XLR" in the Keywords box](/img/tutorial/assets/assets-view.png "XLR Assets in Demo Hire Services")
-*Example Listing of assets, based on the "XLR" keyword*
 
 ## Viewing Assets
 ---
