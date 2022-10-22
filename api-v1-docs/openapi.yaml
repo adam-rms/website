@@ -42,6 +42,9 @@ tags:
   - name: maintenance
     x-displayName: Maintenance
     description: Asset Maintenance
+  - name: maintenanceJobs
+    x-displayName: Maintenance Jobs
+    description: Asset Maintenance Jobs
   - name: manufacturers
     x-displayName: Manufacturers
     description: Asset Manufacturers
@@ -106,6 +109,7 @@ x-tagGroups:
       - categories
       - groups
       - maintenance
+      - maintenanceJobs
       - manufacturers
   - name: Projects
     tags:
@@ -5041,7 +5045,7 @@ paths:
         required: true
         schema:
           type: object
-          parameters:
+          properties:
             locations_id:
               type: number
               description: The location id
@@ -5111,7 +5115,7 @@ paths:
         required: true
         schema:
           type: object
-          parameters:
+          properties:
             locations_name:
               type: string
               description: The location name
@@ -5485,3 +5489,713 @@ paths:
                   error:
                     type: object
                     description: An object containing the error message and code
+  /maintenance/job/addAsset.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: maintenanceJobs_assets
+        in: query
+        description: Maintenance Job Assets
+        required: true
+        schema:
+          type: array
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Add Asset
+      description: | 
+        Add an asset to a maintenance job  
+        Requires Instance Permission 74 (Add Assets to Job)
+      operationId: addAsset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/changeBlock.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: maintenanceJobs_blockAssets
+        in: query
+        description: Maintenance Job Block
+        required: true
+        schema:
+          type: boolean
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Change Block
+      description: | 
+        Change the block status of a maintenance job  
+        Requires Instance Permission 79 (Make job block asset assignments)
+      operationId: changeBlock
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/changeDueDate.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: maintenanceJobs_timestamp_due
+        in: query
+        description: Maintenance Job Due Date
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Change Due Date
+      description: | 
+        Change the due date of a maintenance job  
+        Requires Instance Permission 67 (Change Due Date)
+      operationId: changeDueDate
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/changeJobAssigned.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: users_userid
+        in: query
+        description: Who the maintenance job is assigned to
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Change Job Assigned
+      description: | 
+        Change who a maintenance job is assigned to  
+        Requires Instance Permission 68 (Change Assigned To)
+      operationId: changeJobAssigned
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/changeJobStatus.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: maintenanceJobsStatuses_id
+        in: query
+        description: Maintenance Job Status id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Change Job Status
+      description: | 
+        Change the status of a maintenance job  
+        Requires Instance Permission 73 (Change Status)
+      operationId: changeJobStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/changeName.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: maintenanceJobs_title
+        in: query
+        description: Maintenance Job Name
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Change Name
+      description: | 
+        Change the name of a maintenance job  
+        Requires Instance Permission 70 (	Edit Job Name)
+      operationId: changeName
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/changePriority.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: maintenanceJobs_priority
+        in: query
+        description: Maintenance Job Priority
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Change Priority
+      description: | 
+        Change the priority of a maintenance job  
+        Requires Instance Permission 77 (Change Priority)
+      operationId: changePriority
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/deleteJob.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Delete Job
+      description: | 
+        Delete a maintenance job  
+        Requires Instance Permission 72 (Delete Job)
+      operationId: deleteJob
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/removeAsset.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: assets_id
+        in: query
+        description: Asset ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Remove Asset
+      description: | 
+        Remove an asset from a maintenance job  
+        Requires Instance Permission 75 (	Remove Assets from Job)
+      operationId: removeAsset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/sendMessage.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: maintenanceJobsMessages_text
+        in: query
+        description: Message
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Send Message
+      description: | 
+        Send a message to a maintenance job  
+        Requires Instance Permission 71 (Add message to job)
+      operationId: sendMessage
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/tagUser.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: users_userid
+        in: query
+        description: User ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Tag User
+      description: | 
+        Tag a user to a maintenance job  
+        Requires Instance Permission 69 (Edit users tagged in job)
+      operationId: tagUser
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/job/unTagUser.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: users_userid
+        in: query
+        description: User ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Untag User
+      description: | 
+        Untag a user from a maintenance job  
+        Requires Instance Permission 69 (Edit users tagged in job)
+      operationId: untagUser
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/newJob.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            maintenanceJobs_title:
+              type: string
+              description: Title
+            maintenanceJobs_faultDescription:
+              type: string
+              description: Description
+            maintenanceJobs_priority:
+              type: number
+              description: Priority
+            maintenanceJobs_status:
+              type: number
+              description: Status
+            maintenanceJobs_assets:
+              type: json
+            maintenanceJobs_timestamp_due:
+              type: timestamp
+            maintenanceJobs_user_tagged:
+              type: number
+            maintenanceJobs_user_creator:
+              type: number
+            maintenanceJobs_flagAssets:
+              type: boolean
+            maintenanceJobs_blockAssets:
+              type: boolean
+    post:
+      tags:
+        - maintenanceJobs
+      summary: New Job
+      description: | 
+        Create a new maintenance job  
+        Requires Instance Permission 18 (Create new Asset Type)
+      operationId: newJob
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/searchAsset.php:
+    parameters:
+      - name: maintenanceJobs_id
+        in: query
+        description: Maintenance Job ID
+        required: true
+        schema:
+          type: number
+      - name: term
+        in: query
+        description: Search Term
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Search Asset
+      description: Search for an asset to add to a maintenance job  
+      operationId: searchAsset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: Array of Assets
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+  /maintenance/searchUser.php:
+    parameters:
+      - name: term
+        in: query
+        description: Search Term
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - maintenanceJobs
+      summary: Search User
+      description: Search for a user to tag to a maintenance job  
+      operationId: searchUser
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: Array of Users
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
