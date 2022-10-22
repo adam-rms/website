@@ -24,16 +24,23 @@ The Basic Settings page includes the following information:
   - Email Address
   - Phone Number
   - Website
+- Business Logo
+- Email Header
 - Invoice Footer - Note on the bottom of all generated invoices
 - Cable length colours - assign a colour to each length for ease of identification
 - Asset Statuses - used for asset dispatch
-- Week Start Date - resets the week counter on calendars.
-- Business Logo
-- Email Header
+- Week Labels - Overrides the week label on calendars
+
+### Week Labels
+Calendars across AdamRMS usually use the week number of the year as the week number, but this can be overritten on a week-by-week basis. 
+
+![Week Labels](/img/tutorial/businesses/settings-weekLabels.png)
+
+The date of each label can be any date in the required week. If two labels for the same week are found, the one lower in the list will be used.
 
 ## Public Site
 ---
-AdamRMS supports a public site for each business, to allow information about business assets to be shared publicly.  
+AdamRMS supports provides a number of widgets to business, to allow information about business assets to be shared publicly.  
 For example, this can be used to show what assets are available for hire.
 
 :::note Public site permissions  
@@ -44,12 +51,12 @@ For example, this can be used to show what assets are available for hire.
 ![Public site settings](/img/tutorial/businesses/settings-publicSite.png)
 *AdamRMS public site settings*
 
-The public site is an optional addon, but requires AdamRMS support to set up. Please get in touch if you would like to use this feature.
+Currently, there are two widgets available:
 
-You can enable different pieces of information to be shared from the Public site settings page. The homepage can also be edited from this page, and supports HTML code editing. You can also provide a header image that is shown on each page.
+- **Asset List and Seearch** - This shows a list of assets that are available for hire.
+- **Crew Vacancies** - This shows a list of crew roles that are currently vacant.
 
-There is also support for files to be hosted on your public site. This can be used for business brochures and venue information.
-
+You can enable different pieces of information to be shared from the Public site settings page for each of these widgets.
 ## Project Types
 ---
 Project types are a way to change what elements of [Projects](./../projects/overview) are available to each project. AdamRMS provides a “Full Project” by default which has all elements enabled.
