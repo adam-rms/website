@@ -4989,4 +4989,197 @@ paths:
                         users_name2:
                           type: string
                           description: The user second name
-          
+  /instances/switch.php:
+    parameters:
+      - name: instanceid
+        in: query
+        description: The instance id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - instances
+      summary: Switch Instance
+      description: |
+        Switch the active instance for the user  
+      operationId: switchInstance
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                AuthError:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "PARAM-ERROR",
+                        message: "Provide an instance id",
+                      }        
+  /locations/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The location data
+        required: true
+        schema:
+          type: object
+          parameters:
+            locations_id:
+              type: number
+              description: The location id
+            locations_name:
+              type: string
+              description: The location name
+            clients_id:
+              type: number
+              description: The owning Client
+            locations_address:
+              type: string
+              description: The location address
+            locations_subOf:
+              type: number
+              description: The parent location
+            locations_notes:
+              type: string
+              description: The location notes
+    post:
+      tags:
+        - locations
+      summary: Edit Location
+      description: |
+        Edit a location  
+        Requires Instance Permission 99 (Edit a location)
+      operationId: editLocation
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404: 
+          description: Auth Fail
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                EditFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "PARAM-ERROR",
+                        message: "No data for action",
+                      }
+  /locations/new.php:
+    parameters:
+      - name: formData
+        in: query
+        description: The location data
+        required: true
+        schema:
+          type: object
+          parameters:
+            locations_name:
+              type: string
+              description: The location name
+            clients_id:
+              type: number
+              description: The owning Client
+            locations_address:
+              type: string
+              description: The location address
+            locations_subOf:
+              type: number
+              description: The parent location
+            locations_notes:
+              type: string
+              description: The location notes
+    post:
+      tags:
+        - locations
+      summary: New Location
+      description: |
+        Create a new location  
+        Requires Instance Permission 98 (Add new location)
+      operationId: newLocation
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404: 
+          description: Auth Fail
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                NewFail:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "PARAM-ERROR",
+                        message: "No data for action",
+                      }
