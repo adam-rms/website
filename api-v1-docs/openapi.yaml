@@ -24,6 +24,9 @@ externalDocs:
   description: AdamRMS Documentation
   url: https://adam-rms.com
 tags:
+  - name: authentication
+    x-displayName: Authentication
+    description: Login
   - name: account
     x-displayName: Account
     description: User account management
@@ -93,6 +96,7 @@ tags:
 x-tagGroups:
   - name: Users
     tags:
+      - authentication
       - account
       - permissions
   - name: Assets
@@ -4614,7 +4618,7 @@ paths:
                         message: "Could not update instance",
                       }
   /instances/editInstanceTrustedDomains.php:
-    parameters: 
+    parameters:
       - name: formData
         in: query
         description: The instance data
@@ -4732,11 +4736,7 @@ paths:
                 AuthError:
                   value:
                     result: false
-                    error:
-                      {
-                        code: "AUTH-ERROR",
-                        message: "No auth for action",
-                      }
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
   /instances/list.php:
     get:
       tags:
@@ -4831,7 +4831,7 @@ paths:
                       instanceid:
                         type: number
                         description: The instance id
-        404: 
+        404:
           description: Auth Fail
         "default":
           description: Error
@@ -4942,11 +4942,7 @@ paths:
                 AuthError:
                   value:
                     result: false
-                    error:
-                      {
-                        code: "AUTH-ERROR",
-                        message: "No auth for action",
-                      }
+                    error: { code: "AUTH-ERROR", message: "No auth for action" }
   /instances/searchUser.php:
     parameter:
       - name: term
@@ -5002,7 +4998,7 @@ paths:
         - instances
       summary: Switch Instance
       description: |
-        Switch the active instance for the user  
+        Switch the active instance for the user
       operationId: switchInstance
       responses:
         200:
@@ -5036,10 +5032,7 @@ paths:
                   value:
                     result: false
                     error:
-                      {
-                        code: "PARAM-ERROR",
-                        message: "Provide an instance id",
-                      }        
+                      { code: "PARAM-ERROR", message: "Provide an instance id" }
   /locations/edit.php:
     parameters:
       - name: formData
@@ -5089,7 +5082,7 @@ paths:
                   response:
                     type: array
                     description: A null Array
-        404: 
+        404:
           description: Auth Fail
         "default":
           description: Error
@@ -5109,10 +5102,7 @@ paths:
                   value:
                     result: false
                     error:
-                      {
-                        code: "PARAM-ERROR",
-                        message: "No data for action",
-                      }
+                      { code: "PARAM-ERROR", message: "No data for action" }
   /locations/new.php:
     parameters:
       - name: formData
@@ -5159,7 +5149,7 @@ paths:
                   response:
                     type: array
                     description: A null Array
-        404: 
+        404:
           description: Auth Fail
         "default":
           description: Error
@@ -5179,7 +5169,319 @@ paths:
                   value:
                     result: false
                     error:
+                      { code: "PARAM-ERROR", message: "No data for action" }
+  /login/authStep2Password.php:
+    parameters:
+      - name: formInput
+        in: query
+        description: Username
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: query
+        description: Password
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - authentication
+      summary: Login
+      operationId: login
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                WebLogin:
+                  value:
+                    result: true
+                    response: { "redirect": "/" }
+                APILogin:
+                  value:
+                    result: true
+                    response:
+                      { "redirect": "{BaseURL}://oauth_callback?token={token}" }
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                NoData:
+                  value:
+                    result: false
+                    error: { code: null, message: "No data specified" }
+                NoUser:
+                  value:
+                    result: false
+                    error:
                       {
-                        code: "PARAM-ERROR",
-                        message: "No data for action",
+                        code: null,
+                        message: "No user found with associated email address or username",
                       }
+                BruteForce:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: null,
+                        message: "Sorry - you've tried too many times to login - please try again in 5 minutes",
+                      }
+                NoAccount:
+                  value:
+                    result: false
+                    error: { code: null, message: "Password incorrect" }
+                UserSuspended:
+                  value:
+                    result: false
+                    error: { code: 5, message: "User suspended" }
+                NotVerified:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: "VERIFYEMAIL",
+                        message: "Please verify your email address using the link we sent you to login",
+                      }
+  /login/forgotPassword.php:
+    parameters:
+      - name: formInput
+        in: query
+        description: Username
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - authentication
+      summary: Forgot Password
+      description: Send a password reset email to the user
+      operationId: forgotPassword
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                ForgotPassword:
+                  value:
+                    result: true
+                    response: { "redirect": "/" }
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                NoData:
+                  value:
+                    result: false
+                    error: { code: null, message: "No data specified" }
+                NoUser:
+                  value:
+                    result: false
+                    error:
+                      {
+                        code: null,
+                        message: "No user found with associated email address or username",
+                      }
+  /login/loginAjaxHead.php:
+    get:
+      tags:
+        - authentication
+      summary: Login Ajax Head
+      operationId: loginAjaxHead
+  /login/reSendVerificationEmail.php:
+    parameters:
+      - name: userid
+        in: query
+        description: User ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - authentication
+      summary: Resend Verification Email
+      description: Resend the verification email to the user
+      operationId: resendVerificationEmail
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+  /login/signup.php:
+    parameters:
+      - name: name1
+        in: query
+        description: First Name
+        required: true
+        schema:
+          type: string
+      - name: name2
+        in: query
+        description: Last Name
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: query
+        description: Password
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: query
+        description: Username
+        required: true
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: Email
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - authentication
+      summary: Signup
+      description: Create a new user account
+      operationId: signup
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                NoData:
+                  value:
+                    result: false
+                    error: { code: null, message: "Unknown error" }
+                NoUser:
+                  value:
+                    result: false
+                    error: { code: null, message: "Can't create user" }
+  /login/usernameOrEmailTaken.php:
+    parameters:
+      - name: username
+        in: query
+        description: Username
+        required: true
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: Email
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - authentication
+      summary: Username or Email Taken
+      description: Check if a username or email is already taken
+      operationId: usernameOrEmailTaken
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
