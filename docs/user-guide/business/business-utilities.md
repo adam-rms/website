@@ -25,6 +25,8 @@ It is repeated on the main Dashboard page.
 ![Business Calendar](/img/tutorial/businesses/utilities-calendar.png "Business Calendar")
 *Business Calendar*
 
+By default, the week numbers listed in the calendar are the week of the year. However, these can be updated on a week-by-week basis in the [Business Settings](./business-settings) page.
+
 ## Clients
 ---
 The Clients page lists all business clients, and is where new ones are added.
