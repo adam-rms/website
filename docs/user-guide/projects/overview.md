@@ -46,9 +46,9 @@ AdamRMS has a full Audit Log, which keeps track of changes to various elements o
 ![Project audit log](/img/tutorial/projects/projects-audit.png)
 *Project History*
 
-## Files
+## Files, Notes, Invoices & Quotes
 ---
-Projects can have files and notes associated with them, to keep track of various elements.
+Projects can have various files associated with them, to keep track of documents and provide invoices or quotes to clients. 
 
 :::note File Permissions  
 44 - Edit Project Notes  
@@ -59,17 +59,10 @@ Projects can have files and notes associated with them, to keep track of various
 ![Project Files](/img/tutorial/projects/projects-files.png)
 *Notes and Projects for the project*
 
-Notes are intended to be used for meeting notes and event plans.
+Notes are intended to be used for meeting notes and event plans.  
 
-## Invoice & Quotes
----
-Projects can have quoatations and invoices assoiated for them
-
-
-
-![Project Invoice & Quotes](/img/tutorial/projects/projects-invoice.png)
-*Invoices and Quotes for the project*
-
+Invoices and Quotes have different footers, which can be set in [the settings page](../business/business-settings#basic-settings).  
+More information about Invoices and Quotes can be found in the [finance overview](./finance).
 
 ## Sub-projects
 ---
