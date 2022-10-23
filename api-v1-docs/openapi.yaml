@@ -6083,7 +6083,7 @@ paths:
               type: boolean
     post:
       tags:
-        - maintenanceJobs
+        - maintenance
       summary: New Job
       description: |
         Create a new maintenance job  
@@ -6130,7 +6130,7 @@ paths:
           type: string
     post:
       tags:
-        - maintenanceJobs
+        - maintenance
       summary: Search Asset
       description: Search for an asset to add to a maintenance job
       operationId: searchAsset
@@ -6170,7 +6170,7 @@ paths:
           type: string
     post:
       tags:
-        - maintenanceJobs
+        - maintenance
       summary: Search User
       description: Search for a user to tag to a maintenance job
       operationId: searchUser
