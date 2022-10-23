@@ -77,7 +77,7 @@ tags:
     description: Client Management
   - name: training
     x-displayName: Training
-  - name: training_modules
+  - name: modules
     x-displayName: Training Modules
   - name: module_steps
     x-displayName: Module Steps
@@ -128,7 +128,7 @@ x-tagGroups:
   - name: Training
     tags:
       - training
-      - training_modules
+      - modules
       - module_steps
   - name: CMS Pages
     tags:
@@ -6434,7 +6434,7 @@ paths:
           items:
             type: number
     post:
-      tags: 
+      tags:
         - module_steps
       summary: Sort Steps
       description: |
@@ -6467,7 +6467,7 @@ paths:
                   error:
                     type: object
   /modules/edit.php:
-    parameters: 
+    parameters:
       - name: formData
         in: query
         required: true
