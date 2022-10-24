@@ -89,7 +89,9 @@ tags:
     description: Handles interaction with s3 Buckets
   - name: notifications
     x-displayName: Notifications
-    description: v1 internal api endpoints
+    description: |
+      v1 notification endpoints   
+      These endpoints are not accessible from the web, and are instead used internally.
   - name: assetAssignmentStatus
     x-displayName: Asset Assignment Statuses
   - name: projectTypes
@@ -6583,3 +6585,18 @@ paths:
                     description: Whether the request was successful
                   error:
                     type: object
+  /notifications/email/email.php:
+    get:
+      tags:
+        - notifications
+      summary: Email Notifications
+      description: Send an email to the user. This returns a function to call rather than a response.
+      operationId: emailNotifications
+  /notifications/main.php:
+    get:
+      tags:
+        - notifications
+      summary: Notify function
+      description: |
+        This function is called by the notify function in the client-side code.  
+        It returns a function to call rather than a response.
