@@ -6600,3 +6600,128 @@ paths:
       description: |
         This function is called by the notify function in the client-side code.  
         It returns a function to call rather than a response.
+  /permissions/instancePermissionEditor.php:
+    parameters:
+      - name: position
+        in: query
+        description: Position id
+        required: true
+        schema:
+          type: number
+      - name: removepermission
+        in: query
+        description: Permission id to remove
+        schema:
+          type: number
+      - name: addpermission
+        in: query
+        description: Permission id to add
+        schema:
+          type: number
+    post:
+      tags:
+        - permissions
+      summary: Instance Permission Editor
+      description: |
+        Edit the permissions of a position  
+        Requires Instance Permission 12 (Edit roles permissions [SUPER ADMIN])
+      operationId: instancePermissionEditor
+      responses:
+        200:
+          description: Success
+          content:
+            application/text:
+              schema:
+                type: number
+              examples:
+                success:
+                  value: 1
+                error:
+                  value: 2
+  /permissions/newInstancePermission.php:
+    parameters:
+      - name: name
+        in: query
+        description: Permission Group name
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - permissions
+      summary: New Instance Permission
+      description: |
+        Create a new permission group  
+        Requires Instance Permission 16 (Add new roles)
+      operationId: newInstancePermission
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+              examples:
+                createFail:
+                  value:
+                    result: false
+                    error:
+                      code: "CREATE-INSTANCE-POSITION-FAIL"
+                      message: "Could not create new instance position"
+  /permissions/permissionsEditor.php:
+    parameters:
+      - name: position
+        in: query
+        description: Position id
+        required: true
+        schema:
+          type: number
+      - name: removepermission
+        in: query
+        description: Permission id to remove
+        schema:
+          type: number
+      - name: addpermission
+        in: query
+        description: Permission id to add
+        schema:
+          type: number
+    post:
+      tags:
+        - permissions
+      summary: AdamRMS Permission Editor
+      description: |
+        Edit the permissions of an AdamRMS position  
+        Requires RMS Permission 12 (Edit roles permissions [SUPER ADMIN])
+      operationId: permissionEditor
+      responses:
+        200:
+          description: Success
+          content:
+            application/text:
+              schema:
+                type: number
+              examples:
+                success:
+                  value: 1
+                error:
+                  value: 2
+  
