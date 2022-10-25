@@ -31,6 +31,6 @@ AdamRMS has two main versions - v1 is still in active development, but most effo
   - [Developing Locally with v2](./../contributor-v2/intro)
 - [Getting an AdamRMS account](./hosting/hosted/intro)
 - [Deploying AdamRMS on your server](./hosting/self-hosting/intro)
-- [Using the API](./../api-v1-docs/intro)
+- [Using the API](../../../api)
 - [Style Guide](./style-guide)
 - [Licencing Details](./licence-details)
