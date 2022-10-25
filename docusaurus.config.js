@@ -184,13 +184,13 @@ module.exports = {
       {
         specs: [
           {
-            spec: "static/api/adamrmsv1.yaml",
+            spec: "api/adamrmsv1.yaml",
             route: "/api/",
           },
         ],
         theme: {
           options: {
-            downloadDefinitionUrl: "/api/adamrmsV1.yaml",
+            hideDownloadButton: true,
           },
         },
       },
