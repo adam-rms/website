@@ -1950,7 +1950,7 @@ paths:
       responses:
         308:
           description: Redirect
-  assets/searchType.php:
+  /assets/searchType.php:
     parameters:
       - name: term
         in: query
@@ -3986,7 +3986,7 @@ paths:
                 OtherError:
                   value:
                     result: false
-  instances/projectTypes/new.php:
+  /instances/projectTypes/new.php:
     parameters:
       - name: formData
         in: query
@@ -6724,4 +6724,2012 @@ paths:
                   value: 1
                 error:
                   value: 2
-  
+  /projects/assets/assign.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: assetGroups_id
+        in: query
+        description: Asset Group ID
+        required: false
+        schema:
+          type: number
+      - name: assets_id
+        in: query
+        description: Asset ID
+        required: false
+        schema:
+          type: number
+    post:
+      tags:
+        - project_assets
+      summary: Assign Asset to Project
+      description: |
+        Assign an asset to a project  
+        Requires Instance Permission 31 (Assign/unassign asset to Project)
+      operationId: assignAssetToProject
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response:
+                    failed: []
+                cacheError:
+                  result: false
+                  response:
+                    message: "Finance Cacher Save failed"
+                insertError:
+                  result: false
+                  response:
+                    message: "Cannot insert assignment"
+                assetUnavailable:
+                  result: false
+                  response:
+                    message: "Asset wanted not available"
+                allAssetFail:
+                  result: false
+                  response:
+                    message: "Cannot add all assets"
+                groupError:
+                  result: false
+                  response:
+                    message: "Group not found"
+                projectError:
+                  result: false
+                  response:
+                    message: "Project not found"
+        404:
+          description: Permission Error
+  /projects/assets/setComment.php:
+    parameters:
+      - name: assetsAssignments
+        in: query
+        description: Asset Assignment IDs
+        required: true
+        schema:
+          type: array
+          items:
+            type: number
+      - name: assetsAssignments_comment
+        in: query
+        description: Comment
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - project_assets
+      summary: Set Asset Assignment Comment
+      description: |
+        Set the comment for an asset assignment  
+        Requires Instance Permission 41 (Edit asset assignment comment)
+      operationId: setAssetAssignmentComment
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                failed:
+                  result: false
+                  response: {}
+        404:
+          description: Permission Error
+  /projects/assets/setDiscount.php:
+    parameters:
+      - name: assetsAssignments
+        in: query
+        description: Asset Assignment IDs
+        required: true
+        schema:
+          type: array
+          items:
+            type: number
+      - name: assetsAssignments_discount
+        in: query
+        description: Discount amount
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - project_assets
+      summary: Set Asset Assignment Discount
+      description: |
+        Set the discount for an asset assignment  
+        Requires Instance Permission 43 (Edit asset assignment discount)
+      operationId: setAssetAssignmentDiscount
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                cacheError:
+                  result: false
+                  response:
+                    message: "Finance Cacher Save failed"
+                projectIDError:
+                  result: false
+                  response:
+                    message: "Cannot find projectid"
+                projectError:
+                  result: false
+                  response:
+                    message: "Cannot find project"
+                Error:
+                  result: false
+                  response: {}
+        404:
+          description: Permission Error
+  /projects/assets/setPrice.php:
+    parameters:
+      - name: assetsAssignments
+        in: query
+        description: Asset Assignment IDs
+        required: true
+        schema:
+          type: array
+          items:
+            type: number
+      - name: assetsAssignments_customPrice
+        in: query
+        description: Price
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - project_assets
+      summary: Set Asset Assignment Price
+      description: |
+        Set the price for an asset assignment  
+        Requires Instance Permission 42 (Edit asset assignment price)
+      operationId: setAssetAssignmentPrice
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                cacheError:
+                  result: false
+                  response:
+                    message: "Finance Cacher Save failed"
+                projectIDError:
+                  result: false
+                  response:
+                    message: "Cannot find projectid"
+                projectError:
+                  result: false
+                  response:
+                    message: "Cannot find project"
+                Error:
+                  result: false
+                  response: {}
+        404:
+          description: Permission Error
+  /projects/assets/setStatus.php:
+    parameters:
+      - name: assetsAssignments_status
+        in: query
+        description: Status
+        required: true
+        schema:
+          type: number
+      - name: assetsAssignments_id
+        in: query
+        description: Asset Assignment ID
+        required: true
+        schema:
+          type: number
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: status_is_order
+        in: query
+        description: Whether the status is an ordering rather than a status
+        required: false
+        schema:
+          type: boolean
+    post:
+      tags:
+        - project_assets
+      summary: Set Asset Assignment Status
+      description: |
+        Set the status for an asset assignment  
+        Requires Instance Permission 53 (Change the assignment status for an asset (e.g. mark as packed))
+      operationId: setAssetAssignmentStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                Error:
+                  result: false
+                  response: {}
+  /projects/assets/setStatusBarcode.php:
+    parameters:
+      - name: text
+        in: query
+        description: barcode value
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: barcode type
+        required: true
+        schema:
+          type: string
+      - name: locationType
+        in: query
+        description: location type
+        required: true
+        schema:
+          type: enum
+          enum:
+            - barcode
+            - asset
+            - Custom
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: assetsAssignments_status
+        in: query
+        description: Status ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - project_assets
+      summary: Set Asset Assignment Status using Barcode
+      description: |
+        Set the status for an asset assignment using a barcode  
+        Requires Instance Permission 53 (Change the assignment status for an asset (e.g. mark as packed))
+      operationId: setAssetAssignmentStatusBarcode
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                Error:
+                  result: false
+                  response: {}
+                NotAssigned:
+                  result: false
+                  response:
+                    code: "NOTASSIGNED"
+                    message: "Asset not assigned to project"
+  /projects/assets/statusList.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - project_assets
+      summary: Get Asset Assignment Status List
+      description: |
+        Get the list of statuses for an asset assignment  
+        Requires Instance Permission 20 (View Projects)
+      operationId: getAssetAssignmentStatusList
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: []
+                Error:
+                  result: false
+                  response:
+                    code: "AUTH-ERROR"
+                    message: "Provide a project"
+  /projects/assets/swap.php:
+    parameters:
+      - name: assetsAssignments_id
+        in: query
+        description: Asset Assignment ID
+        required: true
+        schema:
+          type: number
+      - name: assets_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - project_assets
+      summary: Swap Asset Assignment
+      description: |
+        Swap an asset in a project  
+        Requires Instance Permission 31 (Assign/unassign asset to Project)
+      operationId: swapAssetAssignment
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                Error:
+                  result: false
+                  response: {}
+        404:
+          description: Permission Error
+  /projects/assets/unassign.php:
+    parameters:
+      - name: assetsAssignments
+        in: query
+        description: Asset Assignment IDs
+        required: true
+        schema:
+          type: array
+          items:
+            type: number
+      - name: assets_id
+        in: query
+        description: Asset ID
+        required: true
+        schema:
+          type: number
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: false
+        schema:
+          type: number
+    post:
+      tags:
+        - project_assets
+      summary: Unassign Asset
+      description: |
+        Unassign an asset from a project  
+        Requires Instance Permission 31 (Assign/unassign asset to Project)
+      operationId: unassignAsset
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response:
+                    failed: []
+                cacheError:
+                  result: false
+                  response:
+                    message: "Finance Cacher Save failed"
+                insertError:
+                  result: false
+                  response:
+                    message: "Cannot insert assignment"
+                assetUnavailable:
+                  result: false
+                  response:
+                    message: "Asset wanted not available"
+                allAssetFail:
+                  result: false
+                  response:
+                    message: "Cannot add all assets"
+                groupError:
+                  result: false
+                  response:
+                    message: "Group not found"
+                projectError:
+                  result: false
+                  response:
+                    message: "Project not found"
+        404:
+          description: Permission Error
+  /projects/crew/crewRoles/accept.php:
+    parameters:
+      - name: projectsVacantRolesApplications_id
+        in: query
+        description: Vacant Role Application ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - recruitment
+      summary: Accept Vacant Role Application
+      description: |
+        Accept a vacant role application  
+        Requires Instance Permission 124 (View & Apply for Crew Roles)
+      operationId: acceptVacantRoleApplication
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                applicationError:
+                  result: false
+                  response:
+                    message: "Application not found"
+                roleError:
+                  result: false
+                  response:
+                    message: "Could not assign this user to the role"
+        404:
+          description: Permission Error
+  /projects/crew/crewRoles/applicationList.php:
+    parameters:
+      - name: projectsVacantRoles_id
+        in: query
+        description: Vacant Role ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - recruitment
+      summary: Get Vacant Role Application List
+      description: |
+        Get the list of applications for a vacant role  
+        Requires Instance Permission 123 (Manage Crew Recruitment for a Project)
+      operationId: getVacantRoleApplicationList
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                paramError:
+                  result: false
+                  response:
+                    code: "PARAM-ERROR"
+                    message: "No data for action"
+                roleError:
+                  result: false
+                  response:
+                    code: "PARAM-ERROR"
+                    message: "Invalid role ID"
+                permissionError:
+                  result: false
+                  response:
+                    code: "AUTH-ERROR"
+                    message: "No permission to manage this role"
+        404:
+          description: Permission Error
+  /projects/crew/crewRoles/apply.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            projectsVacantRoles_id:
+              type: number
+    post:
+      tags:
+        - recruitment
+      summary: Apply for Vacant Role
+      description: |
+        Apply for a vacant role  
+        Requires Instance Permission 124 (View & Apply for Crew Roles)
+      operationId: applyForVacantRole
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                roleError:
+                  result: false
+                  response:
+                    message: "Role not found"
+                applicationError:
+                  result: false
+                  response:
+                    message: "Could not create application"
+        404:
+          description: Permission Error
+  /projects/crew/crewRoles/edit.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            projectsVacantRoles_id:
+              type: number
+    post:
+      tags:
+        - recruitment
+      summary: Edit Vacant Role
+      description: |
+        Edit a vacant role  
+        Requires Instance Permission 123 (Manage Crew Recruitment for a Project)
+      operationId: editVacantRole
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                roleError:
+                  result: false
+                  response:
+                    message: "Role not found"
+                permissionError:
+                  result: false
+                  response:
+                    message: "No permission to manage this role"
+                updateError:
+                  result: false
+                  response:
+                    message: "Could not update role"
+        404:
+          description: Permission Error
+  /projects/crew/crewRoles/list.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: false
+        schema:
+          type: number
+    post:
+      tags:
+        - recruitment
+      summary: Get Vacant Role List
+      description: |
+        Get the list of vacant roles for a project  
+        Requires Instance Permission 124 (View & Apply for Crew Roles)
+      operationId: getVacantRoleList
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: List of vacant roles
+        404:
+          description: Permission Error
+  /projects/crew/crewRoles/reject.php:
+    parameters:
+      - name: projectsVacantRolesApplications_id
+        in: query
+        description: Vacant Role Application ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - recruitment
+      summary: Reject Vacant Role Application
+      description: |
+        Reject a vacant role application  
+        Requires Instance Permission 124 (View & Apply for Crew Roles)
+      operationId: rejectVacantRoleApplication
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                applicationError:
+                  result: false
+                  response:
+                    message: "Application not found"
+                roleError:
+                  result: false
+                  response:
+                    message: "Could not remove this user from the role"
+        404:
+          description: Permission Error
+  /projects/crew/assign.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            projects_id:
+              type: number
+            crewAssignments_comment:
+              type: string
+            crewAssignments_role:
+              type: string
+      - name: users
+        in: query
+        description: Users
+        required: true
+        schema:
+          type: array
+          items:
+            type: number | string
+    post:
+      tags:
+        - crew
+      summary: Assign Crew
+      description: |
+        Assign crew to a project  
+        Requires Instance Permission 48 (Add Crew to Project)
+      operationId: assignCrew
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                error:
+                  result: false
+                  response: {}
+        404:
+          description: Permission Error
+  /projects/crew/edit.php:
+    parameters:
+      - name: crewAssignments_id
+        in: query
+        description: Crew Assignment ID
+        required: true
+        schema:
+          type: number
+      - name: crewAssignments_role
+        in: query
+        description: Crew Assignment Role
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - crew
+      summary: Edit Crew Assignment
+      description: |
+        Edit a crew assignment  
+        Requires Instance Permission 49 (Edit/Delete Crew Assignments)
+      operationId: editCrewAssignment
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response: {}
+                error:
+                  result: false
+                  response: {}
+        404:
+          description: Permission Error
+  /projects/crew/searchUser.php:
+    parameters:
+      - name: term
+        in: query
+        description: Search Term
+        required: true
+        schema:
+          type: string
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - crew
+      summary: Search Users
+      description: |
+        Search for users to assign to a project  
+        Requires Instance Permission 48 (Add Crew to Project)
+      operationId: searchUsers
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: List of users
+              examples:
+                success:
+                  result: true
+                  response:
+                    - users_id: 1
+                      users_username: "test"
+                      users_firstname: "Test"
+                      users_lastname: "User"
+                      users_email: ""
+                      clashes: []
+                error:
+                  result: false
+  /projects/crew/sortRank.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: order
+        in: query
+        description: Order
+        required: true
+        schema:
+          type: array
+          items:
+            type: number
+    post:
+      tags:
+        - crew
+      summary: Sort Crew
+      description: |
+        Sort the crew of a project  
+        Requires Instance Permission 51 (Edit Crew Ranks)
+      operationId: sortCrew
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/crew/unassign.php:
+    parameters:
+      - name: crewAssignments_id
+        in: query
+        description: Crew Assignment ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - crew
+      summary: Unassign Crew
+      description: |
+        Unassign crew from a project  
+        Requires Instance Permission 49 (Edit/Delete Crew Assignments)
+      operationId: unassignCrew
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/archive.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Archive Project
+      description: |
+        Archive a project  
+        Requires Instance Permission 25 (Archive Projects)
+      operationId: archiveProject
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeClient.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: clients_id
+        in: query
+        description: Client ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Change Client
+      description: |
+        Change the client of a project  
+        Requires Instance Permission 22 (Change Project Client)
+      operationId: changeClient
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeDescription.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projects_description
+        in: query
+        description: Project Description
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - projects
+      summary: Change Description
+      description: |
+        Change the description of a project  
+        Requires Instance Permission 24 (Change Project Description & Sub Projects)
+      operationId: changeDescription
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeInvoiceNotes.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projects_invoiceNotes
+        in: query
+        description: Invoice Notes
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - projects
+      summary: Change Invoice Notes
+      description: |
+        Change the invoice notes of a project  
+        Requires Instance Permission 46 (Change Project Invoice Notes)
+      operationId: changeInvoiceNotes
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeName.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projects_name
+        in: query
+        description: Project Name
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - projects
+      summary: Change Name
+      description: |
+        Change the name of a project  
+        Requires Instance Permission 28 (Change Project Name)
+      operationId: changeName
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeProjectDates.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projects_dates_use_start
+        in: query
+        description: Start Date/Time
+        required: true
+        schema:
+          type: string
+      - name: projects_dates_use_end
+        in: query
+        description: End Date/Time
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - projects
+      summary: Change Project Dates
+      description: |
+        Change the start and end dates of a project  
+        Requires Instance Permission 27 (Change Project Dates)
+      operationId: changeProjectDates
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeProjectDeliverDates.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projects_dates_deliver_start
+        in: query
+        description: Start Date/Time
+        required: true
+        schema:
+          type: string
+      - name: projects_dates_deliver_end
+        in: query
+        description: End Date/Time
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - projects
+      summary: Change Project Deliver Dates
+      description: |
+        Change the start and end deliver dates of a project  
+        Requires Instance Permission 27 (Change Project Dates)
+      operationId: changeProjectDeliverDates
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeProjectManager.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: users_userid
+        in: query
+        description: User ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Change Project Manager
+      description: |
+        Change the project manager of a project  
+        Requires Instance Permission 23 (Change Project Lead)
+      operationId: changeProjectManager
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeProjectType.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projectsTypes_id
+        in: query
+        description: Project Type id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Change Project Type
+      description: |
+        Change the project type of a project  
+        Requires Instance Permission 104 (Change Project Type)
+      operationId: changeProjectType
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeStatus.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projects_status
+        in: query
+        description: Project Status
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Change Status
+      description: |
+        Change the status of a project  
+        Requires Instance Permission 29 (Change Project Status)
+      operationId: changeStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeSubProject.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projects_parent_project_id
+        in: query
+        description: Parent Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Change Sub Project
+      description: |
+        Change the parent project of a project  
+        Requires Instance Permission 30 (Change Sub Project)
+      operationId: changeSubProject
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/changeVenue.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: locations_id
+        in: query
+        description: Location ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Change Venue
+      description: |
+        Change the venue of a project  
+        Requires Instance Permission 30 (Change Project Address)
+      operationId: changeVenue
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/data.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: false
+        schema:
+          type: object
+      - name: id
+        in: query
+        description: Project ID
+        required: false
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Data
+      description: |
+        Get the data of a project  
+        Requires Instance Permission 20 (View Projects)
+      operationId: data
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/delete.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Delete
+      description: |
+        Delete a project  
+        Requires Instance Permission 26 (Delete Projects)
+      operationId: delete
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/deletePayment.php:
+    parameters:
+      - name: payments_id
+        in: query
+        description: Payment ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Delete Payment
+      description: |
+        Delete a payment  
+        Requires Instance Permission 35 (Delete a Project Payment)
+      operationId: deletePayment
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/editNote.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projectsNotes_id
+        in: query
+        description: Project Note Id
+        required: true
+        schema:
+          type: number
+      - name: projectsNotes_text
+        in: query
+        description: Project Note Text
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - projects
+      summary: Edit Note
+      description: |
+        Edit a project note  
+        Requires Instance Permission 44 (Edit Project Notes)
+      operationId: editNote
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/followParentStatus.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: follow
+        in: query
+        description: Follow Parent Status
+        required: true
+        schema:
+          type: boolean
+    post:
+      tags:
+        - projects
+      summary: Follow Parent Status
+      description: |
+        Change whether a project follows the status of its parent project  
+        Requires Instance Permission 21 (Create Project)
+      operationId: followParentStatus
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response:
+                    changed: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/getComments.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Get Comments
+      description: |
+        Get the comments of a project  
+        Requires Instance Permission 20 (View Projects)
+      operationId: getComments
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/list.php:
+    get:
+      tags:
+        - projects
+      summary: List
+      description: |
+        Get a list of projects  
+        Requires Instance Permission 20 (View Projects)
+      operationId: list
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/new.php:
+    parameters:
+      - name: projects_name
+        in: query
+        description: Project Name
+        required: true
+        schema:
+          type: string
+      - name: projects_manager
+        in: query
+        description: Project Manager User ID
+        required: true
+        schema:
+          type: number
+      - name: projectsType_id
+        in: query
+        description: Project Type ID
+        required: true
+        schema:
+          type: number
+      - name: projects_parent_project_id
+        in: query
+        description: Parent Project ID
+        required: false
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: New
+      description: |
+        Create a new project  
+        Requires Instance Permission 21 (Create Project)
+      operationId: new
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/newNote.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: projectsNotes_title
+        in: query
+        description: Project Note Text
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - projects
+      summary: New Note
+      description: |
+        Create a new project note  
+        Requires Instance Permission 45 (Add Project Notes)
+      operationId: newNote
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/newPayment.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            projects_id:
+              type: number
+              description: Project ID
+            payments_quantity:
+              type: number
+              description: Payment Quantity
+            payments_amount:
+              type: string
+              description: Payment Amount
+            payments_type:
+              type: string
+              description: Payment Type
+            projectsPayments_notes:
+              type: string
+              description: Payment Notes
+    post:
+      tags:
+        - projects
+      summary: New Payment
+      description: |
+        Create a new project payment  
+        Requires Instance Permission 34 (Add new Project Payment)
+      operationId: newPayment
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/newQuickComment.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: text
+        in: query
+        description: Comment Text
+        required: true
+        schema:
+          type: string
+    post: 
+      tags:
+        - projects
+      summary: New Quick Comment
+      description: |
+        Create a new project quick comment  
+        Requires Instance Permission 20 (View Projects)
+      operationId: newQuickComment
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
+  /projects/unArchive.php:
+    parameters:
+      - name: projects_id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - projects
+      summary: Unarchive
+      description: |
+        Unarchive a project  
+        Requires Instance Permission 25 (Archive Project)
+      operationId: unArchive
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+        404:
+          description: Permission Error
