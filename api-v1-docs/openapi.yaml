@@ -98,6 +98,10 @@ tags:
     x-displayName: Project Types
   - name: signupCodes
     x-displayName: Signup Codes
+  - name: s3files
+    x-displayName: S3 Files
+  - name: search
+    x-displayName: Search
 x-tagGroups:
   - name: Users
     tags:
@@ -141,6 +145,12 @@ x-tagGroups:
   - name: Notifications
     tags:
       - notifications
+  - name: S3 Files
+    tags:
+      - s3files
+  - name: search
+    tags:
+      - search
 paths:
   /account/basicDetails.php:
     parameters:
@@ -8669,7 +8679,7 @@ paths:
         required: true
         schema:
           type: string
-    post: 
+    post:
       tags:
         - projects
       summary: New Quick Comment
@@ -8733,3 +8743,444 @@ paths:
                   result: false
         404:
           description: Permission Error
+  /s3files/appUploader.php:
+    parameters:
+      - name: filename
+        in: query
+        description: File Name
+        required: true
+        schema:
+          type: string
+      - name: typename
+        in: query
+        description: File Type
+        required: true
+        schema:
+          type: string
+      - name: typeid
+        in: query
+        description: File Type ID
+        required: true
+        schema:
+          type: number
+      - name: subtype
+        in: query
+        description: File Subtype
+        required: false
+        schema:
+          type: number
+      - name: public
+        in: query
+        description: Public File
+        required: true
+        schema:
+          type: boolean
+      - name: file
+        in: files
+        description: File
+        required: true
+    post:
+      tags:
+        - s3files
+      summary: App Uploader
+      description: |
+        Upload a file to S3  
+        Requires Instance Permission 1 (View Dashboard)
+      operationId: appUploader
+      responses:
+        200:
+          description: Success
+  /s3files/generateSignatureUppy.php:
+    parameters:
+      - name: filename
+        in: query
+        description: File Name
+        required: true
+        schema:
+          type: string
+      - name: contentType
+        in: query
+        description: Content Type
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - s3files
+      summary: Generate Signature Uppy
+      description: |
+        Generate a signature for uploading a file to S3
+      operationId: generateSignatureUppy
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+                    properties:
+                      method:
+                        type: string
+                        description: HTTP Method
+                      url:
+                        type: string
+                        description: File URL
+                      fields:
+                        type: object
+                        description: Fields
+  /s3files/uploadProjectInvoice.php:
+    parameters:
+      - name: id
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: number
+      - name: quote
+        in: query
+        description: Is Quote?
+        required: true
+        schema:
+          type: boolean
+      - name: file
+        in: files
+        description: File
+        required: true
+      - name: fileNumber
+        in: query
+        description: File Version Number
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - s3files
+      summary: Upload Project Invoice
+      description: |
+        Upload a project invoice  
+        Requires Instance Permission 20 (View Projects)
+      operationId: uploadProjectInvoice
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                  response:
+                    id: 1
+                    resize: false
+                    url: "https://dash.adam-rms.com/api/file?r=true&id={id}"
+                uploadError:
+                  result: false
+                  error:
+                    code: null
+                    message: "S3 upload error"
+  /s3files/uploadSuccess.php:
+    parameters:
+      - name: name
+        in: query
+        description: File Name
+        required: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: File Size
+        required: true
+        schema:
+          type: number
+      - name: typeid
+        in: query
+        description: File Type ID
+        required: true
+        schema:
+          type: number
+      - name: subtype
+        in: query
+        description: File Subtype
+        required: false
+        schema:
+          type: number
+      - name: orignalName
+        in: query
+        description: Original File Name
+        required: true
+        schema:
+          type: string
+      - name: public
+        in: query
+        description: Public File
+        required: true
+        schema:
+          type: boolean
+    post:
+      tags:
+        - s3files
+      summary: Upload Success
+      description: |
+        Upload a file to S3
+      operationId: uploadSuccess
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+          examples:
+            success:
+              result: true
+              response:
+                id: 1
+                resize: false
+                url: "https://dash.adam-rms.com/api/file?r=true&id={id}"
+            uploadError:
+              result: false
+              error:
+                code: null
+                message: "error"
+  /search/search.php:
+    parameters:
+      - name: term
+        in: query
+        description: Search Term
+        required: true
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: Offset
+        required: true
+        schema:
+          type: number
+      - name: limit
+        in: query
+        description: Limit
+        required: true
+        schema:
+          type: number
+    get:
+      tags:
+        - search
+      summary: Global Search
+      description: |
+        Search for a term across the whole RMS
+      operationId: search
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+          examples:
+            success:
+              result: true
+              response: []
+            ParseError:
+              result: false
+              error: "Not Authenticated"
+            ValueError:
+              result: false
+              error:
+                message: "Business not found"
+  /support/head.php:
+    get:
+      tags:
+        - support
+      summary: Support Head
+      description: |
+        Get the support functions
+  /support/newTicket.php:
+    parameters:
+      - name: formData
+        in: query
+        description: Form Data
+        required: true
+        schema:
+          type: object
+          properties:
+            subject:
+              type: string
+              description: Ticket Subject
+            message:
+              type: string
+              description: Ticket Message
+    post:
+      tags:
+        - support
+      summary: New Ticket
+      description: |
+        Create a new support ticket
+      operationId: newTicket
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+  /training/certify.php:
+    parameters:
+      - name: userid
+        in: query
+        description: User ID
+        required: true
+        schema:
+          type: number
+      - name: modules_id
+        in: query
+        description: Module ID
+        required: true
+        schema:
+          type: number
+      - name: comment
+        in: query
+        description: Comment
+        required: false
+        schema:
+          type: string
+    post:
+      tags:
+        - training
+      summary: Certify
+      description: |
+        Certify a user for a module  
+        Requires instance permission 119 (Certify a user's training)
+      operationId: certify
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+                  error:
+                    message: "Could not add certification"
+  /training/completeStep.php:
+    parameters:
+      - name: id
+        in: query
+        description: Step ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - training
+      summary: Complete Step
+      description: |
+        Complete a training step
+      operationId: completeStep
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+                  error:
+                    message: "Could not add progress"
+  /training/revokeAll.php:
+    parameters:
+      - name: userid
+        in: query
+        description: User ID
+        required: true
+        schema:
+          type: number
+      - name: modules_id
+        in: query
+        description: Module ID
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - training
+      summary: Revoke All
+      description: |
+        Revoke all certifications for a user  
+        Requires instance permission 120 (Revoke a user's training)
+      operationId: revokeAll
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: object
+              examples:
+                success:
+                  result: true
+                error:
+                  result: false
+                  error:
+                    message: "Could not edit certification"
