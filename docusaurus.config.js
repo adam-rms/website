@@ -184,10 +184,15 @@ module.exports = {
       {
         specs: [
           {
-            spec: "api-v1-docs/openapi.yaml",
+            spec: "static/api/adamrmsv1.yaml",
             route: "/api/",
           },
         ],
+        theme: {
+          options: {
+            downloadDefinitionUrl: "/api/adamrmsV1.yaml",
+          },
+        },
       },
     ],
   ],
