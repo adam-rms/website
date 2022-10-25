@@ -184,7 +184,7 @@ module.exports = {
       {
         specs: [
           {
-            spec: "api/adamrmsv1.yaml",
+            spec: "api/adamrms.yaml",
             route: "/api/",
           },
         ],
