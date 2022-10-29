@@ -30,9 +30,9 @@ The dashboard will remain the `v1` project in the [`adam-rms`](https://github.co
 
 ### Public Sites
 
-The public sites functionally will be removed from the [`adam-rms`](https://github.com/adam-rms/adam-rms) repository and moved into [`public-sites`](https://github.com/adam-rms/public-sites).
+The public sites functionally will be rewritten and moved to a embed based system, rather than distinct websites. 
 
-- [ ] [`@jbithell`](https://github.com/jbithell) - Re-write public sites and remove from Dashboard repository.
+- [x] [`@jbithell`](https://github.com/jbithell) - Move to a embed based system, rather than distinct websites
 
 ### Mobile App
 
@@ -61,10 +61,6 @@ The API will be re-written as `v2` in the [`adam-rms-v2`](https://github.com/ada
 ### Dashboard
 
 The dashboard will no longer be offered. The [`adam-rms`](https://github.com/adam-rms/adam-rms) repository will be archived.
-
-### Public Sites
-
-The public sites functionally will continue in the [`public-sites`](https://github.com/adam-rms/public-sites) repository, but be migrated to the new `v2` api.
 
 ### Mobile App
 
