@@ -39,9 +39,11 @@ Since AdamRMS was setup like this in 2018, things have changed and this behaviou
 
 This repo has a configured devcontainer for use with GitHub Codespaces or VSCode. If you have a GitHub Codespaces subscription (paid), you can use this to get started with the project in the web, or if you have access to VSCode on your computer (free) you can get started by cloning the repo and opening it in VSCode, then [opening the project in a devcontainer](https://code.visualstudio.com/docs/devcontainers/tutorial).
 
-When creating the container, a database will be created and seeded with test data. If you already have a database container **it will be truncated first - meaning all data will be lost**. The database will be available on port 3306, and the webserver on port 8080. VSCode will automatically open the webserver in a browser window.
+When creating the container, a database will be created but it will be empty. 
 
-Default credentials are `username` & `password!`
+To setup some test data, press `Ctrl+Shift+P` then type `tasks: run task` - then select the `Seed Database` task which will be listed. If you already have a database container **it will be truncated first - meaning all data will be lost**. The database will be available on port 3306, and the webserver on port 8080. VSCode will automatically open the webserver in a browser window.
+
+You can then press the debug menu on the left and select `Launch AdamRMS with debugger` and the login screen will show. Default credentials are `username` & `password!`
 
 ### Harder: Installing Locally
 
