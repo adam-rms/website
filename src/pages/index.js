@@ -9,6 +9,7 @@ import Image from "@theme/IdealImage";
 
 import GooglePlayBadge from "./../../static/img/storeIcons/google-play-badge.png";
 import AppStoreBadge from "./../../static/img/storeIcons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png";
+import Video from "../components/Video";
 
 
 function HomepageHeader() {
@@ -59,6 +60,7 @@ export default function Home() {
       title={`${siteConfig.title} | Open Source Advanced Rental Management System for Theatre, AV & Broadcast`}
       description="AdamRMS is an advanced Rental Management System for Theatre, AV & Broadcast. Free & Open Source">
       <HomepageHeader />
+      <Video />
       <main>
         <HomepageFeatures />
       </main>

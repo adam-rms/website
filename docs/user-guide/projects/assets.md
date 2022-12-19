@@ -21,12 +21,11 @@ They can be assigned on a cross-business basis, to include local sub-hires.
 ## Adding Assets to Projects
 ---
 Assets are assigned using the [Asset Search functionality](../assets/finding-assets).  
-To select the project you are assigning assets to, either use the shopping basket on the asset information page, or select a project when searching assets.
+To select the project you are assigning assets to, either use the `+ Add Assets` button on the project toolbar, or select a project when searching assets.
+You can also assign all assets to the project, using the add all button.
 
 ![Select Project on the Project information page](/img/tutorial/projects/assets-shopping.png)
-*Shopping buttons are highlighted: Add All Assets to Project | Shop for this project*
-
-You can also assign all assets to the project, using the add all button.
+*Shopping buttons are highlighted: Add All Assets to Project in blue, Add assets to this project in red*
 
 
 ## Asset List
@@ -39,7 +38,9 @@ The Asset list shows all assets associated with the project, organised by Catego
 
 ### Asset List functions
 
-There are a number of functions that can be used to alter project asset properties:  
+There are a number of functions that can be used to alter project asset properties.  
+Some require additional permissions so may not be visible to you.
+
 ![Project asset functions](/img/tutorial/projects/assets-functions.png)  
 *Assignment Comment | Discount | Custom Price | Set asset Statuses | Swap Asset | Remove Asset | Expand List*
 

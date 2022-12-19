@@ -18,21 +18,21 @@ Feel free to [edit this page](https://github.com/adam-rms/website/edit/main/src/
 The API will remain the `v1` PHP project in the [`adam-rms`](https://github.com/adam-rms/adam-rms) repository. 
 
 - [ ] _unassigned, likely `@jbithell`_ - Standardize and improve API response & request schema.
-- [ ] [`@jbithell`](https://github.com/jbithell) - Create new security model, implementing CSRF protection. 
+- [ ] _unassigned_ - Create new security model, implementing CSRF protection. 
 
 ### Dashboard
 
 The dashboard will remain the `v1` project in the [`adam-rms`](https://github.com/adam-rms/adam-rms) repository, and retain mostly the same structure. 
 
-- [ ] [`@jbithell`](https://github.com/jbithell) - Review and improve dashboard functionality with targeted "quick win" improvements. Please suggest these by opening an issue.
-- [ ] [`@jbithell`](https://github.com/jbithell) - Review feasibility of a migration to a router or framework, such as Lumen/Symphony, or indeed writing a router. 
-- [ ] [`@jbithell`](https://github.com/jbithell) - Review serverless deployment (for the 4th time).
+- [x] [`@jbithell`](https://github.com/jbithell) - Review and improve dashboard functionality with targeted "quick win" improvements. Please suggest these by opening an issue.
+- [x] [`@jbithell`](https://github.com/jbithell) - Review feasibility of a migration to a router or framework, such as Lumen/Symphony, or indeed writing a router. 
+- [x] [`@jbithell`](https://github.com/jbithell) - Review serverless deployment (for the 4th time).
 
 ### Public Sites
 
-The public sites functionally will be removed from the [`adam-rms`](https://github.com/adam-rms/adam-rms) repository and moved into [`public-sites`](https://github.com/adam-rms/public-sites).
+The public sites functionally will be rewritten and moved to a embed based system, rather than distinct websites. 
 
-- [ ] [`@jbithell`](https://github.com/jbithell) - Re-write public sites and remove from Dashboard repository.
+- [x] [`@jbithell`](https://github.com/jbithell) - Move to a embed based system, rather than distinct websites
 
 ### Mobile App
 
@@ -61,10 +61,6 @@ The API will be re-written as `v2` in the [`adam-rms-v2`](https://github.com/ada
 ### Dashboard
 
 The dashboard will no longer be offered. The [`adam-rms`](https://github.com/adam-rms/adam-rms) repository will be archived.
-
-### Public Sites
-
-The public sites functionally will continue in the [`public-sites`](https://github.com/adam-rms/public-sites) repository, but be migrated to the new `v2` api.
 
 ### Mobile App
 
