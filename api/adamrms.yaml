@@ -2729,6 +2729,70 @@ paths:
                         code: "CREATE-CLIENT-FAIL",
                         message: "Could not create new client",
                       }
+  /clients/archive.php:
+    paramters:
+      - name: clients_id
+        in: query
+        description: The client id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - locations
+      summary: Archive Location
+      description: |
+        Archive a client  
+        Requires Instance Permission 39 (Edit a client)
+      operationId: archiveClient
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Auth Fail
+  /clients/unarchive.php:
+    paramters:
+      - name: clients_id
+        in: query
+        description: The client id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - locations
+      summary: Unarchive a Client
+      description: |
+        Unarchive a client  
+        Requires Instance Permission 39 (Edit a client)
+      operationId: unarchiveClient
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Auth Fail
   /cms/editPageConfig.php:
     parameters:
       - name: formData
@@ -5187,6 +5251,70 @@ paths:
                     result: false
                     error:
                       { code: "PARAM-ERROR", message: "No data for action" }
+  /locations/archive.php:
+    paramters:
+      - name: location_id
+        in: query
+        description: The location id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - locations
+      summary: Archive Location
+      description: |
+        Archive a location  
+        Requires Instance Permission 99 (Edit a location)
+      operationId: archiveLocation
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Auth Fail
+  /locations/unarchive.php:
+    paramters:
+      - name: location_id
+        in: query
+        description: The location id
+        required: true
+        schema:
+          type: number
+    post:
+      tags:
+        - locations
+      summary: Unarchive Location
+      description: |
+        Unarchive a location  
+        Requires Instance Permission 99 (Edit a location)
+      operationId: unarchiveLocation
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        404:
+          description: Auth Fail
   /login/authStep2Password.php:
     parameters:
       - name: formInput
