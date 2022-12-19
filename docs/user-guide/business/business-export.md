@@ -19,7 +19,6 @@ The Export page will change depending on what you want to export, and what other
 Once you have selected a base table, you can select which columns you wish to include in the export, and re-arrange those columns within each table. You should also select a sorting column to arrange returned rows by.  
 
 ## Export Overview
----
 The export overview panel summarises what your export will contain and is split into four sections. They are:
  - Base Table -> The table your export is based on
  - Columns -> A list of table columns that will be included in the export
@@ -27,12 +26,31 @@ The export overview panel summarises what your export will contain and is split 
  - Joined Tables -> Any linked tables to your base table that are included in the export.
 
 
-## Currently supported Base Tables
----
+## Supported Base Tables
 - Assets
 - Asset Types
 - Projects
 - Locations
 - Clients
 
-*More data can be made available on request. Please contact [AdamRMS support](https://adam-rms.com/support)*
+# Larger Exports
+---
+If the Business Export feature is not suitable, you can ask your server administrator to export your data for you.
+
+## Hosted AdamRMS ([dash.adam-rms.com](https://dash.adam-rms.com/))
+If you are using the hosted version of AdamRMS, a full export of your data can be requested from [AdamRMS support](https://adam-rms.com/support)
+
+## Self-Hosted AdamRMS
+If you are hosting AdamRMS yourself, the following steps can be followed to do a full export of your data:
+
+1. Export the AdamRMS database from your database server
+2. Delete all instances from the export except the instance requested
+3. Delete all `users` where `userInstances == null` (their instances have been deleted)
+4. Delete all `assetsBarcodes` where `instanceID == null`
+5. Truncate the following tables:
+    - auditLog
+    - authTokens
+    - emailSent
+    - emailVerificationCodes
+    - loginAttempts
+    - passwordResetCodes
