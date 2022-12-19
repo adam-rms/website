@@ -69,6 +69,9 @@ tags:
   - name: instances
     x-displayName: Instances
     description: Instance Management
+  - name: export
+    x-displayName: Export
+    description: Export Data
   - name: locations
     x-displayName: Locations
     description: Business Locations
@@ -131,6 +134,7 @@ x-tagGroups:
       - assetAssignmentStatus
       - projectTypes
       - signupCodes
+      - export
   - name: Training
     tags:
       - training
@@ -1352,51 +1356,6 @@ paths:
                     result: false
                     error:
                       { code: "PARAM-ERROR", message: "No data for action" }
-  /assets/export.php:
-    parameters:
-      - name: csv
-        in: query
-        description: Whether to export as a CSV file
-        required: false
-        schema:
-          type: any
-      - name: xlsx
-        in: query
-        description: Whether to export as an XLSX file
-        required: false
-        schema:
-          type: any
-    post:
-      tags:
-        - assets
-      summary: Export Assets
-      description: |
-        Exports assets
-      operationId: exportAssets
-      responses:
-        200:
-          description: Success
-          content:
-            application/csv:
-              schema:
-                type: string
-                format: binary
-                description: The CSV file
-            application/xlsx:
-              schema:
-                type: string
-                format: binary
-                description: The XLSX file
-        404:
-          description: Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  result:
-                    type: string
-                    description: 404
   /assets/getAssetTypeData.php:
     parameters:
       - name: term
@@ -3916,6 +3875,179 @@ paths:
                 ParamError:
                   value:
                     result: false
+  /instances/export/export.php:
+    parameters:
+      - name: filetype
+        in: query
+        description: The file type, csv or xlsx
+        required: true
+        schema:
+          type: string
+      - name: table
+        in: query
+        description: The main table to export
+        required: true
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: The column to sort by
+        required: true
+        schema:
+          type: string
+      - name: direction
+        in: query
+        description: The direction to sort by, ASC or DESC
+        required: true
+        schema:
+          type: string
+      - name: joins
+        in: query
+        description: other tables to join for the export
+        required: true
+        schema:
+          type: array
+          items:
+            - type: array
+              items:
+                - type: string
+                  description: The parent table to join
+                - type: string
+                  description: The child table to join
+      - name: columns
+        in: query
+        description: The columns to export
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+            description: A table column
+    post:
+      tags:
+        - export
+      summary: Export Data
+      description: |
+        Export data from the instance  
+        Requires Instance Permission 134 (Export data)
+      operationId: exportData
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: A null Array
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+              examples:
+                ParamError:
+                  value:
+                    result: false
+  /instances/export/getColumns.php:
+    parameters:
+      - name: table_name
+        in: query
+        description: The table to get columns for
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - export
+      summary: Get Exportable Columns
+      description: |
+        Get columns available for export  
+        Requires Instance Permission 134 (Export data)
+      operationId: getExportColumns
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An array of columns
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
+  /instances/export/getJoins.php:
+    parameters:
+      - name: table_name
+        in: query
+        description: The table to get joins for
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - export
+      summary: Get Joinable Tables
+      description: |
+        Get tables that can be joined with a given table available for export  
+        Requires Instance Permission 134 (Export data)
+      operationId: getExportJoins
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    description: An array of joins
+        "default":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  error:
+                    type: object
+                    description: An object containing the error message and code
   /instances/projectTypes/edit.php:
     parameters:
       - name: formData
