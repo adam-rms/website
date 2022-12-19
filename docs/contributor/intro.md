@@ -21,7 +21,6 @@ AdamRMS has two main versions - v1 is still in active development, but most effo
 | ---: | :--- | :--- | :--- | :--- |
 | [adam-rms](https://github.com/adam-rms/adam-rms) | [Docs](./repo/intro) | Dashboard and API (`v1`) | PHP | Production :white_check_mark:<br/>In-Development |
 | [adam-rms-v2](https://github.com/adam-rms/adam-rms-v2) | [Docs](./../contributor-v2/intro) | New Dashboard/App/API (`v2`) | Typescript | Closed Alpha :soon: |
-| [public-sites](https://github.com/adam-rms/public-sites) | [Docs](./public-sites/intro) | Public Facing Websites for Asset Sharing/Display (`v2`) | Typescript | Alpha :soon: |
 | [website](https://github.com/adam-rms/website) | [Docs](./website/intro) | Project Website and Documentation Hub | Javascript (Docusaurus) | Production :white_check_mark:<br/>In-Development  |
 
 ## Wayfinding
@@ -31,6 +30,6 @@ AdamRMS has two main versions - v1 is still in active development, but most effo
   - [Developing Locally with v2](./../contributor-v2/intro)
 - [Getting an AdamRMS account](./hosting/hosted/intro)
 - [Deploying AdamRMS on your server](./hosting/self-hosting/intro)
-- [Using the API](./../api-v1-docs/intro)
+- [Using the API](../../../api)
 - [Style Guide](./style-guide)
 - [Licencing Details](./licence-details)
