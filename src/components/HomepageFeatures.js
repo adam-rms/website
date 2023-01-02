@@ -59,9 +59,9 @@ const FeatureList = [
     description: "Internal recruitment platform, allowing crew to self-assign to roles on a first-come-first-serve basis, or to answer questions to be considered for a role. Supports multiple people per role as well as CV file uploads and questionnaires.",
   },
   {
-    title: "Public Sites",
+    title: "Public Embeds",
     image: require("./../../static/img/features/public-sites.jpg"),
-    description: "Highly configurable public facing websites to showcase your equipment stock, reducing enquiries, including optionally displaying availability and pricing. Also includes CMS integration to add custom pages and customize the site extensively. Custom white-label subdomains are supported with SSL/HTTPs",
+    description: "Public facing embeds to list your crew vacancies to allow crew to view available positions without needing to log in.",
   },
 ];
 
