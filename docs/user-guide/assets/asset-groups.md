@@ -12,10 +12,10 @@ Asset groups allow you to group sets of assets with a name and a description. Th
 *Group Listing*
 
 :::note Permissions Required
-ASSETS:ASSET_GROUPS:CREATE
-ASSETS:ASSET_GROUPS:EDIT
-ASSETS:ASSET_GROUPS:DELETE:ASSETS_WITHIN_GROUP
-ASSETS:ASSET_GROUPS:EDIT:ASSETS_WITHIN_GROUP
+ASSETS:ASSET_GROUPS:CREATE  
+ASSETS:ASSET_GROUPS:EDIT  
+ASSETS:ASSET_GROUPS:DELETE:ASSETS_WITHIN_GROUP  
+ASSETS:ASSET_GROUPS:EDIT:ASSETS_WITHIN_GROUP  
 :::
 
 Assets can be added to a group on the groups page or on an individual asset’s page.

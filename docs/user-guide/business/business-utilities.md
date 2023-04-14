@@ -11,7 +11,7 @@ Business stats are widgets that appear on a user’s dashboard, that give inform
 The stats page allows users to add and remove widgets from their dashboard.
 
 :::note Permissions Required
-BUSINESS:BUSINESS_STATS:VIEW
+BUSINESS:BUSINESS_STATS:VIEW  
  :::
 
 ![Business Stats](/img/tutorial/businesses/utilities-stats.png "Business Stats Widgets")
@@ -33,9 +33,9 @@ The Clients page lists all business clients, and is where new ones are added.
 There are a number of fields about each client, which includes the total amount paid to your business and how much is owed by the client
 
 :::note Permissions Required
-CLIENTS:VIEW
-CLIENTS:CREATE
-CLIENTS:EDIT
+CLIENTS:VIEW  
+CLIENTS:CREATE  
+CLIENTS:EDIT  
 :::
 
 ![Client List](/img/tutorial/businesses/utilities-clients.png)
@@ -57,7 +57,7 @@ Clients can have the following fields:
 The Payment page is your business ledger, which tracks all payments added to the RMS.
 
 :::note Permissions Required
-FINANCE:PAYMENTS_LEDGER:VIEW
+FINANCE:PAYMENTS_LEDGER:VIEW  
 :::
 
 ![Business Ledger](/img/tutorial/businesses/utilities-ledger.png "Business Ledger")
@@ -71,10 +71,10 @@ FINANCE:PAYMENTS_LEDGER:VIEW
 *List of Locations*
 
 :::note Permissions Required
-LOCATIONS:VIEW
-LOCATIONS:CREATE
-LOCATIONS:EDIT
-LOCATIONS:LOCATION_BARCODES:VIEW
+LOCATIONS:VIEW  
+LOCATIONS:CREATE  
+LOCATIONS:EDIT  
+LOCATIONS:LOCATION_BARCODES:VIEW  
 ::: 
 
 Locations consist of:

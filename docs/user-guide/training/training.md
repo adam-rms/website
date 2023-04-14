@@ -9,13 +9,13 @@ AdamRMS provides a platform to create training modules for business members.
 Modules can be entirely online, entirely in person, or a hybrid of both. You can select who has access to each training module based on their user group.
 
 :::note Permissions Required
-TRAINING:VIEW
-TRAINING:VIEW:DRAFT_MODULES
-TRAINING:CREATE
-TRAINING:EDIT
-TRAINING:VIEW:USER_PROGRESS_IN_MODULES
-TRAINING:EDIT:CERTIFY_USER
-TRAINING:EDIT:REVOKE_USER_CERTIFICATION
+TRAINING:VIEW  
+TRAINING:VIEW:DRAFT_MODULES  
+TRAINING:CREATE  
+TRAINING:EDIT  
+TRAINING:VIEW:USER_PROGRESS_IN_MODULES  
+TRAINING:EDIT:CERTIFY_USER  
+TRAINING:EDIT:REVOKE_USER_CERTIFICATION  
 :::
 
 ![List of Training Modules](/img/tutorial/training/training-list.png)

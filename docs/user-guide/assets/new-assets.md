@@ -5,8 +5,8 @@ title: New Assets
 # New Assets
 
 :::note Permissions Required
-ASSETS:CREATE
-ASSETS:ASSET_TYPES:CREATE
+ASSETS:CREATE  
+ASSETS:ASSET_TYPES:CREATE  
 :::
 
 ## Asset Types

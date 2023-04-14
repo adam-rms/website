@@ -9,13 +9,13 @@ title: Project Overview
 The project overview page lists basic information about the project, along with any comments.
 
 :::note Permissions Required
-PROJECTS:EDIT:CLIENT
-PROJECTS:EDIT:LEAD
-PROJECTS:EDIT:DESCRIPTION_AND_SUB_PROJECTS
-PROJECTS:EDIT:DATES
-PROJECTS:EDIT:NAME
-PROJECTS:EDIT:STATUS
-PROJECTS:EDIT:ADDRESS
+PROJECTS:EDIT:CLIENT  
+PROJECTS:EDIT:LEAD  
+PROJECTS:EDIT:DESCRIPTION_AND_SUB_PROJECTS  
+PROJECTS:EDIT:DATES  
+PROJECTS:EDIT:NAME  
+PROJECTS:EDIT:STATUS  
+PROJECTS:EDIT:ADDRESS  
 :::
 
 All projects can consist of:
@@ -51,9 +51,9 @@ AdamRMS has a full Audit Log, which keeps track of changes to various elements o
 Projects can have various files associated with them, to keep track of documents and provide invoices or quotes to clients. 
 
 :::note Permissions Required
-PROJECTS:PROJECT_NOTES:EDIT:NOTES
-PROJECTS:PROJECT_NOTES:CREATE:NOTES
-PROJECTS:PROJECT_FLIE_ATTACHMENTS:CREATE
+PROJECTS:PROJECT_NOTES:EDIT:NOTES  
+PROJECTS:PROJECT_NOTES:CREATE:NOTES  
+PROJECTS:PROJECT_FLIE_ATTACHMENTS:CREATE  
 :::
 
 ![Project Files](/img/tutorial/projects/projects-files.png)

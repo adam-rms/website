@@ -10,8 +10,8 @@ title: Business Settings
 Basic settings cover a number of useful settings about your business, including business information and invoice settings.
 
 :::note Permissions Required
-BUSINESS:BUSINESS_SETTINGS:VIEW
-BUSINESS:BUSINESS_SETTINGS:EDIT
+BUSINESS:BUSINESS_SETTINGS:VIEW  
+BUSINESS:BUSINESS_SETTINGS:EDIT  
 :::
 
 ![Basic Settings](/img/tutorial/businesses/settings-basic.png)
@@ -44,8 +44,8 @@ AdamRMS supports provides a number of widgets to business, to allow information 
 For example, this can be used to show what assets are available for hire.
 
 :::note Permissions Required
-BUSINESS:BUSINESS_SETTINGS:VIEW
-BUSINESS:BUSINESS_SETTINGS:EDIT
+BUSINESS:BUSINESS_SETTINGS:VIEW  
+BUSINESS:BUSINESS_SETTINGS:EDIT  
 :::
 
 ![Public site settings](/img/tutorial/businesses/settings-publicSite.png)
@@ -62,10 +62,10 @@ You can enable different pieces of information to be shared from the Public site
 Project types are a way to change what elements of [Projects](./../projects/overview) are available to each project. AdamRMS provides a “Full Project” by default which has all elements enabled.
 
 :::note Permissions Required
-PROJECTS:PROJECT_TYPES:VIEW
-PROJECTS:PROJECT_TYPES:CREATE
-PROJECTS:PROJECT_TYPES:EDIT
-PROJECTS:PROJECT_TYPES:DELETE
+PROJECTS:PROJECT_TYPES:VIEW  
+PROJECTS:PROJECT_TYPES:CREATE  
+PROJECTS:PROJECT_TYPES:EDIT  
+PROJECTS:PROJECT_TYPES:DELETE  
 :::
 
 ![Custom project types](/img/tutorial/businesses/settings-types.png)
@@ -85,10 +85,10 @@ Each Project is split into the following sections that can be enabled or disable
 All Assets have an associated category that groups assets. AdamRMS comes with 29 sub-categories by default, but you can add new subcategories on a business basis.
 
 :::note Permissions Required
-ASSETS:ASSET_CATEGORIES:VIEW
-ASSETS:ASSET_CATEGORIES:CREATE
-ASSETS:ASSET_CATEGORIES:EDIT
-ASSETS:ASSET_CATEGORIES:DELETE
+ASSETS:ASSET_CATEGORIES:VIEW  
+ASSETS:ASSET_CATEGORIES:CREATE  
+ASSETS:ASSET_CATEGORIES:EDIT  
+ASSETS:ASSET_CATEGORIES:DELETE  
 :::
 
 ![Custom asset categories](/img/tutorial/businesses/settings-category.png)

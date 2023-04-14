@@ -8,10 +8,10 @@ title: CMS Pages
 AdamRMS has a content management system that can be used to store various information.
 
 :::note Permissions Required
-CMS:CMS_PAGES:CREATE
-CMS:CMS_PAGES:EDIT
-CMS:CMS_PAGES:VIEW:ACCESS_LOG
-CMS:CMS_PAGES:EDIT:CUSTOM_DASHBOARDS
+CMS:CMS_PAGES:CREATE  
+CMS:CMS_PAGES:EDIT  
+CMS:CMS_PAGES:VIEW:ACCESS_LOG  
+CMS:CMS_PAGES:EDIT:CUSTOM_DASHBOARDS  
 :::
 
 CMS Pages are highly customisable, from the content to access to the page. Each page also has inbuilt analytics which show page views over time.

@@ -10,8 +10,8 @@ The AdamRMS app is the companion to the dashboard interface, and focuses on asse
 AdamRMS app is available on the [Apple App Store](https://apps.apple.com/us/app/id1519443182) or the [Google Play Store](https://play.google.com/store/apps/details?id=com.bstudios.adamrms)
 
 :::note Permissions Required
-ASSETS:ASSET_BARCODES:VIEW:SCAN_IN_APP
-ASSETS:ASSET_BARCODES:EDIT:ASSOCIATE_UNNASOCIATED_BARCODES_WITH_ASSETS
+ASSETS:ASSET_BARCODES:VIEW:SCAN_IN_APP  
+ASSETS:ASSET_BARCODES:EDIT:ASSOCIATE_UNNASOCIATED_BARCODES_WITH_ASSETS  
  :::
 
 ## Asset Barcode Scanning
