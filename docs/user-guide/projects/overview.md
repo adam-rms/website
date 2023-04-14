@@ -8,14 +8,14 @@ title: Project Overview
 
 The project overview page lists basic information about the project, along with any comments.
 
-:::note Edit Permissions
-22 - Change Project Client  
-23 - Change Project Lead  
-24 - Change Project Description  
-7 - Change Project Dates
-28 - Change Project Name  
-29 - Change Project Status  
-30 - Change Project Address  
+:::note Permissions Required
+PROJECTS:EDIT:CLIENT  
+PROJECTS:EDIT:LEAD  
+PROJECTS:EDIT:DESCRIPTION_AND_SUB_PROJECTS  
+PROJECTS:EDIT:DATES  
+PROJECTS:EDIT:NAME  
+PROJECTS:EDIT:STATUS  
+PROJECTS:EDIT:ADDRESS  
 :::
 
 All projects can consist of:
@@ -50,10 +50,10 @@ AdamRMS has a full Audit Log, which keeps track of changes to various elements o
 ---
 Projects can have various files associated with them, to keep track of documents and provide invoices or quotes to clients. 
 
-:::note File Permissions  
-44 - Edit Project Notes  
-45 - Add Project Notes  
-102 - Upload Project Files  
+:::note Permissions Required
+PROJECTS:PROJECT_NOTES:EDIT:NOTES  
+PROJECTS:PROJECT_NOTES:CREATE:NOTES  
+PROJECTS:PROJECT_FLIE_ATTACHMENTS:CREATE  
 :::
 
 ![Project Files](/img/tutorial/projects/projects-files.png)

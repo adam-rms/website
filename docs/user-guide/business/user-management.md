@@ -9,17 +9,14 @@ title: User Management
 ---
 The Users page lists all users associated with a business.
 
-:::note User Account Permissions
- 
-2 - Access a list of users  
-3 - Add a user to a business by EMail  
-5 - Remove a user from a business  
-6 - Change the role of a user in a business  
-14 - Set a user's thumbnail  
-15 - Delete a user  
-52 - View User details  
-118 - Archive a user  
-
+:::note Permissions Required
+BUSINESS:USERS:VIEW:LIST  
+BUSINESS:USERS:CREATE:ADD_USER_BY_EMAIL  
+BUSINESS:USERS:DELETE:REMOVE_FORM_BUSINESS  
+BUSINESS:USERS:EDIT:CHANGE_ROLE  
+BUSINESS:USERS:EDIT:USER_THUMBNAIL  
+BUSINESS:USERS:VIEW:INDIVIDUAL_USER  
+BUSINESS:USERS:EDIT:ARCHIVE  
 :::  
 
 ![Users list](/img/tutorial/businesses/user-users.png)
@@ -32,11 +29,11 @@ Each user has a role group within the business that is defined by what [permissi
 ---
 AdamRMS has a granular permission system which lets you define exactly what a user can do.
 
-:::note Permission Permissions
-11 - Access list of roles and their permissions  
-12 - Edit roles permissions [SUPER ADMIN]  
-13 - Change a user's permissions  
-16 - Add new roles  
+:::note Permissions Required
+BUSINESS:ROLES_AND_PERMISSIONS:VIEW  
+BUSINESS:ROLES_AND_PERMISSIONS:EDIT  
+BUSINESS:USERS:EDIT:ROLES_AND_PERMISSIONS  
+BUSINESS:ROLES_AND_PERMISSIONS:CREATE  
 :::
 
 ![Permission List](/img/tutorial/businesses/user-permissions.png)
@@ -51,11 +48,11 @@ Permissions are assigned to a Role Group, which can be created on a per-business
 ---
 Signup codes are a way for individuals to automatically be added to your business as a specific role Group.
 
-:::note Signup code permissions  
-109 - View list of Signup Codes  
-110 - Add new Signup Code  
-111 - Edit Signup Code  
-112 - Delete Signup Code  
+:::note Permissions Required
+BUSINESS:USER_SIGNUP_CODES:VIEW  
+BUSINESS:USER_SIGNUP_CODES:CREATE  
+BUSINESS:USER_SIGNUP_CODES:EDIT  
+BUSINESS:USER_SIGNUP_CODES:DELETE  
 :::
 
 ![Signup Codes](/img/tutorial/businesses/user-signup.png)
@@ -70,8 +67,8 @@ Trusted Domains allows users on AdamRMS with verified email addresses to join yo
 
 They are similar to Signup Codes, in that they allow others to join your business, but they are automatic and are offered to any user in any domain you list.
 
-:::note Trusted Domain Permissions
-133	- Manage Trusted Domains
+:::note Permissions Required
+BUSINESS:SETTINGS:EDIT:TRUSTED_DOMAINS  
 :::
 
 ![Trusted Domains](/img/tutorial/businesses/user-trusted-domains.png)

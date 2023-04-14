@@ -11,14 +11,14 @@ Project Crew can be used to track who's involved with a project and get business
 ![Crew List](/img/tutorial/projects/crew-list.png)
 *Project crew list*
 
-:::note Crew Permissions  
-47 - View Project Crew  
-48 - Add Crew to Project  
-49 - Delete Crew Assignment  
-50 - Email Project Crew  
-51 - Edit Crew Ranks  
-123 - Manage Crew Recruitment for a Project  
-124 - View & Apply for Crew Roles  
+:::note Permissions Required
+PROJECTS:PROJECT_CREW:VIEW  
+PROJECTS:PROJECT_CREW:CREATE  
+PROJECTS:PROJECT_CREW:EDIT  
+PROJECTS:PROJECT_CREW:VIEW:EMAIL_CREW  
+PROJECTS:PROJECT_CREW:EDIT:CREW_RANKS  
+PROJECTS:PROJECT_CREW:EDIT:CREW_RECRUITMENT  
+PROJECTS:PROJECT_CREW:VIEW:VIEW_AND_APPLY_FOR_CREW_ROLES  
 :::  
 
 ## Adding Crew

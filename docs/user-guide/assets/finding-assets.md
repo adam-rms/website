@@ -46,9 +46,9 @@ _Example Asset Type page_
 
 Asset types can have files stored with them.
 
-:::note Asset Files Permissions  
-54 - View Asset Type File Attachments  
-55 - Upload Asset Type File Attachments  
+:::note Permissions Required
+ASSETS:ASSET_TYPE_FILE_ATTACHMENTS:VIEW  
+ASSETS:ASSET_TYPE_FILE_ATTACHMENTS:CREATE  
 :::
 
 For asset types it is suggested the files are for user manuals, info sheets and more general documentation.  
@@ -60,9 +60,9 @@ More information about files on AdamRMS can be found [here](./../../contributor/
 
 Asset types can be altered to add additional information, Custom fields and asset thumbnails.
 
-:::note Editing Asset type permissions  
-18 - Create new Asset Type  
-58 - Edit Asset Type
+:::note Permissions Required
+ASSETS:ASSET_TYPES:CREATE  
+ASSETS:ASSET_TYPES:EDIT  
 :::
 
 ![Editing asset Type Listing of XLR](/img/tutorial/assets/assets-xlr-edit.png "Editing XLR asset type in Demo Hire services")

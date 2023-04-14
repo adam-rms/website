@@ -384,7 +384,7 @@ paths:
       summary: Email Viewer
       description: |
         Get the HTML of an email  
-        Requires RMS permission 6
+        Requires server permission USERS:VIEW:MAILINGS
       operationId: getEmailViewer
       responses:
         200:
@@ -547,7 +547,7 @@ paths:
       summary: Permission Management
       description: |
         Manage user pemissions
-        Requires RMS permission 13
+        Requires server permission PERMISSIONS:EDIT:USER_POSITION
       operationId: permissionManagement
       responses:
         200:
@@ -713,7 +713,7 @@ paths:
       summary: View Site As
       description: |
         View the site as a given user  
-        Requires RMS permission 10
+        Requires server permission USERS:VIEW_SITE_AS
       operationId: viewSiteAs
       responses:
         200:
@@ -835,7 +835,7 @@ paths:
       summary: Archive an Asset
       description: |
         Archives an asset  
-        Requires Instance Permission 97 (Archive Asset)
+        Requires Instance Permission ASSETS:ARCHIVE
       operationId: archiveAsset
       responses:
         200:
@@ -1031,7 +1031,7 @@ paths:
       summary: Delete an Asset
       description: |
         Deletes an asset  
-        Requires Instance Permission 19 (Delete Asset)
+        Requires Instance Permission ASSETS:DELETE
       operationId: deleteAsset
       responses:
         200:
@@ -1128,7 +1128,7 @@ paths:
       summary: Edit an Asset
       description: |
         Edits an asset's data  
-        Requires Instance Permission 59 (Edit Asset)
+        Requires Instance Permission ASSETS:EDIT
       operationId: editAsset
       responses:
         200:
@@ -1222,7 +1222,7 @@ paths:
       summary: Edit an Asset Type
       description: |
         Edits an asset type's data  
-        Requires Instance Permission 58 (Edit Asset Type)
+        Requires Instance Permission ASSETS:ASSET_TYPES:EDIT
       operationId: editAssetType
       responses:
         200:
@@ -1306,7 +1306,7 @@ paths:
       summary: Edit an Asset Type's Definable Fields
       description: |
         Edits an asset type's definable fields  
-        Requires Instance Permission 58 (Edit Asset Type)
+        Requires Instance Permission ASSETS:ASSET_TYPES:EDIT
       operationId: editAssetTypeDefinableFields
       responses:
         200:
@@ -1680,7 +1680,7 @@ paths:
       summary: Create Asset From Type
       description: |
         Creates an asset from an asset type
-        Requires Instance Permission 17 (Create Asset)
+        Requires Instance Permission 17 ASSETS:CREATE
       operationId: createAssetFromType
       responses:
         200:
@@ -1819,7 +1819,7 @@ paths:
       summary: Create Asset Type
       description: |
         Creates an asset type  
-        Requires Instance Permission 18 (Create Asset Type)
+        Requires Instance Permission ASSETS:ASSET_TYPES:CREATE
       operationId: createAssetType
       responses:
         200:
@@ -2132,7 +2132,7 @@ paths:
       summary: Assign Barcode
       description: |
         Assign a barcode to an asset  
-        Requires Instance Permission 88 (Associate barcodes with an Asset)
+        Requires Instance Permission ASSETS:ASSET_BARCODES:EDIT:ASSOCIATE_UNNASOCIATED_BARCODES_WITH_ASSETS
       operationId: assignBarcode
       responses:
         200:
@@ -2201,7 +2201,7 @@ paths:
       summary: Delete Barcode
       description: |
         Delete a barcode  
-        Requires Instance Permission 86 (Delete Barcode)
+        Requires Instance Permission ASSETS:ASSET_BARCODES:DELETE
       operationId: deleteBarcode
       responses:
         200:
@@ -2630,7 +2630,7 @@ paths:
       summary: Edit Client
       description: |
         Edit a client  
-        Requires Instance Permission 39 (Edit Clients)
+        Requires Instance Permission CLIENTS:EDIT
       operationId: editClient
       responses:
         200:
@@ -2683,7 +2683,7 @@ paths:
       summary: Create Client
       description: |
         Create a client  
-        Requires Instance Permission 37 (Create Clients)
+        Requires Instance Permission CLIENTS:CREATE
       operationId: createClient
       responses:
         200:
@@ -2743,7 +2743,7 @@ paths:
       summary: Edit CMS Page Config
       description: |
         Edit a page config  
-        Requires Instance Permission 126 (Edit Page Config)
+        Requires Instance Permission CMS:CMS_PAGES:EDIT
       operationId: editPageConfig
       responses:
         200:
@@ -2799,7 +2799,7 @@ paths:
       summary: Rollback CMS Page Content
       description: |
         Rollback a page content  
-        Requires Instance Permission 126 (Edit Page Content)
+        Requires Instance Permission CMS:CMS_PAGES:EDIT
       operationId: rollbackPageContent
       responses:
         200:
@@ -2861,7 +2861,7 @@ paths:
       summary: Edit CMS Page Content
       description: |
         Edit a page content  
-        Requires Instance Permission 126 (Edit Page Content)
+        Requires Instance Permission CMS:CMS_PAGES:EDIT
       operationId: editPageContent
       responses:
         200:
@@ -2911,7 +2911,7 @@ paths:
       summary: Edit CMS Page Rank
       description: |
         Edit a page rank  
-        Requires Instance Permission 126 (Edit Page Data)
+        Requires Instance Permission CMS:CMS_PAGES:EDIT
       operationId: editPageRank
       responses:
         200:
@@ -3046,7 +3046,7 @@ paths:
       summary: Set Custom Dashboard
       description: |
         Set a custom dashboard  
-        Requires Instance Permission 126 (Edit Page Data)
+        Requires Instance Permission CMS:CMS_PAGES:EDIT:CUSTOM_DASHBOARDS
       operationId: setCustomDashboard
       responses:
         200:
@@ -3096,7 +3096,7 @@ paths:
       summary: Delete File
       description: |
         Delete a file  
-        Requires Instance Permission 57 (Delete File)
+        Requires Instance Permission ASSETS:FILE_ATTACHMENTS:DELETE
       operationId: deleteFile
       responses:
         200:
@@ -3224,7 +3224,7 @@ paths:
       summary: Remove File Share
       description: |
         Remove a file share  
-        Requires Instance Permission 127 (Manage a file's sharing status)
+        Requires Instance Permission FILES:FILE_ATTACHMENTS:EDIT:SHARING_SETTINGS
       operationId: removeFileShare
       responses:
         200:
@@ -3280,7 +3280,7 @@ paths:
       summary: Rename File
       description: |
         Rename a file  
-        Requires Instance Permission 56 (Rename File)
+        Requires Instance Permission ASSETS:FILE_ATTACHMENTS:EDIT
       operationId: renameFile
       responses:
         200:
@@ -3330,7 +3330,7 @@ paths:
         summary: Share File
         description: |
           Share a file  
-          Requires Instance Permission 127 (Manage a file's sharing status)
+          Requires Instance Permission FILES:FILE_ATTACHMENTS:EDIT:SHARING_SETTINGS
         operationId: shareFile
         responses:
           200:
@@ -3386,7 +3386,7 @@ paths:
       summary: Add Asset to Group
       description: |
         Add an asset to a group  
-        Requires Instance Permission 96 (Add/Remove group members)
+        Requires Instance Permission ASSETS:ASSET_GROUPS:EDIT:ASSETS_WITHIN_GROUP
       operationId: addAssetToGroup
       responses:
         200:
@@ -3447,7 +3447,7 @@ paths:
       summary: Edit Group
       description: |
         Edit a group  
-        Requires Instance Permission 94 (Edit group details)
+        Requires Instance Permission ASSETS:ASSET_GROUPS:EDIT
       operationId: editGroup
       responses:
         200:
@@ -3505,7 +3505,7 @@ paths:
       summary: Create Group
       description: |
         Create a group  
-        Requires Instance Permission 93 (Create new group)
+        Requires Instance Permission ASSETS:ASSET_GROUPS:CREATE
       operationId: createGroup
       responses:
         200:
@@ -3559,7 +3559,7 @@ paths:
       summary: Remove Asset from Group
       description: |
         Remove an asset from a group  
-        Requires Instance Permission 96 (Add/Remove group members)
+        Requires Instance Permission ASSETS:ASSET_GROUPS:EDIT:ASSETS_WITHIN_GROUP
       operationId: removeAssetFromGroup
       responses:
         200:
@@ -3701,7 +3701,7 @@ paths:
       summary: Delete Asset Assignment Status
       description: |
         Delete an asset assignment status  
-        Requires Instance Permission 83 (Edit business settings)
+        Requires Instance Permission BUSINESS:BUSINESS_SETTINGS:EDIT
       operationId: deleteAssetAssignmentStatus
       responses:
         200:
@@ -3764,7 +3764,7 @@ paths:
       summary: Edit Asset Assignment Status
       description: |
         Edit an asset assignment status  
-        Requires Instance Permission 83 (Edit business settings)
+        Requires Instance Permission BUSINESS:BUSINESS_SETTINGS:EDIT
       operationId: editAssetAssignmentStatus
       responses:
         200:
@@ -3825,7 +3825,7 @@ paths:
       summary: Create Asset Assignment Status
       description: |
         Create an asset assignment status  
-        Requires Instance Permission 83 (Edit business settings)
+        Requires Instance Permission BUSINESS:BUSINESS_SETTINGS:EDIT
       operationId: createAssetAssignmentStatus
       responses:
         200:
@@ -3883,7 +3883,7 @@ paths:
       summary: Reorder Asset Assignment Status
       description: |
         Reorder asset assignment statuses  
-        Requires Instance Permission 83 (Edit business settings)
+        Requires Instance Permission BUSINESS:BUSINESS_SETTINGS:EDIT
       operationId: reorderAssetAssignmentStatus
       responses:
         200:
@@ -3958,7 +3958,7 @@ paths:
       summary: Edit Project Type
       description: |
         Edit a project type  
-        Requires Instance Permission 107 (Edit Project Type)
+        Requires Instance Permission PROJECTS:PROJECT_TYPES:EDIT
       operationId: editProjectType
       responses:
         200:
@@ -4035,7 +4035,7 @@ paths:
       summary: Create Project Type
       description: |
         Create a project type  
-        Requires Instance Permission 106 (Create Project Type)
+        Requires Instance Permission PROJECTS:PROJECT_TYPES:CREATE
       operationId: createProjectType
       responses:
         200:
@@ -4106,7 +4106,7 @@ paths:
       summary: Edit Signup Code
       description: |
         Edit a signup code  
-        Requires Instance Permission 111 (Edit Signup Code)
+        Requires Instance Permission BUSINESS:USER_SIGNUP_CODES:EDIT
       operationId: editSignupCode
       responses:
         200:
@@ -4171,7 +4171,7 @@ paths:
       summary: Create Signup Code
       description: |
         Create a signup code  
-        Requires Instance Permission 110 (Add new Signup Code)
+        Requires Instance Permission BUSINESS:USER_SIGNUP_CODES:CREATE
       operationId: createSignupCode
       responses:
         200:
@@ -4227,7 +4227,7 @@ paths:
       summary: Check if Signup Code is Taken
       description: |
         Check if a signup code is taken  
-        Requires Instance Permission 109 (View list of Signup Codes)
+        Requires Instance Permission BUSINESS:USER_SIGNUP_CODES:VIEW
       operationId: checkSignupCodeTaken
       responses:
         200:
@@ -4273,7 +4273,7 @@ paths:
       summary: Add User to Instance
       description: |
         Add a user to an instance  
-        Requires Instance Permission 3 (Add a user to a business by EMail)
+        Requires Instance Permission BUSINESS:USERS:CREATE:ADD_USER_BY_EMAIL
       operationId: addUserToInstance
       responses:
         200:
@@ -4453,7 +4453,7 @@ paths:
       summary: Archive User
       description: |
         Archive a user from an instance  
-        Requires Instance Permission 118 (Archive a user)
+        Requires Instance Permission BUSINESS:USERS:EDIT:ARCHIVE
       operationId: archiveUserFromInstance
       responses:
         200:
@@ -4544,7 +4544,7 @@ paths:
       summary: Edit Instance
       description: |
         Edit an instance  
-        Requires Instance Permission 83 (Edit Instance)
+        Requires Instance Permission BUSINESS:BUSINESS_SETTINGS:EDIT
       operationId: editInstance
       responses:
         200:
@@ -4596,7 +4596,7 @@ paths:
       summary: Edit Instance Public Data
       description: |
         Edit an instance's public data  
-        Requires Instance Permission 83 (Edit Instance)
+        Requires Instance Permission BUSINESS:BUSINESS_SETTINGS:EDIT
       operationId: editInstancePublicData
       responses:
         200:
@@ -4648,7 +4648,7 @@ paths:
       summary: Edit Instance Trusted Domains
       description: |
         Edit an instance's trusted domains  
-        Requires Instance Permission 83 (Edit Instance)
+        Requires Instance Permission BUSINESS:BUSINESS_SETTINGS:EDIT
       operationId: editInstanceTrustedDomains
       responses:
         200:
@@ -4712,7 +4712,7 @@ paths:
       summary: Edit User
       description: |
         Edit a user's role  
-        Requires Instance Permission 6 (Change the role of a user in a business)
+        Requires Instance Permission BUSINESS:USERS:EDIT:CHANGE_ROLE
       operationId: editUser
       responses:
         200:
@@ -4829,7 +4829,7 @@ paths:
       summary: Create Instance
       description: |
         Create a new instance  
-        Requires RMS Permission 8 (Create Instance)
+        Requires server permission INSTANCES:CREATE
       operationId: createInstance
       responses:
         200:
@@ -4918,7 +4918,7 @@ paths:
       summary: Remove User
       description: |
         Remove a user from an instance  
-        Requires Instance Permission 5 (Remove a user from a business)
+        Requires Instance Permission BUSINESS:USERS:DELETE:REMOVE_FORM_BUSINESS
       operationId: removeUser
       responses:
         200:
@@ -4974,7 +4974,7 @@ paths:
       summary: Search Users
       description: |
         Search for users in an instance  
-        Requires Instance Permission 3 (Add a user to a business)
+        Requires Instance Permission BUSINESS:USERS:CREATE:ADD_USER_BY_EMAIL
       operationId: searchUser
       responses:
         200:
@@ -5083,7 +5083,7 @@ paths:
       summary: Edit Location
       description: |
         Edit a location  
-        Requires Instance Permission 99 (Edit a location)
+        Requires Instance Permission LOCATIONS:EDIT
       operationId: editLocation
       responses:
         200:
@@ -5150,7 +5150,7 @@ paths:
       summary: New Location
       description: |
         Create a new location  
-        Requires Instance Permission 98 (Add new location)
+        Requires Instance Permission LOCATION:CREATE
       operationId: newLocation
       responses:
         200:
@@ -5522,7 +5522,7 @@ paths:
       summary: Add Asset
       description: |
         Add an asset to a maintenance job  
-        Requires Instance Permission 74 (Add Assets to Job)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:ADD_ASSETS
       operationId: addAsset
       responses:
         200:
@@ -5569,7 +5569,7 @@ paths:
       summary: Change Block
       description: |
         Change the block status of a maintenance job  
-        Requires Instance Permission 79 (Make job block asset assignments)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:ASSET_BLOCKS
       operationId: changeBlock
       responses:
         200:
@@ -5616,7 +5616,7 @@ paths:
       summary: Change Due Date
       description: |
         Change the due date of a maintenance job  
-        Requires Instance Permission 67 (Change Due Date)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:JOB_DUE_DATE
       operationId: changeDueDate
       responses:
         200:
@@ -5663,7 +5663,7 @@ paths:
       summary: Change Job Assigned
       description: |
         Change who a maintenance job is assigned to  
-        Requires Instance Permission 68 (Change Assigned To)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:USER_ASSIGNED_TO_JOB
       operationId: changeJobAssigned
       responses:
         200:
@@ -5710,7 +5710,7 @@ paths:
       summary: Change Job Status
       description: |
         Change the status of a maintenance job  
-        Requires Instance Permission 73 (Change Status)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:STATUS
       operationId: changeJobStatus
       responses:
         200:
@@ -5757,7 +5757,7 @@ paths:
       summary: Change Name
       description: |
         Change the name of a maintenance job  
-        Requires Instance Permission 70 (	Edit Job Name)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:NAME
       operationId: changeName
       responses:
         200:
@@ -5804,7 +5804,7 @@ paths:
       summary: Change Priority
       description: |
         Change the priority of a maintenance job  
-        Requires Instance Permission 77 (Change Priority)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:JOB_PRIORITY
       operationId: changePriority
       responses:
         200:
@@ -5845,7 +5845,7 @@ paths:
       summary: Delete Job
       description: |
         Delete a maintenance job  
-        Requires Instance Permission 72 (Delete Job)
+        Requires Instance Permission MAINTENANCE_JOBS:DELETE
       operationId: deleteJob
       responses:
         200:
@@ -5892,7 +5892,7 @@ paths:
       summary: Remove Asset
       description: |
         Remove an asset from a maintenance job  
-        Requires Instance Permission 75 (	Remove Assets from Job)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT
       operationId: removeAsset
       responses:
         200:
@@ -5939,7 +5939,7 @@ paths:
       summary: Send Message
       description: |
         Send a message to a maintenance job  
-        Requires Instance Permission 71 (Add message to job)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:ADD_MESSAGE_TO_JOB
       operationId: sendMessage
       responses:
         200:
@@ -5986,7 +5986,7 @@ paths:
       summary: Tag User
       description: |
         Tag a user to a maintenance job  
-        Requires Instance Permission 69 (Edit users tagged in job)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:USERS_TAGGED_IN_JOB
       operationId: tagUser
       responses:
         200:
@@ -6033,7 +6033,7 @@ paths:
       summary: Untag User
       description: |
         Untag a user from a maintenance job  
-        Requires Instance Permission 69 (Edit users tagged in job)
+        Requires Instance Permission MAINTENANCE_JOBS:EDIT:USERS_TAGGED_IN_JOB
       operationId: untagUser
       responses:
         200:
@@ -6099,7 +6099,7 @@ paths:
       summary: New Job
       description: |
         Create a new maintenance job  
-        Requires Instance Permission 18 (Create new Asset Type)
+        Requires Instance Permission ASSETS:ASSET_TYPES:CREATE
       operationId: newJob
       responses:
         200:
@@ -6226,7 +6226,7 @@ paths:
       summary: New Manufacturer
       description: |
         Create a new manufacturer  
-        Requires Instance Permission 38 (Create new Manufacturer)
+        Requires Instance Permission ASSETS:MANUFACTURERS:CREATE
       operationId: newManufacturer
       responses:
         200:
@@ -6349,7 +6349,7 @@ paths:
       summary: Edit Step
       description: |
         Edit a module step  
-        Requires Instance Permission 116 (Edit Training modules)
+        Requires Instance Permission TRAINING:EDIT
       operationId: editStep
       responses:
         200:
@@ -6408,7 +6408,7 @@ paths:
       summary: New Step
       description: |
         Create a new module step  
-        Requires Instance Permission 116 (Edit Training modules)
+        Requires Instance Permission TRAINING:EDIT
       operationId: newStep
       responses:
         200:
@@ -6451,7 +6451,7 @@ paths:
       summary: Sort Steps
       description: |
         Sort the steps of a module  
-        Requires Instance Permission 116 (Edit Training modules)
+        Requires Instance Permission TRAINING:EDIT
       operationId: sortSteps
       responses:
         200:
@@ -6511,7 +6511,7 @@ paths:
       summary: Edit Module
       description: |
         Edit a module  
-        Requires Instance Permission 116 (Edit Training modules)
+        Requires Instance Permission TRAINING:EDIT
       operationId: editModule
       responses:
         200:
@@ -6568,7 +6568,7 @@ paths:
       summary: New Module
       description: |
         Create a new module  
-        Requires Instance Permission 115 (Create Training modules)
+        Requires Instance Permission TRAINING:CREATE
       operationId: newModule
       responses:
         200:
@@ -6634,7 +6634,7 @@ paths:
       summary: Instance Permission Editor
       description: |
         Edit the permissions of a position  
-        Requires Instance Permission 12 (Edit roles permissions [SUPER ADMIN])
+        Requires Instance Permission BUSINESS:ROLES_AND_PERMISSIONS:EDIT
       operationId: instancePermissionEditor
       responses:
         200:
@@ -6662,7 +6662,7 @@ paths:
       summary: New Instance Permission
       description: |
         Create a new permission group  
-        Requires Instance Permission 16 (Add new roles)
+        Requires Instance Permission BUSINESS:ROLES_AND_PERMISSIONS:CREATE
       operationId: newInstancePermission
       responses:
         200:
@@ -6720,7 +6720,7 @@ paths:
       summary: AdamRMS Permission Editor
       description: |
         Edit the permissions of an AdamRMS position  
-        Requires RMS Permission 12 (Edit roles permissions [SUPER ADMIN])
+        Requires server permission PERMISSIONS:EDIT
       operationId: permissionEditor
       responses:
         200:
@@ -6760,7 +6760,7 @@ paths:
       summary: Assign Asset to Project
       description: |
         Assign an asset to a project  
-        Requires Instance Permission 31 (Assign/unassign asset to Project)
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:CREATE:ASSIGN_AND_UNASSIGN
       operationId: assignAssetToProject
       responses:
         200:
@@ -6828,7 +6828,7 @@ paths:
       summary: Set Asset Assignment Comment
       description: |
         Set the comment for an asset assignment  
-        Requires Instance Permission 41 (Edit asset assignment comment)
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:EDIT:ASSIGNMNET_COMMENT
       operationId: setAssetAssignmentComment
       responses:
         200:
@@ -6874,7 +6874,7 @@ paths:
       summary: Set Asset Assignment Discount
       description: |
         Set the discount for an asset assignment  
-        Requires Instance Permission 43 (Edit asset assignment discount)
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:EDIT:DISCOUNT
       operationId: setAssetAssignmentDiscount
       responses:
         200:
@@ -6932,7 +6932,7 @@ paths:
       summary: Set Asset Assignment Price
       description: |
         Set the price for an asset assignment  
-        Requires Instance Permission 42 (Edit asset assignment price)
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:EDIT:CUSTOM_PRICE
       operationId: setAssetAssignmentPrice
       responses:
         200:
@@ -7000,7 +7000,7 @@ paths:
       summary: Set Asset Assignment Status
       description: |
         Set the status for an asset assignment  
-        Requires Instance Permission 53 (Change the assignment status for an asset (e.g. mark as packed))
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:EDIT:ASSIGNMENT_STATUS
       operationId: setAssetAssignmentStatus
       responses:
         200:
@@ -7064,7 +7064,7 @@ paths:
       summary: Set Asset Assignment Status using Barcode
       description: |
         Set the status for an asset assignment using a barcode  
-        Requires Instance Permission 53 (Change the assignment status for an asset (e.g. mark as packed))
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:EDIT:ASSIGNMENT_STATUS
       operationId: setAssetAssignmentStatusBarcode
       responses:
         200:
@@ -7105,7 +7105,7 @@ paths:
       summary: Get Asset Assignment Status List
       description: |
         Get the list of statuses for an asset assignment  
-        Requires Instance Permission 20 (View Projects)
+        Requires Instance Permission PROJECTS:VIEW
       operationId: getAssetAssignmentStatusList
       responses:
         200:
@@ -7149,7 +7149,7 @@ paths:
       summary: Swap Asset Assignment
       description: |
         Swap an asset in a project  
-        Requires Instance Permission 31 (Assign/unassign asset to Project)
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:CREATE:ASSIGN_AND_UNASSIGN
       operationId: swapAssetAssignment
       responses:
         200:
@@ -7201,7 +7201,7 @@ paths:
       summary: Unassign Asset
       description: |
         Unassign an asset from a project  
-        Requires Instance Permission 31 (Assign/unassign asset to Project)
+        Requires Instance Permission PROJECTS:PROJECT_ASSETS:CREATE:ASSIGN_AND_UNASSIGN
       operationId: unassignAsset
       responses:
         200:
@@ -7261,7 +7261,7 @@ paths:
       summary: Accept Vacant Role Application
       description: |
         Accept a vacant role application  
-        Requires Instance Permission 124 (View & Apply for Crew Roles)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:VIEW:VIEW_AND_APPLY_FOR_CREW_ROLES
       operationId: acceptVacantRoleApplication
       responses:
         200:
@@ -7304,7 +7304,7 @@ paths:
       summary: Get Vacant Role Application List
       description: |
         Get the list of applications for a vacant role  
-        Requires Instance Permission 123 (Manage Crew Recruitment for a Project)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:EDIT:CREW_RECRUITMENT
       operationId: getVacantRoleApplicationList
       responses:
         200:
@@ -7357,7 +7357,7 @@ paths:
       summary: Apply for Vacant Role
       description: |
         Apply for a vacant role  
-        Requires Instance Permission 124 (View & Apply for Crew Roles)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:VIEW:VIEW_AND_APPLY_FOR_CREW_ROLES
       operationId: applyForVacantRole
       responses:
         200:
@@ -7403,7 +7403,7 @@ paths:
       summary: Edit Vacant Role
       description: |
         Edit a vacant role  
-        Requires Instance Permission 123 (Manage Crew Recruitment for a Project)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:EDIT:CREW_RECRUITMENT
       operationId: editVacantRole
       responses:
         200:
@@ -7450,7 +7450,7 @@ paths:
       summary: Get Vacant Role List
       description: |
         Get the list of vacant roles for a project  
-        Requires Instance Permission 124 (View & Apply for Crew Roles)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:VIEW:VIEW_AND_APPLY_FOR_CREW_ROLES
       operationId: getVacantRoleList
       responses:
         200:
@@ -7482,7 +7482,7 @@ paths:
       summary: Reject Vacant Role Application
       description: |
         Reject a vacant role application  
-        Requires Instance Permission 124 (View & Apply for Crew Roles)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:VIEW:VIEW_AND_APPLY_FOR_CREW_ROLES
       operationId: rejectVacantRoleApplication
       responses:
         200:
@@ -7540,7 +7540,7 @@ paths:
       summary: Assign Crew
       description: |
         Assign crew to a project  
-        Requires Instance Permission 48 (Add Crew to Project)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:CREATE
       operationId: assignCrew
       responses:
         200:
@@ -7584,7 +7584,7 @@ paths:
       summary: Edit Crew Assignment
       description: |
         Edit a crew assignment  
-        Requires Instance Permission 49 (Edit/Delete Crew Assignments)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:EDIT
       operationId: editCrewAssignment
       responses:
         200:
@@ -7628,7 +7628,7 @@ paths:
       summary: Search Users
       description: |
         Search for users to assign to a project  
-        Requires Instance Permission 48 (Add Crew to Project)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:CREATE
       operationId: searchUsers
       responses:
         200:
@@ -7678,7 +7678,7 @@ paths:
       summary: Sort Crew
       description: |
         Sort the crew of a project  
-        Requires Instance Permission 51 (Edit Crew Ranks)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:EDIT:CREW_RANKS
       operationId: sortCrew
       responses:
         200:
@@ -7714,7 +7714,7 @@ paths:
       summary: Unassign Crew
       description: |
         Unassign crew from a project  
-        Requires Instance Permission 49 (Edit/Delete Crew Assignments)
+        Requires Instance Permission PROJECTS:PROJECT_CREW:EDIT
       operationId: unassignCrew
       responses:
         200:
@@ -7750,7 +7750,7 @@ paths:
       summary: Archive Project
       description: |
         Archive a project  
-        Requires Instance Permission 25 (Archive Projects)
+        Requires Instance Permission PROJECTS:ARCHIVE
       operationId: archiveProject
       responses:
         200:
@@ -7792,7 +7792,7 @@ paths:
       summary: Change Client
       description: |
         Change the client of a project  
-        Requires Instance Permission 22 (Change Project Client)
+        Requires Instance Permission PROJECTS:EDIT:CLIENT
       operationId: changeClient
       responses:
         200:
@@ -7834,7 +7834,7 @@ paths:
       summary: Change Description
       description: |
         Change the description of a project  
-        Requires Instance Permission 24 (Change Project Description & Sub Projects)
+        Requires Instance Permission PROJECTS:EDIT:DESCRIPTION_AND_SUB_PROJECTS
       operationId: changeDescription
       responses:
         200:
@@ -7876,7 +7876,7 @@ paths:
       summary: Change Invoice Notes
       description: |
         Change the invoice notes of a project  
-        Requires Instance Permission 46 (Change Project Invoice Notes)
+        Requires Instance Permission PROJECTS:EDIT:INVOICE_NOTES
       operationId: changeInvoiceNotes
       responses:
         200:
@@ -7918,7 +7918,7 @@ paths:
       summary: Change Name
       description: |
         Change the name of a project  
-        Requires Instance Permission 28 (Change Project Name)
+        Requires Instance Permission PROJECTS:EDIT:NAME
       operationId: changeName
       responses:
         200:
@@ -7966,7 +7966,7 @@ paths:
       summary: Change Project Dates
       description: |
         Change the start and end dates of a project  
-        Requires Instance Permission 27 (Change Project Dates)
+        Requires Instance Permission PROJECTS:EDIT:DATES
       operationId: changeProjectDates
       responses:
         200:
@@ -8014,7 +8014,7 @@ paths:
       summary: Change Project Deliver Dates
       description: |
         Change the start and end deliver dates of a project  
-        Requires Instance Permission 27 (Change Project Dates)
+        Requires Instance Permission PROJECTS:EDIT:DATES
       operationId: changeProjectDeliverDates
       responses:
         200:
@@ -8056,7 +8056,7 @@ paths:
       summary: Change Project Manager
       description: |
         Change the project manager of a project  
-        Requires Instance Permission 23 (Change Project Lead)
+        Requires Instance Permission PROJECTS:EDIT:LEAD
       operationId: changeProjectManager
       responses:
         200:
@@ -8098,7 +8098,7 @@ paths:
       summary: Change Project Type
       description: |
         Change the project type of a project  
-        Requires Instance Permission 104 (Change Project Type)
+        Requires Instance Permission PROJECTS:EDIT:PROJECT_TYPE
       operationId: changeProjectType
       responses:
         200:
@@ -8140,7 +8140,7 @@ paths:
       summary: Change Status
       description: |
         Change the status of a project  
-        Requires Instance Permission 29 (Change Project Status)
+        Requires Instance Permission PROJECTS:EDIT:STATUS
       operationId: changeStatus
       responses:
         200:
@@ -8182,7 +8182,7 @@ paths:
       summary: Change Sub Project
       description: |
         Change the parent project of a project  
-        Requires Instance Permission 30 (Change Sub Project)
+        Requires Instance Permission PROJECTS:CREATE
       operationId: changeSubProject
       responses:
         200:
@@ -8224,7 +8224,7 @@ paths:
       summary: Change Venue
       description: |
         Change the venue of a project  
-        Requires Instance Permission 30 (Change Project Address)
+        Requires Instance Permission PROJECTS:EDIT:ADDRESS
       operationId: changeVenue
       responses:
         200:
@@ -8266,7 +8266,7 @@ paths:
       summary: Data
       description: |
         Get the data of a project  
-        Requires Instance Permission 20 (View Projects)
+        Requires Instance Permission PROJECTS:VIEW
       operationId: data
       responses:
         200:
@@ -8302,7 +8302,7 @@ paths:
       summary: Delete
       description: |
         Delete a project  
-        Requires Instance Permission 26 (Delete Projects)
+        Requires Instance Permission PROJECTS:DELETE
       operationId: delete
       responses:
         200:
@@ -8338,7 +8338,7 @@ paths:
       summary: Delete Payment
       description: |
         Delete a payment  
-        Requires Instance Permission 35 (Delete a Project Payment)
+        Requires Instance Permission PROJECTS:PROJECT_PAYMENTS:DELETE
       operationId: deletePayment
       responses:
         200:
@@ -8386,7 +8386,7 @@ paths:
       summary: Edit Note
       description: |
         Edit a project note  
-        Requires Instance Permission 44 (Edit Project Notes)
+        Requires Instance Permission PROJECTS:PROJECT_NOTES:EDIT:NOTES
       operationId: editNote
       responses:
         200:
@@ -8428,7 +8428,7 @@ paths:
       summary: Follow Parent Status
       description: |
         Change whether a project follows the status of its parent project  
-        Requires Instance Permission 21 (Create Project)
+        Requires Instance Permission PROJECTS:CREATE
       operationId: followParentStatus
       responses:
         200:
@@ -8466,7 +8466,7 @@ paths:
       summary: Get Comments
       description: |
         Get the comments of a project  
-        Requires Instance Permission 20 (View Projects)
+        Requires Instance Permission PROJECTS:VIEW
       operationId: getComments
       responses:
         200:
@@ -8495,7 +8495,7 @@ paths:
       summary: List
       description: |
         Get a list of projects  
-        Requires Instance Permission 20 (View Projects)
+        Requires Instance Permission PROJECTS:VIEW
       operationId: list
       responses:
         200:
@@ -8549,7 +8549,7 @@ paths:
       summary: New
       description: |
         Create a new project  
-        Requires Instance Permission 21 (Create Project)
+        Requires Instance Permission PROJECTS:CREATE
       operationId: new
       responses:
         200:
@@ -8591,7 +8591,7 @@ paths:
       summary: New Note
       description: |
         Create a new project note  
-        Requires Instance Permission 45 (Add Project Notes)
+        Requires Instance Permission PROJECTS:PROJECT_NOTES:CREATE:NOTES
       operationId: newNote
       responses:
         200:
@@ -8643,7 +8643,7 @@ paths:
       summary: New Payment
       description: |
         Create a new project payment  
-        Requires Instance Permission 34 (Add new Project Payment)
+        Requires Instance Permission PROJECTS:PROJECT_PAYMENTS:CREATE
       operationId: newPayment
       responses:
         200:
@@ -8685,7 +8685,7 @@ paths:
       summary: New Quick Comment
       description: |
         Create a new project quick comment  
-        Requires Instance Permission 20 (View Projects)
+        Requires Instance Permission PROJECTS:VIEW
       operationId: newQuickComment
       responses:
         200:
@@ -8721,7 +8721,7 @@ paths:
       summary: Unarchive
       description: |
         Unarchive a project  
-        Requires Instance Permission 25 (Archive Project)
+        Requires Instance Permission PROJECTS:ARCHIVE
       operationId: unArchive
       responses:
         200:
@@ -8784,8 +8784,7 @@ paths:
         - s3files
       summary: App Uploader
       description: |
-        Upload a file to S3  
-        Requires Instance Permission 1 (View Dashboard)
+        Upload a file to S3
       operationId: appUploader
       responses:
         200:
@@ -8864,7 +8863,7 @@ paths:
       summary: Upload Project Invoice
       description: |
         Upload a project invoice  
-        Requires Instance Permission 20 (View Projects)
+        Requires Instance Permission PROJECTS:VIEW
       operationId: uploadProjectInvoice
       responses:
         200:
@@ -9085,7 +9084,7 @@ paths:
       summary: Certify
       description: |
         Certify a user for a module  
-        Requires instance permission 119 (Certify a user's training)
+        Requires instance permission TRAINING:EDIT:CERTIFY_USER
       operationId: certify
       responses:
         200:
@@ -9162,7 +9161,7 @@ paths:
       summary: Revoke All
       description: |
         Revoke all certifications for a user  
-        Requires instance permission 120 (Revoke a user's training)
+        Requires instance permission TRAINING:EDIT:REVOKE_USER_CERTIFICATION
       operationId: revokeAll
       responses:
         200:

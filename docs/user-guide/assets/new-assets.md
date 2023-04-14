@@ -4,9 +4,9 @@ title: New Assets
 ---
 # New Assets
 
-:::note Asset Permissions  
-17 - Create new Asset  
-18 - Create new Asset Type  
+:::note Permissions Required
+ASSETS:CREATE  
+ASSETS:ASSET_TYPES:CREATE  
 :::
 
 ## Asset Types

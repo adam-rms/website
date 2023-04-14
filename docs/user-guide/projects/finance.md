@@ -8,13 +8,13 @@ title: Project Finance
 
 Project finance allows you to track hire, crew and purchasing costs for each project.
 
-:::note Finance Permissions  
-33 - View Project Payments  
-34 - Add new Project Payment  
-35 - Delete a Project Payment  
-46 - Change Project Invoice Notes  
-121 - View Payment File Attachments  
-122 - Upload Payment File Attachments  
+:::note Permissions Required
+PROJECTS:PROJECT_PAYMENTS:VIEW  
+PROJECTS:PROJECT_PAYMENTS:CREATE  
+PROJECTS:PROJECT_PAYMENTS:DELETE  
+PROJECTS:EDIT:INVOICE_NOTES  
+PROJECTS:PROJECT_PAYMENTS:VIEW:FILE_ATTACHMENTS  
+PROJECTS:PROJECT_PAYMENTS:CREATE:FILE_ATTACHMENTS  
 :::
 
 ![Finance Dashboard](/img/tutorial/projects/finance-dashboard.png)

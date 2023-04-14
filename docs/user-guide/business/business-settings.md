@@ -9,9 +9,9 @@ title: Business Settings
 ---
 Basic settings cover a number of useful settings about your business, including business information and invoice settings.
 
-:::note Business permissions  
-81 - View business settings page  
-83 - Edit business settings  
+:::note Permissions Required
+BUSINESS:BUSINESS_SETTINGS:VIEW  
+BUSINESS:BUSINESS_SETTINGS:EDIT  
 :::
 
 ![Basic Settings](/img/tutorial/businesses/settings-basic.png)
@@ -43,9 +43,9 @@ The date of each label can be any date in the required week. If two labels for t
 AdamRMS supports provides a number of widgets to business, to allow information about business assets to be shared publicly.  
 For example, this can be used to show what assets are available for hire.
 
-:::note Public site permissions  
-81 - View business settings page  
-83 - Edit business settings   
+:::note Permissions Required
+BUSINESS:BUSINESS_SETTINGS:VIEW  
+BUSINESS:BUSINESS_SETTINGS:EDIT  
 :::
 
 ![Public site settings](/img/tutorial/businesses/settings-publicSite.png)
@@ -61,11 +61,11 @@ You can enable different pieces of information to be shared from the Public site
 ---
 Project types are a way to change what elements of [Projects](./../projects/overview) are available to each project. AdamRMS provides a “Full Project” by default which has all elements enabled.
 
-:::note Project Types Permissions  
-105	- View list of Project Types  
-106	- Add new Project Type  
-107	- Edit Project Type  
-108 - Delete Project Type  
+:::note Permissions Required
+PROJECTS:PROJECT_TYPES:VIEW  
+PROJECTS:PROJECT_TYPES:CREATE  
+PROJECTS:PROJECT_TYPES:EDIT  
+PROJECTS:PROJECT_TYPES:DELETE  
 :::
 
 ![Custom project types](/img/tutorial/businesses/settings-types.png)
@@ -84,11 +84,11 @@ Each Project is split into the following sections that can be enabled or disable
 ---
 All Assets have an associated category that groups assets. AdamRMS comes with 29 sub-categories by default, but you can add new subcategories on a business basis.
 
-:::note Category Permissions
-89 - View a list of custom categories  
-90 - Add a new custom category  
-91 - Edit a custom category  
-92 - Delete a custom category  
+:::note Permissions Required
+ASSETS:ASSET_CATEGORIES:VIEW  
+ASSETS:ASSET_CATEGORIES:CREATE  
+ASSETS:ASSET_CATEGORIES:EDIT  
+ASSETS:ASSET_CATEGORIES:DELETE  
 :::
 
 ![Custom asset categories](/img/tutorial/businesses/settings-category.png)
