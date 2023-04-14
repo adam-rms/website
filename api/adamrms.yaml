@@ -384,7 +384,7 @@ paths:
       summary: Email Viewer
       description: |
         Get the HTML of an email  
-        Requires RMS permission 6
+        Requires server permission USERS:VIEW:MAILINGS
       operationId: getEmailViewer
       responses:
         200:
@@ -547,7 +547,7 @@ paths:
       summary: Permission Management
       description: |
         Manage user pemissions
-        Requires RMS permission 13
+        Requires server permission PERMISSIONS:EDIT:USER_POSITION
       operationId: permissionManagement
       responses:
         200:
@@ -713,7 +713,7 @@ paths:
       summary: View Site As
       description: |
         View the site as a given user  
-        Requires RMS permission 10
+        Requires server permission USERS:VIEW_SITE_AS
       operationId: viewSiteAs
       responses:
         200:
@@ -4829,7 +4829,7 @@ paths:
       summary: Create Instance
       description: |
         Create a new instance  
-        Requires RMS Permission 8 (Create Instance)
+        Requires server permission INSTANCES:CREATE
       operationId: createInstance
       responses:
         200:
@@ -6720,7 +6720,7 @@ paths:
       summary: AdamRMS Permission Editor
       description: |
         Edit the permissions of an AdamRMS position  
-        Requires RMS Permission 12 (Edit roles permissions [SUPER ADMIN])
+        Requires server permission PERMISSIONS:EDIT
       operationId: permissionEditor
       responses:
         200:
