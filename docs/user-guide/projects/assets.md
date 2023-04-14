@@ -9,13 +9,13 @@ title: Assets in Projects
 Assets determine billing for the project, and can be tracked through [Asset Statuses](../business/business-settings.md#basic-settings)  
 They can be assigned on a cross-business basis, to include local sub-hires.
 
-:::note Project Asset Permissions  
-31 - Assign/unassign asset to Project  	
-32 - Assign all assets to Project  
-41 - Edit asset assignment comment  
-42 - Edit asset assignment custom price  
-43 - Edit asset assignment discount  
-53 - Change the assignment status for an asset  
+:::note Permissions Required
+PROJECTS:PROJECT_ASSETS:CREATE:ASSIGN_AND_UNASSIGN
+PROJECTS:PROJECT_ASSETS:CREATE:ASSIGN_ALL_BUSINESS_ASSETS
+PROJECTS:PROJECT_ASSETS:EDIT:ASSIGNMNET_COMMENT
+PROJECTS:PROJECT_ASSETS:EDIT:CUSTOM_PRICE
+PROJECTS:PROJECT_ASSETS:EDIT:DISCOUNT
+PROJECTS:PROJECT_ASSETS:EDIT:ASSIGNMENT_STATUS
 :::
 
 ## Adding Assets to Projects

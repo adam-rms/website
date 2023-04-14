@@ -38,10 +38,14 @@ It can also be tracked by updating the job status.
 ![Maintenance Job details](/img/tutorial/assets/maintenance-details.png "Full details of maintenance job")
 *Job details page*
 
-:::note Job Permissions  
-63 - Access Maintenance & add new Job  
-67-70 - Adjust job attributes  
-73 - Manage job status  
-76 - Job Files  
-78&79 - Flags & Blocks  
+:::note Permissions Required
+MAINTENANCE_JOBS:VIEW
+MAINTENANCE_JOBS:EDIT:JOB_DUE_DATE
+MAINTENANCE_JOBS:EDIT:USER_ASSIGNED_TO_JOB
+MAINTENANCE_JOBS:EDIT:USERS_TAGGED_IN_JOB
+MAINTENANCE_JOBS:EDIT:NAME
+MAINTENANCE_JOBS:EDIT:STATUS
+MAINTENANCE_JOBS:MAINTENANCE_JOBS_FILE_ATTACHMENTS:CREATE
+MAINTENANCE_JOBS:EDIT:ASSET_FLAGS
+MAINTENANCE_JOBS:EDIT:ASSET_BLOCKS
 :::

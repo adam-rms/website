@@ -14,13 +14,13 @@ Projects are listed on the main menu and in the project list page.
 ![Project List](/img/tutorial/projects/projects-list.png)
 *List of Projects*
 
-:::note Base Project Permissions  
-20 - View Projects  
-21 - Create Project  
-25 - Archive Project  
-26 - Delete Project  
-104 - Change Project Type  
-105 - View list of Project Types  
+:::note Permissions Required
+PROJECTS:VIEW
+PROJECTS:CREATE
+PROJECTS:ARCHIVE
+PROJECTS:DELETE
+PROJECTS:EDIT:PROJECT_TYPE
+PROJECTS:PROJECT_TYPES:VIEW
 :::
 
 ## Projects in the Menu

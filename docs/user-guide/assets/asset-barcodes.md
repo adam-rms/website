@@ -28,11 +28,11 @@ They also have Asset stickers for larger assets. These stickers have T-XXXX tags
 ---
 AdamRMS can generate sheets of asset barcodes that can be printed on stickers or cable wraps.
 
-:::note Asset Barcode Permissions  
-84 - View Asset Barcodes - required to access barcode generation  
-85 - Scan Barcodes in the App  
-86 - Delete Asset Barcodes  
-88 - Associate any unassociated barcode with an asset  
+:::note Permissions Required
+ASSETS:ASSET_BARCODES:VIEW
+ASSETS:ASSET_BARCODES:VIEW:SCAN_IN_APP
+ASSETS:ASSET_BARCODES:DELETE
+ASSETS:ASSET_BARCODES:EDIT:ASSOCIATE_UNNASOCIATED_BARCODES_WITH_ASSETS
 :::
 
 Asset Generation is customisable to add what you need to the stickers. Settings include:  
