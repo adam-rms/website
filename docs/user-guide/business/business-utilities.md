@@ -12,7 +12,7 @@ The stats page allows users to add and remove widgets from their dashboard.
 
 :::note Permissions Required
 BUSINESS:BUSINESS_STATS:VIEW  
- :::
+:::
 
 ![Business Stats](/img/tutorial/businesses/utilities-stats.png "Business Stats Widgets")
 *Business Stats Widgets*
