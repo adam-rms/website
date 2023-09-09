@@ -22,9 +22,13 @@ Github has been [Carbon Neutral since 2019](https://github.blog/2021-04-22-envir
 
 > dash.adam-rms.com
 
-### Servers & File Storage
+### Servers
 
-AdamRMS uses [AWS](https://sustainability.aboutamazon.com/environment/the-cloud), which purchases Renewable Energy Credits [RES] and Guarantees of Origin to cover any non-renewable energy they use in the Europe (Ireland) region we use primarily and the Europe (Frankfurt) region we use for backups.
+[DigitalOcean](https://www.digitalocean.com/impact) is committed to minimizing its carbon footprint and maintaining sustainable practices. DigitalOcean actively invests in utilizing efficient server hardware and optimizing the overall energy efficiency of its data centers, which have a power usage effectiveness (PUE) averaging at 1.15. By leveraging renewable energy, DigitalOcean aims to make an even greater positive environmental impact. 
+
+### File Storage
+
+AdamRMS uses [AWS](https://sustainability.aboutamazon.com/environment/the-cloud), which purchases Renewable Energy Credits [RES] and Guarantees of Origin to cover any non-renewable energy they use in the Europe (Ireland) region we use primarily for file storage and the Europe (Frankfurt) region we use for backups.
 
 ### Reverse Proxy & DNS
 
