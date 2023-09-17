@@ -5050,6 +5050,63 @@ paths:
                     result: false
                     error:
                       { code: "PARAM-ERROR", message: "Provide an instance id" }
+  /instances/users.php:
+    parameters:
+      - name: q
+        in: query
+        description: Search by users' names, usernames, or emails
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Paginate the results, starting from 1.
+        required: false
+        schema:
+          type: number
+          default: 1
+    get:
+      tags:
+        - instances
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: Whether the request was successful
+                  response:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        users_userid:
+                          type: number
+                        users_username:
+                          type: string
+                        users_name1:
+                          type: string
+                        users_name2:
+                          type: string
+                        users_email:
+                          type: string
+                          format: email
+                        users_emailVerified:
+                          type: boolean
+                        users_suspended:
+                          type: boolean
+                        instancePositions_id:
+                          type: number
+                        instancePositions_displayName:
+                          type: string
+                        users_thumbnail:
+                          type: string
+                          nullable: true
+
   /locations/edit.php:
     parameters:
       - name: formData
