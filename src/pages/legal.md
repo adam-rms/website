@@ -7,11 +7,11 @@ hide_table_of_contents: false
 ## Common Preamble
 
 1. Please read this document carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service. Any use of the term “Service”, “Website” or “We” refers to AdamRMS, its team and associated introductions unless expressly stated otherwise.
-1. The headings used in this agreement are included for convenience only and will not limit or otherwise affect this document. 
+1. The headings used in this agreement are included for convenience only and will not limit or otherwise affect this document.
 1. AdamRMS is developed and distributed by Bithell Studios Ltd, a company registered in England and Wales, United Kingdom.
-1. Bithell Studios Ltd is registered at Companies House (№11918238), and registered with the Information Commissioner's Office with reference ZA741917. 
+1. Bithell Studios Ltd is registered at Companies House (№11918238), and registered with the Information Commissioner's Office with reference ZA741917.
 1. We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time.
-1. Questions about this document should be sent to our support team using the email address studios@jbithell.com
+1. Questions about this document should be sent to our support team using the email address support@adam-rms.com
 
 [Data Processing Statement & Privacy Policy](#data-processing-statement-and-privacy-policy)
 
@@ -23,28 +23,29 @@ hide_table_of_contents: false
 
 This section of this document is designed to bring the service into compliance with the European Union's General Data Protection Regulation (GDPR) which came into force on May 25, 2018.
 
-Data is typically passed to us either by our users directly: for example by signing up to the service and entering their personal details such as their email address, or it is passed to us by businesses or organisations they're associated with. 
+Data is typically passed to us either by our users directly: for example by signing up to the service and entering their personal details such as their email address, or it is passed to us by businesses or organisations they're associated with.
 
-When users first login or signup they are asked to consent to this document by the system, which records them having done so. 
+When users first login or signup they are asked to consent to this document by the system, which records them having done so.
 
-### Lawful, fair and transparent processing 
+### Lawful, fair and transparent processing
 
-1. Individuals have the right to access their personal data and any such requests made to the service shall be dealt with in a timely manner. 
+1. Individuals have the right to access their personal data and any such requests made to the service shall be dealt with in a timely manner.
 2. All data processed by the service must be done on one of the following lawful bases: consent, contract, legal obligation, vital interests, public task or legitimate interests
-3. Where consent is relied upon as a lawful basis for processing data, evidence of opt-in  consent shall be kept with the personal data. 
-4. Where communications are sent to individuals based on their consent, the option for the individual to revoke their consent should be clearly available and systems should be in place to ensure such revocation is reflected accurately in the service’s systems.  
+3. Where consent is relied upon as a lawful basis for processing data, evidence of opt-in consent shall be kept with the personal data.
+4. Where communications are sent to individuals based on their consent, the option for the individual to revoke their consent should be clearly available and systems should be in place to ensure such revocation is reflected accurately in the service’s systems.
 5. The service shall ensure that personal data are adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed
 
 ### Security
+
 1. The service shall ensure that personal data is stored securely
-1.  Some of the service's directors, employees and volunteers have access to some/all of the service's files, access logs, emails and data, which they may view at any time.
-2.  To help provide fantastic service and support, certain directors, employees and volunteers may login to any user's account, at any time, without notifying them.
-3.  As provided for by the Regulation of Investigatory Powers Act 2000 or any corresponding statute, the Service's directors, employees and volunteers reserve the right to investigate and inspect electronic communications.
-4. As required for operational reasons, user data may be released to other users to enable them to execute their role functions - for example your email address will be shared with other users to allow them to contact you in relation to events. 
-5. The service may release data for analytical purposes to external providers but this data will either be anonymised or stored in line with this document.
-6. When personal data is deleted this should be done safely such that the data is irrecoverable, in liason with the service's storage contractors. 
-7. Appropriate back-up and disaster recovery solutions shall be in place. 
-8. In the event of a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data, the service shall promptly assess the risk to people’s rights and freedoms and if appropriate report this breach to the ICO in the United Kingdom. 
+1. Some of the service's directors, employees and volunteers have access to some/all of the service's files, access logs, emails and data, which they may view at any time.
+1. To help provide fantastic service and support, certain directors, employees and volunteers may login to any user's account, at any time, without notifying them.
+1. As provided for by the Regulation of Investigatory Powers Act 2000 or any corresponding statute, the Service's directors, employees and volunteers reserve the right to investigate and inspect electronic communications.
+1. As required for operational reasons, user data may be released to other users to enable them to execute their role functions - for example your email address will be shared with other users to allow them to contact you in relation to events.
+1. The service may release data for analytical purposes to external providers but this data will either be anonymised or stored in line with this document.
+1. When personal data is deleted this should be done safely such that the data is irrecoverable, in liason with the service's storage contractors.
+1. Appropriate back-up and disaster recovery solutions shall be in place.
+1. In the event of a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data, the service shall promptly assess the risk to people’s rights and freedoms and if appropriate report this breach to the ICO in the United Kingdom.
 
 ### Data Storage
 
@@ -77,6 +78,7 @@ AdamRMS does not use Google Analytics or similar services, and as such does not 
 ## Terms of Service
 
 ### Preamble
+
 1.  Any new features or tools which are added to the system shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.
 2.  We reserve the right to refuse service to anyone for any reason at any time.
 3.  You understand that your content may be transferred unencrypted and involve:
@@ -105,11 +107,11 @@ AdamRMS does not use Google Analytics or similar services, and as such does not 
 ### Security
 
 1.  The Law
-    
+
     1.  The Computer Misuse Act 1990 makes it a criminal offence to attempt to interfere with others' software, to harass people via the computer, or to attempt to gain unauthorized access to a computer system in order to view or change information.
-    
+
     An example of an offence under the computer misuse act is the logging into another's account.
-    
+
 2.  All inappropriate use of the service will be investigated, and reported to the authorities as deemed appropriate.
 3.  Third Party Links
     1.  Certain content, products and services available via the service may include materials from third-parties.
@@ -141,8 +143,8 @@ This section of the policy refers to user submitted content, which includes but 
     7.  to upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Service or of any related website, other websites, or the Internet
     8.  to collect or track the personal information of others
     9.  to spam, phish, pharm, pretext, spider, crawl, or scrape
-    10.  for any obscene or immoral purpose
-    11.  to interfere with or circumvent the security features of the Service or any related website, other websites, or the Internet.
+    10. for any obscene or immoral purpose
+    11. to interfere with or circumvent the security features of the Service or any related website, other websites, or the Internet.
 2.  We reserve the right to terminate your use of the Service or any related website for violating any of these terms.
 3.  We also reserve the rights to restrict your access to specific portions of the service or login as you, without using your password, at our discretion.
 
@@ -154,7 +156,6 @@ This section of the policy refers to user submitted content, which includes but 
 ### Penetration Testing
 
 1.  We do not encourage or endorse any penetration testing or vulnerability searching of our service. If you do find any bugs or security flaws in our systems, please report them to our support team using the address at the top of this document immediately - taking as many precautions as possible. Failing to report bugs to us, and publishing them publicly, threatens the whole community.
-
 
 ### Disclaimer of Warranties & Limitation of Liability
 
@@ -173,7 +174,6 @@ This section of the policy refers to user submitted content, which includes but 
 2.  These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no longer wish to use our Services
     1.  If you do terminate your agreement to these provisions you will not use the service in any way without re-accepting
 3.  If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination; and/or accordingly may deny you access to our Services (or any part thereof).
-
 
 ### Entire Agreement
 

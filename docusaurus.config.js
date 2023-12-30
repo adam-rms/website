@@ -31,21 +31,27 @@ module.exports = {
           type: "doc",
           docId: "user-guide/intro",
           position: "left",
-          label: "Users",
+          label: "User Guide",
+        },
+        {
+          label: "Support",
+          to: "/support",
+        },
+        {
+          type: "doc",
+          docId: "hosting/intro",
+          position: "left",
+          label: "Self Hosting",
         },
         {
           to: "/api",
-          label: "API",
+          label: "API Documentation",
         },
         {
           type: "doc",
           docId: "contributor/intro",
           position: "left",
-          label: "Contributors",
-        },
-        {
-          label: "Support",
-          to: "/support",
+          label: "Contributing",
         },
         {
           label: "Environment",
@@ -56,67 +62,10 @@ module.exports = {
           label: "Login",
           position: "right",
         },
-        {
-          type: "docsVersionDropdown",
-          position: "right",
-        },
       ],
     },
     footer: {
       style: "dark",
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "User Guide",
-              to: "/docs/v1/user-guide/intro",
-            },
-            {
-              label: "API Documentation",
-              to: "/api/",
-            },
-            {
-              label: "Service Status",
-              href: "https://status.bithell.studio/",
-            },
-          ],
-        },
-        {
-          title: "Repos",
-          items: [
-            {
-              label: "Dashboard & API",
-              href: "https://github.com/adam-rms/adam-rms",
-            },
-            {
-              label: "v2",
-              href: "https://github.com/adam-rms/adam-rms-v2",
-            },
-            {
-              label: "Mobile App",
-              href: "https://github.com/adam-rms/app",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Support",
-              to: "/support",
-            },
-            {
-              label: "Privacy & Terms",
-              to: "/legal",
-            },
-            {
-              label: "Bithell Studios Ltd",
-              href: "https://bithell.studio/",
-            },
-          ],
-        },
-      ],
       copyright: `Copyright © 2019-${new Date().getFullYear()} Bithell Studios Ltd.`,
     },
     prism: {

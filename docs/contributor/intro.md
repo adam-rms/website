@@ -13,21 +13,10 @@ Thank you for your interest in developing AdamRMS - we're excited to have you co
 
 This section of the site contains a huge wealth of information, separated into sections.
 
-## Versions
-
-AdamRMS has two main versions - v1 is still in active development, but most efforts have moved to the v2 repo.
-
-|                                             Repo | Docs                    | Description                           | Language                | Status                                           |
-| -----------------------------------------------: | :---------------------- | :------------------------------------ | :---------------------- | :----------------------------------------------- |
-| [adam-rms](https://github.com/adam-rms/adam-rms) | [Docs](./repo/intro)    | Dashboard and API                     | PHP                     | Production :white_check_mark:<br/>In-Development |
-|   [website](https://github.com/adam-rms/website) | [Docs](./website/intro) | Project Website and Documentation Hub | Javascript (Docusaurus) | Production :white_check_mark:<br/>In-Development |
-
 ## Wayfinding
 
 - [Getting Started with Contributing to the Open Source Project](./contributing)
   - [Developing Locally](./repo/intro)
-- [Getting an AdamRMS account](./hosting/hosted/intro)
-- [Deploying AdamRMS on your server](./hosting/self-hosting/intro)
 - [Using the API](../../../api)
 - [Style Guide](./style-guide)
 - [Licencing Details](./licence-details)
