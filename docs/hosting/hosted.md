@@ -1,11 +1,17 @@
 ---
-sidebar_position: 1
-title: Comparison
+sidebar_position: 2
+title: Hosted Solution
 ---
 
-# Comparing the Hosting Offerings
+# Hosted AdamRMS
 
-**Use [Hosted](./hosted/intro) AdamRMS if:**
+AdamRMS is offered by as a hosted service by Bithell Studios Ltd, accessible at [https://dash.adam-rms.com](https://dash.adam-rms.com).
+
+Support is provided via support@adam-rms.com
+
+## Comparing the Hosting Offerings
+
+**Use Hosted AdamRMS if:**
 
 - :x: You are not an experienced system administrator
 - :x: You don't have your own hosting infrastructure
@@ -15,7 +21,7 @@ title: Comparison
 - :white_check_mark: you require support, beyond that provided by the community on Github
 - :white_check_mark: you want to contribute to, and encourage, future development
 
-**[Self Host](./self-hosting/intro) if:**
+**[Self Host](./intro) if:**
 
 - :x: you want to develop your own features that are not supported in AdamRMS, and the community has decided not to accept your features into the main project
 - :white_check_mark: you are an experienced system administrator

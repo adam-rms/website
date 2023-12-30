@@ -11,22 +11,19 @@ import GooglePlayBadge from "./../../static/img/storeIcons/google-play-badge.png
 import AppStoreBadge from "./../../static/img/storeIcons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png";
 import Video from "../components/Video";
 
-
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
-            href="https://play.google.com/store/apps/details?id=com.bstudios.adamrms&utm_source=webdashboard&utm_campaign=dashboardwidget&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
-            <Image img={GooglePlayBadge} style={{width: 150}} />
+          <Link href="https://play.google.com/store/apps/details?id=com.bstudios.adamrms&utm_source=webdashboard&utm_campaign=dashboardwidget&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+            <Image img={GooglePlayBadge} style={{ width: 150 }} />
           </Link>
-          <Link
-            href="https://apps.apple.com/us/app/id1519443182?utm_source=webdashboard&utm_campaign=dashboardwidget">
-            <Image img={AppStoreBadge} style={{width: 135}} />
+          <Link href="https://apps.apple.com/us/app/id1519443182?utm_source=webdashboard&utm_campaign=dashboardwidget">
+            <Image img={AppStoreBadge} style={{ width: 135 }} />
           </Link>
         </div>
       </div>
@@ -39,32 +36,87 @@ function Pricing() {
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">Pricing</h1>
-        <p className="hero__subtitle">AdamRMS is currently offered as a hosted solution, by Bithell Studios Ltd, and as a self-hosted solution using the docker images published on Github.<br/>We are keen to talk to new customers about hosting AdamRMS for you - get in touch to discuss your use case.</p>
-        <div className={styles.buttons}>
-          <a
-            className="button button--secondary button--lg"
-            href="mailto:studios@jbithell.com">
-            Talk to sales
-          </a>
+        <p className="hero__subtitle">
+          AdamRMS is currently offered as a hosted solution, by Bithell Studios
+          Ltd, and as a self-hosted solution using the docker images published
+          on Github.
+          <br />
+          We are not currently offering the hosted solution to new customers,
+          but instead encourage you to self-host the project.
+        </p>
+      </div>
+    </header>
+  );
+}
+
+function PartsOfTheSite() {
+  return (
+    <header className={clsx("hero hero--secondary", styles.heroBanner)}>
+      <div className="container">
+        <h1 className="hero__title">Getting Started</h1>
+        <div className="row">
+          <div className={clsx("col col--4")}>
+            <div className="text--center padding-horiz--md">
+              <h2>User Guide</h2>
+              <p>Getting started as a new user of the system</p>
+              <div className={styles.buttons}>
+                <Link
+                  className="button button--secondary button--lg"
+                  to="/docs/v1/user-guide/intro"
+                >
+                  User Guide
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className={clsx("col col--4")}>
+            <div className="text--center padding-horiz--md">
+              <h2>Self-Hosting</h2>
+              <p>Getting started with hosting AdamRMS</p>
+              <div className={styles.buttons}>
+                <Link
+                  className="button button--secondary button--lg"
+                  to="/docs/v1/hosting/intro"
+                >
+                  Self Hosting Guide
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className={clsx("col col--4")}>
+            <div className="text--center padding-horiz--md">
+              <h2>Contributing</h2>
+              <p>Contributing to the development of AdamRMS</p>
+              <div className={styles.buttons}>
+                <Link
+                  className="button button--secondary button--lg"
+                  to="/docs/v1/contributor/intro"
+                >
+                  Contribution Guide
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
   );
 }
 
-
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`${siteConfig.title} | Open Source Advanced Rental Management System for Theatre, AV & Broadcast`}
-      description="AdamRMS is an advanced Rental Management System for Theatre, AV & Broadcast. Free & Open Source">
+      description="AdamRMS is an advanced Rental Management System for Theatre, AV & Broadcast. Free & Open Source"
+    >
       <HomepageHeader />
       <Video />
       <main>
         <HomepageFeatures />
       </main>
       <Pricing />
+      <PartsOfTheSite />
     </Layout>
   );
 }
