@@ -44,14 +44,14 @@ docker pull ghcr.io/adam-rms/adam-rms:latest
 ```
 
 
-The Docker image requires a number of environment variable to be set. These variables can be found in [example.dev.env](https://raw.githubusercontent.com/adam-rms/adam-rms/main/example.dev.env), and you can copy this to a ``.env`` file, or set each varaible individually. There are a handful of development-related environment variables, which are discussed in [Contributing](/docs/v1/contributor/intro)
+The Docker image requires a number of environment variable to be set. These variables can be found in [example.dev.env](https://raw.githubusercontent.com/adam-rms/adam-rms/main/example.dev.env), and you can copy this to a ``.env`` file, or set each variable individually. There are a handful of development-related environment variables, which are discussed in [Contributing](/docs/v1/contributor/intro)
 
 | Name | Service | Description | Default |
 | ---- | ------- | ----------- | ------- |
 | `bCMS__ROOTURL` | AdamRMS | The base URL which links are generated from. Should be set to the domain you're hosting AdamRMS at | http://localhost/admin |
 | `bCMS__JWT` | AdamRMS | A random string used for JWT tokens. This should be randomly generated, using something like openSSL or https://generate-secret.vercel.app/32 | _Required, and should be unique!_ |
 | `bCMS__TOS_URL` | AdamRMS | Link to Terms of Service that have to be accepted before creating an account on your deployed environment. Optional | |
-| `bCMS__ERRORS` | AdamRMS | A Debug/Develpment flag, that should be set to _False_ or omitted in production environments | False |
+| `bCMS__ERRORS` | AdamRMS | A Debug/Development flag, that should be set to _False_ or omitted in production environments | False |
 | `bCMS__DB_HOSTNAME` | Database | See _Database_ for more information | |
 | `bCMS__DB_DATABASE` | Database | | |
 | `bCMS__DB_USERNAME` | Database | | |
