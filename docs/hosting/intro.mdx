@@ -15,6 +15,11 @@ The AdamRMS dashboard is packaged as a Docker image, which is stored in the Gith
 This guide assumes you have a good understanding of deploying web infrastructure, and it will not give specific commands,  or guidance for how to manage areas such as DNS.
 :::
 
+:::info
+AdamRMS is distributed under the [GNU Affero General Public License v3.0](https://github.com/adam-rms/adam-rms/blob/main/LICENSE) and therefore is provided "AS IS".  
+The documentation on this page is delivered as guidance and advice, and it is believed to be correct and working at the time of writing. Any comments are greatly appreciated, and should be [submitted as an issue.](https://github.com/adam-rms/website/issues/new?assignees=&labels=documentation&projects=&template=doc_issue.yaml&title=%5BDocs+Issue%5D+%3Ctitle%3E)
+:::
+
 ## What You need
 
 - A Domain AdamRMS will be deployed to - eg. `dash.adam-rms.com`
@@ -39,7 +44,7 @@ docker pull ghcr.io/adam-rms/adam-rms:latest
 ```
 
 
-The Docker image requires a number of environment variable to be set. These variables can be found in [example.dev.env](https://raw.githubusercontent.com/adam-rms/adam-rms/main/example.dev.env), and you can copy this to a ``.env`` file, or set each varaible individually.
+The Docker image requires a number of environment variable to be set. These variables can be found in [example.dev.env](https://raw.githubusercontent.com/adam-rms/adam-rms/main/example.dev.env), and you can copy this to a ``.env`` file, or set each varaible individually. There are a handful of development-related environment variables, which are discussed in [Contributing](/docs/v1/contributor/intro)
 
 | Name | Service | Description | Default |
 | ---- | ------- | ----------- | ------- |
@@ -47,29 +52,29 @@ The Docker image requires a number of environment variable to be set. These vari
 | `bCMS__JWT` | AdamRMS | A random string used for JWT tokens. This should be randomly generated, using something like openSSL or https://generate-secret.vercel.app/32 | _Required, and should be unique!_ |
 | `bCMS__TOS_URL` | AdamRMS | Link to Terms of Service that have to be accepted before creating an account on your deployed environment. Optional | |
 | `bCMS__ERRORS` | AdamRMS | A Debug/Develpment flag, that should be set to _False_ or omitted in production environments | False |
-| `bCMS__DB_HOSTNAME` | Database | | |
+| `bCMS__DB_HOSTNAME` | Database | See _Database_ for more information | |
 | `bCMS__DB_DATABASE` | Database | | |
 | `bCMS__DB_USERNAME` | Database | | |
 | `bCMS__DB_PASSWORD` | Database | | |
-| `bCMS__AWS_S3_BUCKET_REGION` | S3-compatible storage | See Below | |
+| `bCMS__AWS_S3_BUCKET_REGION` | S3-compatible storage | See _S3 Compatible Storage_ for more information | |
 | `bCMS__AWS_S3_BUCKET_NAME` | S3-compatible storage | | |
 | `bCMS__AWS_SERVER_KEY` | S3-compatible storage | | |
 | `bCMS__AWS_SERVER_SECRET_KEY` | S3-compatible storage | | |
 | `bCMS__AWS_S3_BUCKET_ENDPOINT` | S3-compatible storage | | |
 | `bCMS__AWS_S3_CDN` | S3-compatible storage | | |
-| `bCMS__AWS_ACCOUNT_CLOUDFRONT_ENABLED` | AWS Cloudfront (Optional) | See Below | |
+| `bCMS__AWS_ACCOUNT_CLOUDFRONT_ENABLED` | AWS Cloudfront (Optional) | See _S3 Compatible Storage_ for more information | |
 | `bCMS__AWS_ACCOUNT_PRIVATE_KEY` | AWS Cloudfront (Optional) | | |
 | `bCMS__AWS_ACCOUNT_PRIVATE_KEY_ID` | AWS Cloudfront (Optional) | | |
-| `bCMS__OAUTH__GOOGLEKEY` | Google Sign-in | See Below | |
+| `bCMS__OAUTH__GOOGLEKEY` | Google Sign-in | See _Google_ for more information | |
 | `bCMS__OAUTH__GOOGLESECRET` | Google Sign-in | | |
-| `bCMS__SendGridAPIKEY` | SendGrid (Emails) | Sendgrid API Key, See below | |
+| `bCMS__SendGridAPIKEY` | SendGrid (Emails) | Sendgrid API Key, See _Sendgrid_ for more information | |
 | `bCMS__FROM_EMAIL` | SendGrid (Emails) | Address that AdamRMS emails are sent from | |
 
 </TabItem>
 
 <TabItem value="database" label="Database" default>
 
-A MySQL/MariaDB database is required by the docker image. 
+A MySQL-compatible database is required by the docker image, and we know of success with both MySQL and MariaDB deployments. As with all projects, we recommend you follow security best practices when it comes to your database, as this will be the main store of user data. 
 Database migrations are applied each time the docker image is run, and so updates will be automatically applied.  
 
 </TabItem>
@@ -200,14 +205,25 @@ Also note that when setting up a policy for the Cloudfront distribution, you mus
 
 [Sendgrid](https://sendgrid.com/en-us) is an email provider that is used to send notifications from AdamRMS. It is required to verify accounts.
 
-TODO
+For many deployments of AdamRMS the free tier provided by Sendgrid should be sufficient.
+
+You will need to generate a [Sendgrid API Key](https://app.sendgrid.com/settings/api_keys) and store this in the ```bCMS__SendGridAPIKEY``` environment variable. 
+
+You must also set ```bCMS__FROM_EMAIL``` to be the email address that these emails are sent from. This should be an address that is known to Sendgrid and has had [Domain Authentication](https://docs.sendgrid.com/ui/account-and-settings/how-to-set-up-domain-authentication) set up, otherwise your emails are likely to be blocked or send to spam.
 
 </TabItem>
 
 <TabItem value="google" label="Google" default>
 
+AdamRMS uses Google as an alternative authentication provider, which requires a Google Developer account to generate client secrets. 
+We use the HybridAuth library, and its [Google Provider](https://hybridauth.github.io/hybridauth/userguide/IDProvider_info_Google.html) has good documentation on how to set this up.
 
-TODO
+You'll need a configured Client, and to set the following Environment Variables:
+
+```
+bCMS__OAUTH__GOOGLEKEY - The Client ID
+bCMS__OAUTH__GOOGLESECRET - The Client Secret
+```
 
 </TabItem>
 
