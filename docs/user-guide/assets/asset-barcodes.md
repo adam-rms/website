@@ -13,10 +13,8 @@ AdamRMS supports the following barcode types:
 
 ## Barcodes
 ---
-Barcodes can contain any information and can be assigned to an asset using the [AdamRMS App](./../app/adam-rms-app).
-An asset can have many barcodes assigned to it (for example, a company asset barcode and the manufacturer’s item barcode) but only one barcode can be the asset’s Tag. The asset Tag is the primary key that identifies an individual asset on the RMS, and is listed on projects and the asset page. Tags can be the primary asset barcode, but may not be.
 
-AdamRMS stores all associated barcodes with an asset, and so any associated barcode can be scanned to recall that asset.
+An asset can have many barcodes assigned to it (for example, a company asset barcode and the manufacturer’s item barcode), AdamRMS stores all associated barcodes with an asset, and so any associated barcode can be scanned to recall that asset.
 
 :::info Barcode case study  
 York Techsoc uses a number of different barcodes, depending on the asset type.  

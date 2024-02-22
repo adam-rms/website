@@ -87,4 +87,4 @@ Locations consist of:
 ![New Location](/img/tutorial/businesses/utilities-locations-new.png "New Location popup")
 *Adding a new location*
 
-Each location has an AdamRMS barcode that is used by the [AdamRMS App](./../app/adam-rms-app). These can be printed to place in the location or accessed from the website to assign assets to a location.
+Each location has an AdamRMS barcode that is used to associate an asset with a location by scanning both. These can be printed to place in the location or accessed from the website to assign assets to a location.
