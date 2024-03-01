@@ -8,7 +8,7 @@ hide_table_of_contents: true
 
 Support is offered for issues with the hosted platform (ie https://dash.adam-rms.com) at support@adam-rms.com - feel free to email to get in touch.
 
-If you're having issues logging in or accessing the site, please check the [status page](https://status.adam-rms.com) first for any updates there.
+If you're having issues logging in or accessing the site, please check the [status page](https://status.bithell.studio) first for any updates there.
 
 ## User Guide
 
