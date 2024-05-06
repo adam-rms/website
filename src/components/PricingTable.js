@@ -36,7 +36,7 @@ const PriceList = [
     price: ["£20 / month", "€25 / month", "US$25 / month"],
     description: "Our recommended plan for medium sized businesses",
     features: [
-      "Add up to 100 users (equivalent to 5p per user per month!)",
+      "Add up to 100 users (equivalent to 20p per user per month!)",
       "Track up to 2000 assets",
       "Manage up to 1000 projects",
       "Upload up to 1GB of files",
