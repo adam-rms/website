@@ -8,7 +8,7 @@ const PriceList = [
     price: ["£1.25 / month", "€1.50 / month", "US$1.50 / month"],
     description: "A basic plan for small operations",
     features: [
-      "Add up to 20 users",
+      "Add up to 2 users",
       "Track up to 50 assets",
       "Manage up to 50 projects",
       "Data stored securely and automatically backed up",
@@ -21,7 +21,7 @@ const PriceList = [
     price: ["£7.50 / month", "€10 / month", "US$10 / month"],
     description: "Popular with businesses just getting started",
     features: [
-      "Add up to 100 users",
+      "Add up to 20 users",
       "Track up to 500 assets",
       "Manage up to 500 projects",
       "Upload up to 250MB of files",
@@ -36,7 +36,7 @@ const PriceList = [
     price: ["£20 / month", "€25 / month", "US$25 / month"],
     description: "Our recommended plan for medium sized businesses",
     features: [
-      "Add up to 250 users (equivalent to 5p per user per month!)",
+      "Add up to 100 users (equivalent to 5p per user per month!)",
       "Track up to 2000 assets",
       "Manage up to 1000 projects",
       "Upload up to 1GB of files",
