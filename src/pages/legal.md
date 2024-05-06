@@ -7,6 +7,7 @@ hide_table_of_contents: false
 ## Common Preamble
 
 1. Please read this document carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service. Any use of the term “Service”, “Website” or “We” refers to AdamRMS, its team and associated introductions unless expressly stated otherwise.
+1. These terms apply to the use of the AdamRMS website, and any associated services, including but not limited to the AdamRMS hosted dashboard, AdamRMS API, AdamRMS mobile app, and any other services provided by Bithell Studios Ltd. as part of AdamRMS.
 1. The headings used in this agreement are included for convenience only and will not limit or otherwise affect this document.
 1. AdamRMS is developed and distributed by Bithell Studios Ltd, a company registered in England and Wales, United Kingdom.
 1. Bithell Studios Ltd is registered at Companies House (№11918238), and registered with the Information Commissioner's Office with reference ZA741917.
@@ -96,6 +97,12 @@ AdamRMS does not use Google Analytics or similar services, and as such does not 
     5.  attempt to disrupt use by other users, e.g. by deliberately wasting network resources
 2.  You must:
     1.  Set a strong password, that is difficult to guess
+
+### Subscriptions
+
+1. Where a free trial is offered, the users payment details will be taken at the start of the trial, and the user will be charged at the end of the trial period unless they cancel their subscription.
+1. You can cancel your subscription at any time during the trial period, and you will not be charged.
+1. Subscriptions can be cancelled at any time, and the cancellation will take effect at the end of the current billing period. Subscriptions are non-refundable, and the user will not be refunded for any unused portion of their subscription.
 
 ### Hardware
 
