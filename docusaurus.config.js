@@ -28,6 +28,10 @@ module.exports = {
       },
       items: [
         {
+          label: "Pricing",
+          to: "/pricing",
+        },
+        {
           type: "doc",
           docId: "user-guide/intro",
           position: "left",
