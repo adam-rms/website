@@ -61,14 +61,3 @@ Each time you pull new changes written by others you will likely need to update 
 ## Tips & Tools
 
 - Database library used: [ThingEngineer/PHP-MySQLi-Database-Class](https://github.com/ThingEngineer/PHP-MySQLi-Database-Class)
-
-## OAuth
-
-### Google
-
-#### Endpoints Required
-
-```
-https://dash.adam-rms.com/login/index.php?google
-https://dash.adam-rms.com/api/account/linkOAuth.php?google
-```
