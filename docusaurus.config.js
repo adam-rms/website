@@ -70,7 +70,7 @@ module.exports = {
     },
     footer: {
       style: "dark",
-      copyright: `Copyright © 2019-${new Date().getFullYear()} Bithell Studios Ltd.`,
+      copyright: `Copyright © 2019-${new Date().getFullYear()} Bithell Studios Ltd. <a href="/legal">Terms</a>`,
     },
     prism: {
       theme: lightCodeTheme,
