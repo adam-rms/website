@@ -4,44 +4,55 @@ description: Data Processing Statement, Privacy Policy, Cookie Policy & Terms of
 hide_table_of_contents: false
 ---
 
+# Legal Agreements applying to AdamRMS
+
+This page contains the following agreements which apply to the use of the hosted edition of AdamRMS, which is usually found on the domains `adam-rms.com` and `dash.adam-rms.com`. It also applies to those who take out a subscription with Bithell Studios for the use of AdamRMS.
+
+1. [Data Processing Statement & Privacy Policy](#data-processing-statement-and-privacy-policy)
+2. [Cookie Policy](#cookie-policy)
+3. [Terms of Service](#terms-of-service)
+
+The following agreements apply to the self-hosted edition of AdamRMS, which is usually hosted by you, or your system administrator, on a domain of your choosing:
+
+4. [Licence Agreement - AGPL-3.0](https://github.com/adam-rms/adam-rms/blob/main/LICENSE)
+5. Individual Contributor Assignment Agreement - which you will be asked to sign if you contribute to the codebase
+6. [Analytics & Telemetry Privacy Policy](https://telemetry.bithell.studio/privacy-and-security)
+
 ## Common Preamble
 
+This preamble applies to all the agreements on this page:
+
 1. Please read this document carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service. Any use of the term “Service”, “Website” or “We” refers to AdamRMS, its team and associated introductions unless expressly stated otherwise.
+1. These terms apply to the use of the AdamRMS website, and any associated services, including but not limited to the AdamRMS hosted dashboard, AdamRMS API, AdamRMS mobile app, and any other services provided by Bithell Studios Ltd. as part of AdamRMS.
 1. The headings used in this agreement are included for convenience only and will not limit or otherwise affect this document.
 1. AdamRMS is developed and distributed by Bithell Studios Ltd, a company registered in England and Wales, United Kingdom.
 1. Bithell Studios Ltd is registered at Companies House (№11918238), and registered with the Information Commissioner's Office with reference ZA741917.
-1. We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time.
-1. Questions about this document should be sent to our support team using the email address support@adam-rms.com
-
-[Data Processing Statement & Privacy Policy](#data-processing-statement-and-privacy-policy)
-
-[Cookie Policy](#cookie-policy)
-
-[Terms of Service](#terms-of-service)
+1. We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time. In this event, we shall not be liable to you or to any third-party for any damages or loss associated with the discontinuation of the service.
+1. Questions about this document should be sent to our support team using the email address support@adam-rms.com. This email address is also the contact for any data protection queries.
 
 ## Data Processing Statement and Privacy Policy
 
 This section of this document is designed to bring the service into compliance with the European Union's General Data Protection Regulation (GDPR) which came into force on May 25, 2018.
 
-Data is typically passed to us either by our users directly: for example by signing up to the service and entering their personal details such as their email address, or it is passed to us by businesses or organisations they're associated with.
+Data is typically passed to us either by our users directly: for example by signing up to the service and entering their personal details such as their email address, or it is passed to us by businesses or organisations they're associated with. When we receive data from third parties, we require that they have the necessary permissions to pass this data to us.
 
-When users first login or signup they are asked to consent to this document by the system, which records them having done so.
+When users first login or signup they are asked to consent to these terms by the system, which records them having done so.
 
 ### Lawful, fair and transparent processing
 
 1. Individuals have the right to access their personal data and any such requests made to the service shall be dealt with in a timely manner.
-2. All data processed by the service must be done on one of the following lawful bases: consent, contract, legal obligation, vital interests, public task or legitimate interests
+2. All data processed by the service is done on one of the following lawful bases: consent, contract, legal obligation, vital interests, public task or legitimate interests
 3. Where consent is relied upon as a lawful basis for processing data, evidence of opt-in consent shall be kept with the personal data.
 4. Where communications are sent to individuals based on their consent, the option for the individual to revoke their consent should be clearly available and systems should be in place to ensure such revocation is reflected accurately in the service’s systems.
-5. The service shall ensure that personal data are adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed
+5. The service shall ensure that personal data are adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed.
 
 ### Security
 
-1. The service shall ensure that personal data is stored securely
-1. Some of the service's directors, employees and volunteers have access to some/all of the service's files, access logs, emails and data, which they may view at any time.
-1. To help provide fantastic service and support, certain directors, employees and volunteers may login to any user's account, at any time, without notifying them.
-1. As provided for by the Regulation of Investigatory Powers Act 2000 or any corresponding statute, the Service's directors, employees and volunteers reserve the right to investigate and inspect electronic communications.
-1. As required for operational reasons, user data may be released to other users to enable them to execute their role functions - for example your email address will be shared with other users to allow them to contact you in relation to events.
+1. The service shall ensure that personal data is stored securely.
+1. Some of the service's directors, employees and volunteers have access to some/all of the service's files, access logs, emails and data, which they may view at any time, in order to faciliate the running of the service.
+1. In order to faciliate the running of the service, certain directors, employees and volunteers may login to any user's account, at any time, without notifying them.
+1. As provided for by the Regulation of Investigatory Powers Act 2000 or any corresponding statute, the Service's directors, employees and volunteers reserve the right to investigate and inspect electronic communications on the service's systems, including but not limited to emails, files, and logs.
+1. The service facilitates the sharing of user data between other users, according to permissions configured within the service - for example your email address will be shared with other users in the defined "business" within the service to facilitate communication.
 1. The service may release data for analytical purposes to external providers but this data will either be anonymised or stored in line with this document.
 1. When personal data is deleted this should be done safely such that the data is irrecoverable, in liason with the service's storage contractors.
 1. Appropriate back-up and disaster recovery solutions shall be in place.
@@ -73,7 +84,7 @@ We use cookies when you are logged in so that we can remember this fact and ensu
 
 #### Third Party Cookies
 
-AdamRMS does not use Google Analytics or similar services, and as such does not add third party cookies, except where they are essential to allowing you to login with a third party service (such as Login with Google buttons)
+AdamRMS does not use Google Analytics or similar services, and as such does not add third party cookies, except where they are essential to allowing you to login with a third party service (such as Login with Google and Login with Microsoft buttons)
 
 ## Terms of Service
 
@@ -89,13 +100,24 @@ AdamRMS does not use Google Analytics or similar services, and as such does not 
 ### General
 
 1.  You must not:
-    1.  use someone else's username to gain access to access the service, nor allow someone else to use their username
+    1.  use someone else's account to gain access to access the service, nor allow someone else to use your account
     2.  leave a machine logged on and unattended in a public area
     3.  attempt to gain administrative access to the service
     4.  engage in hacking activities, including but not limited to: packet sniffing, port scanning, keystroke logging or password cracking
     5.  attempt to disrupt use by other users, e.g. by deliberately wasting network resources
+    6.  create a shared account that is intended to be used by more than one person
 2.  You must:
     1.  Set a strong password, that is difficult to guess
+
+### Subscriptions
+
+1. Where a free trial is offered, the users payment details will be taken at the start of the trial, and the user will be charged at the end of the trial period unless they cancel their subscription.
+1. You can cancel your subscription at any time during the trial period, and you will not be charged.
+1. Subscriptions can be cancelled at any time, and the cancellation will take effect at the end of the current billing period. Subscriptions are non-refundable, and the user will not be refunded for any unused portion of their subscription.
+1. The purchase of a subscription is for the use of the service, and does not grant the user any rights to the software or the codebase.
+1. The service may change the price of the subscription at any time, and the user will be notified of this change before the change takes effect.
+1. The service may change the features of the subscription at any time, and the user will be notified of this change before the change takes effect, with the opportunity for the user to terminate the subscription.
+1. The service may terminate the subscription at any time, and a refund will be given for the remaining portion of the subscription.
 
 ### Hardware
 
@@ -117,14 +139,14 @@ AdamRMS does not use Google Analytics or similar services, and as such does not 
     1.  Certain content, products and services available via the service may include materials from third-parties.
     2.  Third-party links on this site may direct you to third-party websites that are not affiliated with the service. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or services of third-parties.
     3.  We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party's policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.
-4.  If you discover a machine which has been left logged on but is unattended (e.g. if the previous user has forgotten to logout, you must immediately log the user out of the machine. Any other action or any other form of account tampering is a criminal offence.
+4.  If you discover a machine which has been left logged on but is unattended (e.g. if the previous user has forgotten to logout) you must immediately log the user out of the machine. Any other action or any other form of account tampering is a criminal offence.
 
 ### Input
 
-This section of the policy refers to user submitted content, which includes but is not limited to assets, notes, projects, etc.
+This section of the policy refers to user submitted content and files, which includes but is not limited to assets, notes, projects, file uploads, etc.
 
 1.  We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party's intellectual property or these Terms of Service.
-2.  You agree that your input will not violate the rights of any party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your input will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any input as this constitutes statutory fraud. You are solely responsible for any input you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.
+2.  You agree that your input will not violate the rights of any party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your input will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You may not pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any input as this constitutes statutory fraud. You are solely responsible for any input you make and their accuracy. We take no responsibility and assume no liability for any content posted by you or any third-party.
 
 ### Errors, Inaccuracies or Omissions
 
@@ -150,12 +172,12 @@ This section of the policy refers to user submitted content, which includes but 
 
 ### Extra conditions for those in certain roles
 
-1.  Please be ever aware that you have access to manipulate user's accounts, through actions such as changing their password, that could have unintended and far reaching negative consequences should you fail to act in an appropriate manner.
+1.  Please be ever aware that you may have access to manipulate user's accounts depending on your permissions levels configured in the service for your "business", through actions such as changing their password, that could have unintended and far reaching negative consequences should you fail to act in an appropriate manner.
 2.  Those who have permissions to act on behalf of users must ensure that they have a clear directive to undertake this action.
 
 ### Penetration Testing
 
-1.  We do not encourage or endorse any penetration testing or vulnerability searching of our service. If you do find any bugs or security flaws in our systems, please report them to our support team using the address at the top of this document immediately - taking as many precautions as possible. Failing to report bugs to us, and publishing them publicly, threatens the whole community.
+1.  We do not encourage or endorse any penetration testing or vulnerability searching of our service. If you do find any bugs or security flaws in our systems, please report them to our support team using the address at the top of this document immediately - taking as many precautions as possible. Failing to report bugs to us, and publishing them publicly, threatens the whole community of service users.
 
 ### Disclaimer of Warranties & Limitation of Liability
 
@@ -165,7 +187,7 @@ This section of the policy refers to user submitted content, which includes but 
 4.  You agree that we may delete any or all of your data at any time without notice to you.
 5.  You expressly agree that your use of, or inability to use, the service is at your sole risk. The service and all products and services delivered to you through the service are (except as expressly stated by us) provided 'as is' and 'as available' for your use, without any representation, warranties or conditions of any kind, either express or implied, including all implied warranties or conditions of merchantability, merchantable quality, fitness for a particular purpose, durability, title, and non-infringement.
 6.  In no case shall the service, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the service or any products procured using the service, or for any other claim related in any way to your use of the service or any product, including, but not limited to, any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of the service or any content (or product) posted, transmitted, or otherwise made available via the service, even if advised of their possibility. Because some jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such jurisdictions, our liability shall be limited to the maximum extent permitted by law.
-7.  You agree to indemnify, defend and hold service and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys' fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.
+7.  You agree to indemnify, defend and hold service and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable legal fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.
 8.  In the event that any provision of these Terms of Service is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be deemed to be severed from these Terms of Service, such determination shall not affect the validity and enforceability of any other remaining provisions.
 
 ### Termination

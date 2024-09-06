@@ -28,6 +28,10 @@ module.exports = {
       },
       items: [
         {
+          label: "Pricing",
+          to: "/pricing",
+        },
+        {
           type: "doc",
           docId: "user-guide/intro",
           position: "left",
@@ -44,14 +48,14 @@ module.exports = {
           label: "Self Hosting",
         },
         {
-          to: "/api",
-          label: "API Documentation",
-        },
-        {
           type: "doc",
           docId: "contributor/intro",
           position: "left",
           label: "Contributing",
+        },
+        {
+          href: "https://api-docs.adam-rms.com/",
+          label: "API Documentation",
         },
         {
           label: "Environment",
@@ -66,7 +70,7 @@ module.exports = {
     },
     footer: {
       style: "dark",
-      copyright: `Copyright © 2019-${new Date().getFullYear()} Bithell Studios Ltd.`,
+      copyright: `Copyright © 2019-${new Date().getFullYear()} Bithell Studios Ltd. <a href="/legal">Terms</a>`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -125,22 +129,6 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
-        },
-      },
-    ],
-    [
-      "redocusaurus",
-      {
-        specs: [
-          {
-            spec: "api/adamrms.yaml",
-            route: "/api/",
-          },
-        ],
-        theme: {
-          options: {
-            hideDownloadButton: true,
-          },
         },
       },
     ],

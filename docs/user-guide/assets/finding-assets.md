@@ -86,7 +86,7 @@ _Editing an individual XLR asset_
 
 - You can assign assets to a [group](./asset-groups) from the group tab.
 - Individual assets can have associated files, usually used for invoices.
-- Assets can be assigned barcodes, which can be scanned in the AdamRMS App.
+- Assets can be assigned barcodes
 - [Asset Maintenance](./maintenance) can be managed in the individual asset page, although the maintenance pages are more comprehensive.
 
 #### Asset Linking

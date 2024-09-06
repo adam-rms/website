@@ -1,0 +1,14 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "christian-kohler.npm-intellisense",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install",
+  "forwardPorts": [8000]
+}

@@ -5,11 +5,9 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
-import Image from "@theme/IdealImage";
 
-import GooglePlayBadge from "./../../static/img/storeIcons/google-play-badge.png";
-import AppStoreBadge from "./../../static/img/storeIcons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png";
 import Video from "../components/Video";
+import PricingTable from "../components/PricingTable";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -19,11 +17,11 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link href="https://play.google.com/store/apps/details?id=com.bstudios.adamrms&utm_source=webdashboard&utm_campaign=dashboardwidget&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
-            <Image img={GooglePlayBadge} style={{ width: 150 }} />
-          </Link>
-          <Link href="https://apps.apple.com/us/app/id1519443182?utm_source=webdashboard&utm_campaign=dashboardwidget">
-            <Image img={AppStoreBadge} style={{ width: 135 }} />
+          <Link
+            className="button button--secondary button--lg"
+            href="https://dash.adam-rms.com"
+          >
+            Start Trial
           </Link>
         </div>
       </div>
@@ -31,27 +29,9 @@ function HomepageHeader() {
   );
 }
 
-function Pricing() {
-  return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">Pricing</h1>
-        <p className="hero__subtitle">
-          AdamRMS is currently offered as a hosted solution, by Bithell Studios
-          Ltd, and as a self-hosted solution using the docker images published
-          on Github.
-          <br />
-          We are not currently offering the hosted solution to new customers,
-          but instead encourage you to self-host the project.
-        </p>
-      </div>
-    </header>
-  );
-}
-
 function PartsOfTheSite() {
   return (
-    <header className={clsx("hero hero--secondary", styles.heroBanner)}>
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">Getting Started</h1>
         <div className="row">
@@ -115,7 +95,7 @@ export default function Home() {
       <main>
         <HomepageFeatures />
       </main>
-      <Pricing />
+      <PricingTable />
       <PartsOfTheSite />
     </Layout>
   );
