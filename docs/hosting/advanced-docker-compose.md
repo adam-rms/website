@@ -75,9 +75,10 @@ services:
     env_file:
       - .env
   mysql-backup:
-    image: index.docker.io/databack/mysql-backup:v0.12.0
+    image: index.docker.io/databack/mysql-backup:1.0.0-rc5
     restart: unless-stopped
     container_name: mysql-backup
+    command: dump
     environment:
       - DB_SERVER=db
       - DB_PORT=3306
@@ -86,14 +87,15 @@ services:
       - DB_NAMES=adamrms
       - NO_DATABASE_NAME=true
       - DB_DUMP_FREQUENCY=60 #Hourly
-      - DB_DUMP_FREQ=60 #Hourly
-      - DB_DUMP_BEGIN=+10
+      - DB_DUMP_BEGIN=+2
       - COMPRESSION=gzip
+      - DB_DUMP_SAFECHARS=true
       - NICE=true
     env_file:
       - .env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
       - /etc/localtime:/etc/localtime:ro
   watchtower:
@@ -119,7 +121,7 @@ MYSQL_ROOT_PASSWORD=
 
 # For databack/mysql-backup, set the following environment variables
 # Bucket name for the backups e.g. "mysql-adamrms-backups"
-DB_DUMP_TARGET=
+DB_DUMP_TARGET=s3://bucketname
 # AWS S3 key id
 AWS_ACCESS_KEY_ID=
 # AWS S3 secret key
