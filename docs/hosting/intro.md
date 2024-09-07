@@ -27,11 +27,20 @@ The documentation on this page is delivered as guidance and advice, and it is be
 
 ### Optional Features you can setup later on
 
-- S3-compatible storage - if you want to store images & files
-- A SendGrid account - for emails
-- A Developer Google account - for Google Sign In
-- AWS Cloudfront credentials
-- Sentry
+- [S3-compatible storage](./s3-storage) - if you want to store images & files
+- [A SendGrid account](./sendgrid) - for emails
+- [Developer Google and Microsoft accounts](./auth) - for Advanced sign-in options
+- [Sentry](./sentry) - for error logging
+
+## The Container
+
+The container is based on the PHP Apache2 image, and requires a number of environment variables to be set.
+
+- `DB_HOSTNAME` the hostname of the database that the docker container can reach
+- `DB_DATABASE` the name of the database
+- `DB_USERNAME` the username that the container will use to connect to the database
+- `DB_PASSWORD` the password for the database user
+- `DB_PORT` the port that the database is listening on, will default to `3306`
 
 The Docker image of AdamRMS can be found in the project's [Github package repository](https://github.com/adam-rms/adam-rms/pkgs/container/adam-rms), and you can pull it by running:
 
@@ -39,7 +48,10 @@ The Docker image of AdamRMS can be found in the project's [Github package reposi
 docker pull ghcr.io/adam-rms/adam-rms:latest
 ```
 
-The Docker image requires a number of environment variable to be set. These variables can be found in [example.dev.env](https://raw.githubusercontent.com/adam-rms/adam-rms/main/example.dev.env), and you can copy this to a `.env` file, or set each variable individually. There are a handful of development-related environment variables, which are discussed in [Contributing](/docs/v1/contributor/intro)
-
 A MySQL-compatible database is required by the docker image, and we know of success with both MySQL and MariaDB deployments. As with all projects, we recommend you follow security best practices when it comes to your database, as this will be the main store of user data.
+
 Database migrations are applied each time the docker image is run, and so updates will be automatically applied.
+
+## Docker Compose
+
+We have provided a [simple docker-compose file](./minimal-docker-compose) that will start the AdamRMS container and a MySQL container. This is a good starting point for a simple environment, but we recommend you use a more advanced setup for production - we've given an example of this in the [advanced docker-compose file](./advanced-docker-compose).

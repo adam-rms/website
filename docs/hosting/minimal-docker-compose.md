@@ -3,6 +3,10 @@ sidebar_position: 3
 title: Simple Docker Compose
 ---
 
+This is a simple Docker Compose configuration for running AdamRMS with a MySQL database. This configuration is suitable for development and testing purposes, but is not recommended for production use - try something like the [advanced Docker Compose configuration](./advanced-docker-compose) for that.
+
+It starts up a MySQL database and an AdamRMS instance, and links them together. The database is exposed on port 3306, so you can connect to it from your local machine.
+
 Place the following `docker-compose.yml` file in the same directory as the `.env` file below, and then run `docker compose up -d` to start the services.
 
 ```yaml

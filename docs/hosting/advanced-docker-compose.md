@@ -3,6 +3,8 @@ sidebar_position: 4
 title: Advanced Docker Compose
 ---
 
+This is a more advanced version of the [simple Docker Compose configuration](./minimal-docker-compose) for running AdamRMS with a MySQL database. This configuration is suitable for production use, and includes additional services such as a cloudflared tunnel, datadog monitoring, and mysql backups.
+
 Place the following `docker-compose.yml` file in the same directory as the `.env` file below, and then run `docker compose up -d` to start the services.
 
 ```yaml
