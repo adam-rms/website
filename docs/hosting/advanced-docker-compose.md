@@ -57,13 +57,14 @@ services:
   cloudflared:
     image: cloudflare/cloudflared:2024.8.3
     container_name: cloudflare-tunnel
-    restart: unless-stopped
+    restart: always
     command: tunnel run
     env_file:
       - .env
   # Remove this section to disable the datadog monitoring
   datadog:
     image: index.docker.io/datadog/agent:7
+    restart: always
     pid: host
     environment:
       - DD_SITE=datadoghq.com
