@@ -13,7 +13,7 @@ You can find it by clicking configuration at the bottom of the menu on the left 
 
 :::info
 Can't find the configuration menu? If the menu does not appear, your account does not have the correct permissions to access it - you must set your account as a server administrator.
-If you are the server owner, you can do this by going to the server settings and adding your account as a server administrator.
+Login to AdamRMS using the default super admin account (username `username` and the password `password!` - make sure to change this) - this account can access the configuration menu.
 :::
 
 ## Settings Overview
