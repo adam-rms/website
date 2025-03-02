@@ -55,3 +55,7 @@ Database migrations are applied each time the docker image is run, and so update
 ## Docker Compose
 
 We have provided a [simple docker-compose file](./minimal-docker-compose) that will start the AdamRMS container and a MySQL container. This is a good starting point for a simple environment, but we recommend you use a more advanced setup for production - we've given an example of this in the [advanced docker-compose file](./advanced-docker-compose).
+
+:::warning
+A new installation of AdamRMS will, by default, create a new user with the username `username` and the password `password!`. This user will have full access to the system, and so you must login to this account and change the password as soon as possible.
+:::
