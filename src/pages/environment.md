@@ -34,17 +34,13 @@ AdamRMS is hosted on servers provided by [Hetzner](https://www.hetzner.com/) and
 
 [DigitalOcean](https://www.digitalocean.com/impact) is committed to minimizing its carbon footprint and maintaining sustainable practices. DigitalOcean actively invests in utilizing efficient server hardware and optimizing the overall energy efficiency of its data centers, which have a power usage effectiveness (PUE) averaging at 1.15. By leveraging renewable energy, DigitalOcean aims to make an even greater positive environmental impact.
 
-### File Storage
+### File Storage and Email Delivery
 
-AdamRMS uses [AWS](https://sustainability.aboutamazon.com/environment/the-cloud), which purchases Renewable Energy Credits [RES] and Guarantees of Origin to cover any non-renewable energy they use in the Europe (Ireland) region we use primarily for file storage and the Europe (Frankfurt) region we use for backups. AdamRMS also uses Cloudflare R2 for file storage - see details on Cloudflare below.
+AdamRMS uses [AWS](https://sustainability.aboutamazon.com/environment/the-cloud), which purchases Renewable Energy Credits [RES] and Guarantees of Origin to cover any non-renewable energy they use in the Europe (Ireland) region we use primarily for file storage and sending emails, and the Europe (Frankfurt) region we use for backups. AdamRMS also uses Cloudflare R2 for file storage - see details on Cloudflare below.
 
 ### Reverse Proxy & DNS
 
 Cloudflare is [committed to reducing its environmental impact](https://blog.cloudflare.com/the-climate-and-cloudflare/) and purchases RECs to match all electricity use globally.
-
-### E-mail delivery
-
-Twilio is [working on reducing its impact](https://www.twilio.org/impact/2020-report/)
 
 ### Login with Google
 
