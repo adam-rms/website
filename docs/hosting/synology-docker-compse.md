@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 11
 title: Synology NAS Docker Compose
 ---
 
@@ -154,6 +154,5 @@ AWS S3 Bucket Region: us-east-1
 ```
 
 
-## External Service
 
 Now everything should be ready to upload your Files.
