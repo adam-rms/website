@@ -13,14 +13,14 @@ Edit the `docker-compose.yml` and update:
 
 ```yaml
 services:
-  adam_db:
+  adamrms_db:
     image: index.docker.io/mysql/mysql-server:8.0
     command: --default-authentication-plugin=mysql_native_password --innodb-thread-concurrency=0 --sort_buffer_size=512K
-    container_name: adam_db
-#    ports: # Disable this if you would like to keep the database on the local machine only (recommended)
-#      - 3306:3306
+    container_name: adamrms_db
+    #ports: # Disable this if you would like to keep the database on the local machine only (recommended)
+    #  - 3306:3306
     volumes:
-      - db_data_1:/var/lib/mysql
+      - adamrms_db_data:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
     restart: always
     environment:
@@ -49,14 +49,22 @@ services:
     container_name: adamrms
     restart: always
     depends_on:
-      adam_db:
+      adamrms_db:
         condition: service_healthy
     environment:
-      - DB_HOSTNAME=adam_db
+      - DB_HOSTNAME=adamrms_db
       - DB_DATABASE=adamrms
       - DB_USERNAME=userDocker
       - DB_PASSWORD=passDocker
       - DB_PORT=3306
+      - DEV_MODE=false
+      - CONFIG_AWS_S3_KEY=minioadmin
+      - CONFIG_AWS_S3_SECRET=CHANGE_THIS_MINO_PW
+      - CONFIG_AWS_S3_BUCKET=adamrms
+      - CONFIG_AWS_S3_BROWSER_ENDPOINT=https://yourPublicMinio.url:8081/adamrms
+      - CONFIG_AWS_S3_SERVER_ENDPOINT=http://adamrms_minio:8081/adamrms
+      - CONFIG_AWS_S3_ENDPOINT_PATHSTYLE=Enabled
+      - CONFIG_AWS_S3_REGION=us-east-1
     user: root
     ports:
     - "8089:80"
@@ -66,7 +74,7 @@ services:
     container_name: mysql-backup
     command: dump
     environment:
-      - DB_SERVER=adam_db
+      - DB_SERVER=adamrms_db
       - DB_PORT=3306
       - DB_USER=userDocker
       - DB_PASS=passDocker
@@ -80,27 +88,27 @@ services:
     env_file:
       - .env
     depends_on:
-      adam_db:
+      adamrms_db:
         condition: service_healthy
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  watchtower:
+  adamrms_watchtower:
     image: index.docker.io/containrrr/watchtower:1.7.1
-    container_name: watchtower
+    container_name: adamrms_watchtower
     restart: always
     environment:
       - WATCHTOWER_CLEANUP=true
       - WATCHTOWER_POLL_INTERVAL=60
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-  minio:
+  adamrms_minio:
     image: quay.io/minio/minio:latest
-    container_name: minio
+    container_name: adamrms_minio
     restart: always
     command: server /data --console-address ":9001"
     environment:
-      MINIO_ROOT_USER: minioadmin       # Access Key
-      MINIO_ROOT_PASSWORD: CHANGE_THIS_MINO_PW  # Secret Key (mind. 8 Zeichen)
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: CHANGE_THIS_MINO_PW  # Secret Key
       MINIO_REGION_NAME: us-east-1
       MINIO_API_CORS_ALLOW_ORIGIN: '*'
       MINIO_DOMAIN: https://yourPublicMinio.url
@@ -108,10 +116,10 @@ services:
       - "9000:9000"   # S3 API Endpoint
       - "9001:9001"   # Web Console
     volumes:
-      - minio_data:/data
+      - adamrms_minio_data:/data
 volumes:
-  db_data_1: {}
-  minio_data: {}
+  adamrms_db_data: {}
+  adamrms_minio_data: {}
 ```
 
 ## Environment Variables
@@ -135,24 +143,6 @@ Give it a Name and selec the Folder where you stored your `docker-compose.yml`, 
 
 Go to [http://yourNasIp:9000](http://yourNasIp:9000) and login with the Username `minioadmin` and your given Password (CHANGE_THIS_MINO_PW).
 
-Create a new Container `adam`
-
-
-## Connect MinIO with AdamRMS
-
-Now login into your Adam-RMS and update the S3 Storage Options:
-
-```yaml
-File storage enabled: enabled
-AWS Server Key: minioadmin
-AWS Server Secret Key: CHANGE_THIS_MINO_PW
-AWS S3 Bucket Name: adam
-AWS S3 Bucket Browser Endpoint: http://yourNasIp:9000
-AWS S3 Bucket Server Endpoint: http://yourNasIp:9000
-Should path-style requests be sent to the upload endpoint: Enabled
-AWS S3 Bucket Region: us-east-1
-```
-
-
+Create a new Container `adamrms`
 
 Now everything should be ready to upload your Files.
