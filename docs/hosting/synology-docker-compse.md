@@ -61,17 +61,17 @@ services:
       - CONFIG_AWS_S3_KEY=minioadmin
       - CONFIG_AWS_S3_SECRET=CHANGE_THIS_MINO_PW
       - CONFIG_AWS_S3_BUCKET=adamrms
-      - CONFIG_AWS_S3_BROWSER_ENDPOINT=https://yourPublicMinio.url:8081/adamrms
-      - CONFIG_AWS_S3_SERVER_ENDPOINT=http://adamrms_minio:8081/adamrms
+      - CONFIG_AWS_S3_BROWSER_ENDPOINT=https://yourPublicMinio.url:9001/adamrms
+      - CONFIG_AWS_S3_SERVER_ENDPOINT=http://adamrms_minio:9001/adamrms
       - CONFIG_AWS_S3_ENDPOINT_PATHSTYLE=Enabled
       - CONFIG_AWS_S3_REGION=us-east-1
     user: root
     ports:
     - "8089:80"
-  mysql-backup:
+  adamrms_mysql-backup:
     image: index.docker.io/databack/mysql-backup:1.0.0-rc5
     restart: unless-stopped
-    container_name: mysql-backup
+    container_name: adamrms_mysql-backup
     command: dump
     environment:
       - DB_SERVER=adamrms_db
