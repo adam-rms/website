@@ -85,6 +85,11 @@ services:
       - COMPRESSION=gzip
       - DB_DUMP_SAFECHARS=true
       - NICE=true
+      - DB_DUMP_TARGET=s3://adamrms-database-backup
+      - AWS_ACCESS_KEY_ID=minioadmin
+      - AWS_SECRET_ACCESS_KEY=CHANGE_THIS_MINO_PW
+      - AWS_ENDPOINT_URL=http://adamrms_minio:9001
+      - AWS_DEFAULT_REGION=us-east-1
     env_file:
       - .env
     depends_on:
@@ -143,6 +148,6 @@ Give it a Name and selec the Folder where you stored your `docker-compose.yml`, 
 
 Go to [http://yourNasIp:9000](http://yourNasIp:9000) and login with the Username `minioadmin` and your given Password (CHANGE_THIS_MINO_PW).
 
-Create a new Container `adamrms`
+Create a new Container `adamrms` and `adamrms-database-backup`
 
 Now everything should be ready to upload your Files.
