@@ -10,6 +10,7 @@ AdamRMS supports the following barcode types:
 - CODE_39
 - CODE_93
 - CODE_128 - this is the preferred barcode type.
+- QR_CODE
 
 ## Barcodes
 ---

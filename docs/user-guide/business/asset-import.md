@@ -24,7 +24,7 @@ The columns of the CSV file are as follows:
 | manufacturers_name                | Manufacturer Name | Yes |
 | assets_tag                        | The Unique ID/Tag associated with the asset | Yes |
 | assets_notes                      |  | No | 
-| assets_storageLocation            | Currently Unused | No |
+| assets_storageLocation            | The ID of the default location for the asset | No |
 | assets_dayRate                    | Override the Asset Type Day Rate for this asset | No |
 | assets_WeekRate                   | Override the Asset Type Week Rate for this asset | No |
 | assets_value                      | Override the Asset Type Value for this asset | No |
