@@ -41,7 +41,7 @@ The date of each label can be any date in the required week. If two labels for t
 ## Public Site
 ---
 AdamRMS supports provides a number of widgets to business, to allow information about business assets to be shared publicly.  
-For example, this can be used to show what assets are available for hire.
+For example, this can be used to show a list of vacancies for crew roles.
 
 :::note Permissions Required
 BUSINESS:BUSINESS_SETTINGS:VIEW  
@@ -51,12 +51,12 @@ BUSINESS:BUSINESS_SETTINGS:EDIT
 ![Public site settings](/img/tutorial/businesses/settings-publicSite.png)
 *AdamRMS public site settings*
 
-Currently, there are two widgets available:
+Currently, there is one widget available:
 
-- **Asset List and Seearch** - This shows a list of assets that are available for hire.
 - **Crew Vacancies** - This shows a list of crew roles that are currently vacant.
 
 You can enable different pieces of information to be shared from the Public site settings page for each of these widgets.
+
 ## Project Types
 ---
 Project types are a way to change what elements of [Projects](./../projects/overview) are available to each project. AdamRMS provides a “Full Project” by default which has all elements enabled.
