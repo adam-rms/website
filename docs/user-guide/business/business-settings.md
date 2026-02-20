@@ -29,10 +29,25 @@ The Basic Settings page includes the following information:
 - Invoice Footer - Note on the bottom of all generated invoices
 - Cable length colours - assign a colour to each length for ease of identification
 - Asset Statuses - used for asset dispatch
-- Week Labels - Overrides the week label on calendars
+- Calendar Settings - configure how calendars are displayed across the dashboard
+
+## Calendar Settings
+---
+Calendar settings allow you to customize how calendars are displayed across the AdamRMS dashboard.
+
+:::note Permissions Required
+BUSINESS:BUSINESS_SETTINGS:VIEW
+BUSINESS:BUSINESS_SETTINGS:EDIT
+:::
+
+The Calendar Settings page includes:
+- **Show Project Statuses**: Displays the status of each project alongside its name on the calendar.
+- **Show SubProjects**: Choose whether to display subprojects as individual entries on the calendar.
+- **Default Calendar View**: Set the default view (Month, Week, Day, or List) for the business calendar.
+- **Custom Week Labels**: Enable or disable the use of custom labels for weeks.
 
 ### Week Labels
-Calendars across AdamRMS usually use the week number of the year as the week number, but this can be overritten on a week-by-week basis. 
+Calendars across AdamRMS usually use the week number of the year as the week number, but this can be overwritten on a week-by-week basis.
 
 ![Week Labels](/img/tutorial/businesses/settings-weekLabels.png)
 
@@ -51,9 +66,8 @@ BUSINESS:BUSINESS_SETTINGS:EDIT
 ![Public site settings](/img/tutorial/businesses/settings-publicSite.png)
 *AdamRMS public site settings*
 
-Currently, there are two widgets available:
+Currently, there is one widget available:
 
-- **Asset List and Seearch** - This shows a list of assets that are available for hire.
 - **Crew Vacancies** - This shows a list of crew roles that are currently vacant.
 
 You can enable different pieces of information to be shared from the Public site settings page for each of these widgets.
@@ -79,6 +93,39 @@ Each Project is split into the following sections that can be enabled or disable
 - Venue - Associate a venue with this project.
 - Notes - Use notes and comments in the project
 - Crew - Use Crew assignment and recruitment in this project.
+
+## Project Statuses
+---
+Project statuses allow you to track the progress of a project. You can define custom statuses to fit your business workflow.
+
+:::note Permissions Required
+PROJECTS:PROJECT_STATUSES:VIEW
+PROJECTS:PROJECT_STATUSES:CREATE
+PROJECTS:PROJECT_STATUSES:EDIT
+PROJECTS:PROJECT_STATUSES:DELETE
+:::
+
+Each project status has the following properties:
+- **Name**: The name of the status (e.g., Draft, Confirmed, Cancelled).
+- **Description**: A short description of what the status means.
+- **Icon**: An icon to represent the status in lists and calendars.
+- **Colours**: Custom foreground and background colours for the status label.
+- **Release Assets?**: If enabled, assets assigned to projects with this status are released and become available for other projects. This also removes the project from calendars and releases assigned crew.
+
+## Asset Statuses
+---
+Asset statuses are used to track individual assets during a project, particularly during the dispatch and return process.
+
+:::note Permissions Required
+BUSINESS:BUSINESS_SETTINGS:VIEW
+BUSINESS:BUSINESS_SETTINGS:EDIT
+:::
+
+Each asset status includes:
+- **Name**: The name of the status (e.g., In Warehouse, Dispatched, On Site, Returned).
+- **Description**: A short description of the status.
+- **Rank**: The order in which statuses appear.
+- **Availability**: Whether assets with this status are considered available or unavailable for other projects.
 
 ## Custom Categories
 ---
