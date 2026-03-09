@@ -12,8 +12,12 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   noIndex: !production,
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
   organizationName: "adam-rms",
   projectName: "adam-rms",
   plugins: ["@docusaurus/plugin-ideal-image"],
