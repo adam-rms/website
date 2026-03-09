@@ -1,0 +1,1 @@
+AdamRMS' website has been merged into the [adam-rms](https://github.com/adam-rms/adam-rms/tree/main/website) repo (see [#891](https://github.com/adam-rms/adam-rms/pull/891))
